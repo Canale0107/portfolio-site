@@ -308,7 +308,7 @@ section {
 .career__timeline {
   list-style: none;
   margin: 0 auto 0 6em;
-  padding-left: 20px;
+  padding-left: 34px; /* 棒の位置が変わる */
   border-left: 5px solid var(--color-primary);
   box-sizing: border-box;
 }
@@ -328,6 +328,7 @@ section {
   width: 71px;
   display: inline-block;
   margin-left: -112px;
+  padding-right: 10px;
   padding-bottom: 5px;
   margin-top: var(--space-sm);
   vertical-align: top;
@@ -340,7 +341,7 @@ section {
 .career__timeline-date::after {
   content: "";
   position: absolute;
-  right: -29px;
+  right: -15px; /* 丸の位置が変わる*/
   top: 0;
   width: 10px;
   height: 10px;
@@ -352,7 +353,7 @@ section {
 .career__timeline-event {
   display: inline-block;
   width: 100%;
-  margin-left: 35px;
+  margin-left: 20px;
   padding: 15px 10px 15px 10px;
   vertical-align: middle;
   background: var(--color-light-gray);
@@ -453,13 +454,17 @@ section {
   background: var(--color-light-gray);
   border-radius: 0.5rem;
   box-shadow: var(--shadow-light);
-  padding: var(--space-xs) var(--space-md);
-  margin: var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
+  margin: var(--space-md) var(--space-xs);
   transition: box-shadow 0.3s ease;
 }
 
 .research__card:hover {
   box-shadow: var(--shadow-hover);
+}
+
+.research__card-description {
+  font-size: var(--font-size-small);
 }
 
 .research__publication {
@@ -478,6 +483,7 @@ section {
 }
 
 .research__publication-authors {
+  font-size: var(--font-size-small);
   font-weight: bold;
 }
 
