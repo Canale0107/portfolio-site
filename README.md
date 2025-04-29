@@ -94,4 +94,4 @@ npm run build
 
 ## 🌍 デプロイ
 
-Vercel にてデプロイ済：https://kodera.kanare.vercel.app
+Vercel にてデプロイ済：https://kodera-kanare.vercel.app
