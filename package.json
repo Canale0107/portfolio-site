@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/copy-style.js && node scripts/build.js && vite",
+    "build": "node scripts/copy-style.js && node scripts/build.js && vite build",
+    "watch": "nodemon --watch src --ext ejs,css --exec \"npm run dev\""
+  },
+  "dependencies": {
+    "ejs": "^3.1.10"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "vite": "^5.0.0"
+  }
+}

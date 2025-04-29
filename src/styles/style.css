@@ -1,0 +1,574 @@
+/* ========================================
+  グローバル設定 (色・フォント・スペース変数)
+======================================== */
+:root {
+  /* カラー */
+  --color-background: #f5f5f5;
+  --color-text: #444;
+  --color-subtext: #888;
+  --color-primary: #d8aa00;
+  --color-primary-hover: #f76b1c;
+  --color-border: #ddd;
+  --color-light-bg: #fafafa;
+  --color-light-gray: #f2f2f2;
+  --color-highlight: #f9e29c;
+
+  /* フォントサイズ */
+  --font-size-xsmall: 0.75rem; /* 12px */
+  --font-size-small: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px基準 */
+  --font-size-large: 1.125rem; /* 18px */
+  --font-size-xlarge: 1.5rem; /* 24px */
+
+  /* スペース */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 2.5rem;
+
+  /* シャドウ */
+  --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+  ベーススタイル
+======================================== */
+html {
+  font-size: 16px; /* 全体のスケール基準。ここを変えるだけでOK！ */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+footer {
+  text-align: center;
+  color: var(--color-subtext); /* グレー */
+  font-size: var(--font-size-small);
+  padding: 0 0 1rem;
+}
+
+h2,
+h3,
+h4 {
+  margin-bottom: var(--space-xs);
+  padding-bottom: 0.25rem;
+}
+
+h3 {
+  font-size: var(--font-size-large);
+}
+
+h4 {
+  font-size: var(--font-size-small);
+}
+
+section {
+  scroll-margin-top: 4rem;
+}
+
+/* セクション名 */
+.sec-en {
+  font-size: var(--font-size-xlarge);
+  margin-right: 0.5rem;
+}
+
+.sec-ja {
+  font-size: var(--font-size-base);
+  color: var(--color-subtext);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap; /* 行に折り返させない */
+  border: 0;
+}
+
+/* ========================================
+  レイアウト
+======================================== */
+.profile-page {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 75rem; /* 1200px */
+  margin: var(--space-xl) auto;
+  background: #fff;
+  box-shadow: var(--shadow-light);
+}
+
+.profile-page__section {
+  padding: var(--space-md) var(--space-lg);
+  box-sizing: border-box;
+}
+
+/* ========================================
+  ナビゲーション
+======================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light);
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.navbar__list {
+  display: flex;
+  justify-content: space-evenly;
+  padding: var(--space-sm);
+  margin: 0;
+  list-style: none;
+}
+
+.navbar__list li a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: bold;
+  font-size: var(--font-size-small);
+  display: block;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.navbar__list li a:hover {
+  color: var(--color-primary-hover);
+  border-radius: 0.25rem;
+}
+
+/* ========================================
+  プロフィールセクション
+======================================== */
+.profile-page__profile {
+  width: 25%;
+  background: var(--color-light-bg);
+  text-align: left;
+  border-right: 1px solid var(--color-border);
+}
+
+.profile-page__profile-image {
+  width: 80%;
+  border-radius: 20%;
+  margin: var(--space-md) auto var(--space-lg);
+  display: block;
+}
+
+.profile-page__name {
+  margin-left: 10%;
+}
+
+.profile-page__name-japanese {
+  font-size: var(--font-size-xlarge);
+  margin-bottom: -0.3125rem;
+}
+
+.profile-page__name-english {
+  font-size: var(--font-size-small);
+  color: var(--color-subtext);
+}
+
+.profile-page__name::after {
+  content: "";
+  display: block;
+  width: 90%;
+  height: 0.1875rem;
+  background: var(--color-primary);
+  margin: var(--space-md) 0 0;
+}
+
+/* 基本情報リスト */
+.profile-page__profile-details {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 0 10%;
+}
+
+.profile-page__profile-details li {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  font-size: var(--font-size-small);
+}
+
+.profile-page__info-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-primary);
+  margin-right: var(--space-xs);
+  flex-shrink: 0;
+}
+
+/* ========================================
+  パーパス・価値観セクション
+======================================== */
+.profile-page__overview {
+  width: 75%;
+  border-right: 1px solid var(--color-border);
+}
+
+/* パーパス横の線とパーパスの内容*/
+.overview__purpose {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+/* パーパス左の線 */
+.overview__purpose-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.25rem;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--color-primary-hover), #f5a623);
+  border-radius: 0.125rem;
+}
+
+/* パーパスの内容　*/
+.overview__purpose-texts {
+  margin-left: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+}
+.overview__purpose-japanese {
+  font-weight: 700;
+  font-size: var(--font-size-base);
+}
+
+.overview__purpose-english {
+  color: var(--color-subtext);
+  font-size: var(--font-size-small);
+  font-style: italic;
+}
+
+/* 価値観リスト */
+.overview__values {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.overview__value {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.overview__value-icon {
+  width: 3.75rem;
+  height: 3.75rem;
+  background-color: var(--color-highlight);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: var(--font-size-large);
+  flex-shrink: 0;
+}
+
+.overview__value p {
+  font-size: var(--font-size-small);
+  color: #555;
+  margin: 0;
+}
+
+/* 強調マーカー */
+.marker {
+  background: linear-gradient(transparent 60%, var(--color-highlight) 60%);
+  font-weight: 600;
+}
+/* ========================================
+  経歴セクション
+======================================== */
+
+.profile-page__wide-section {
+  width: 100%;
+  scroll-margin-top: 2rem;
+  border-top: 1px solid var(--color-border); /* 上に線をつける */
+  padding: var(--space-sm) var(--space-md);
+  box-sizing: border-box;
+}
+
+/* 経歴のタイムライン */
+.career__timeline {
+  list-style: none;
+  margin: 0 auto 0 6em;
+  padding-left: 20px;
+  border-left: 5px solid var(--color-primary);
+  box-sizing: border-box;
+}
+
+.career__timeline li {
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+  position: relative;
+}
+
+/* 経歴のタイムライン・日付 */
+.career__timeline-date {
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  color: var(--color-primary);
+  width: 71px;
+  display: inline-block;
+  margin-left: -112px;
+  padding-bottom: 5px;
+  margin-top: var(--space-sm);
+  vertical-align: top;
+  position: relative;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+/* 日付右の円 */
+.career__timeline-date::after {
+  content: "";
+  position: absolute;
+  right: -29px;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border: 5px solid var(--color-primary);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.career__timeline-event {
+  display: inline-block;
+  width: 100%;
+  margin-left: 35px;
+  padding: 15px 10px 15px 10px;
+  vertical-align: middle;
+  background: var(--color-light-gray);
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light);
+  transition: box-shadow 0.3s ease;
+}
+
+.career__timeline-event:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.career__timeline-title {
+  font-weight: 700;
+  margin: 0.25rem 0;
+}
+
+.career__timeline-description {
+  font-size: var(--font-size-small);
+  font-weight: normal;
+  margin: 0.25rem 0;
+  color: var(--color-subtext);
+}
+
+/* ========================================
+  資格・スキルセクション
+======================================== */
+
+.certification-skill__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+}
+
+.certification-skill__category {
+  background: var(--color-light-gray);
+  padding: 0 var(--space-sm) var(--space-sm);
+  border-radius: 0.5rem;
+  width: 13.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-light);
+  transition: box-shadow 0.3s ease;
+}
+
+.certification-skill__category:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.certification-skill__certifications,
+.certification-skill__skills {
+  list-style: none;
+  padding-left: var(--space-xs);
+}
+
+.certification-skill__certification-name,
+.certification-skill__skill-name {
+  font-size: var(--font-size-xsmall);
+  font-weight: bold;
+  display: inline-block;
+  width: 8.25rem;
+}
+
+.certification-skill__certification-date {
+  color: gray;
+  font-size: 0.625rem;
+  margin-left: var(--space-xs);
+}
+
+.certification-skill__skills li {
+  margin-bottom: 0.3125rem;
+  font-size: var(--font-size-small);
+}
+
+.skill-bar {
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  height: 0.5rem;
+  margin: 0.1rem 0 0.25rem;
+  overflow: hidden;
+}
+
+.skill-bar > div {
+  background-color: var(--color-primary);
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 6px;
+}
+
+/* ========================================
+  研究・開発経験セクション
+======================================== */
+
+.research__card {
+  background: var(--color-light-gray);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light);
+  padding: var(--space-xs) var(--space-md);
+  margin: var(--space-md);
+  transition: box-shadow 0.3s ease;
+}
+
+.research__card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.research__publication {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--space-sm) var(--space-xs);
+}
+
+.research__publication-content {
+  border-left: 0.25rem solid var(--color-primary);
+  padding-left: var(--space-sm);
+}
+
+.research__publication-content p {
+  margin: 0;
+}
+
+.research__publication-authors {
+  font-weight: bold;
+}
+
+.research__publication-title {
+  font-style: italic;
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+}
+
+.research__publication-content a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.research__publication-content a:hover {
+  color: var(--color-primary-hover);
+}
+
+.research__publication-venue {
+  font-style: italic;
+  font-size: var(--font-size-small);
+}
+
+/* ========================================
+  興味・関心セクション
+======================================== */
+.quotes-list {
+  list-style: none;
+  padding: 0;
+}
+
+.quotes-list li {
+  margin-bottom: 1.5em;
+}
+
+.quote-block {
+  background: #f9f9f9;
+  border-left: 4px solid #ccc;
+  padding: 0.75em 1em;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  font-style: italic;
+  font-size: 1.05em;
+  margin-bottom: 0.3em;
+  text-align: left; /* 明示的に左寄せ */
+}
+
+.author {
+  margin-top: 0.5em;
+  align-self: flex-end; /* quote-block の右下に配置 */
+  display: inline-block; /* 必要最小限の幅に */
+  text-align: left; /* 中のテキストは左揃え */
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.commentary {
+  font-size: 0.9em;
+  color: var(--color-subtext);
+}
+/* ========================================
+  レスポンシブ・デザイン
+======================================== */
+@media (max-width: 900px) {
+  .profile-page__profile,
+  .profile-page__overview,
+  .experience-section {
+    width: 100%;
+    border-right: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .profile-page__profile {
+    border-top: none; /* 最初のセクションだから上の線はいらない */
+  }
+
+  /* 顔写真のサイズ制限を追加！ */
+  .profile-page__profile-image {
+    width: 40%;
+    max-width: 150px; /* 必要ならこれも加える */
+    margin: var(--space-sm) auto var(--space-lg);
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    display: none;
+  }
+}

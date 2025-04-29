@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="富士通SE・小寺奏怜のプロフィール。情報通信、AI、哲学、芸術に関心。誠実な対話と深い思考を大切にしています。"
+    />
+    <meta name="author" content="Kodera Kanare" />
+    <title>小寺奏怜｜プロフィール</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <%- await include("components/navbar") %>
+    <main class="profile-page">
+      <h1 class="visually-hidden">小寺奏怜｜プロフィール</h1>
+      <%- await include("components/profile") %>
+      <%- await include("components/overview") %>
+      <%- await include("components/career") %>
+      <%- await include("components/skills") %>
+      <%- await include("components/research") %>
+      <%- await include("components/interests")%>
+    </main>
+    <footer class="profile-page__footer">
+      <p>© 2025 Kodera Kanare</p>
+    </footer>
+  </body>
+</html>

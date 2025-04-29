@@ -1,0 +1,15 @@
+# 依存ライブラリ
+/node_modules/
+
+# Viteのビルド成果物（本番用）
+/dist/
+
+# 自動生成されるHTMLやCSS（ビルド後の成果物）
+/public/index.html
+/public/styles/style.css
+
+# macOS特有
+.DS_Store
+
+# ログファイルなど
+npm-debug.log*
