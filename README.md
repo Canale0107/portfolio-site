@@ -1,69 +1,69 @@
-## ディレクトリ構成（概要）
+## 📁 ディレクトリ構成（概要）
 
 ```
 .
-├── public/              # ビルド後にブラウザが参照する静的ファイルを置く場所
-│   └── index.html       # EJS で生成される最終HTML（編集しない）
-│   └── styles/          # コピーされたCSSファイル（編集しない）
-├── src/                 # 編集対象の元ファイル
-│   ├── templates/       # EJSテンプレートを格納
-│   │   ├── components/  # 分割されたコンポーネント
-│   │   └── profile-page.ejs  # 各コンポーネントを include するメインテンプレート
+├── public/              # ブラウザが参照する静的ファイル（HTML/CSS 出力先）
+│   ├── index.html       # EJS から生成された最終 HTML（編集しない）
+│   └── styles/          # コピーされた CSS（編集しない）
+├── src/                 # 編集対象のソース
+│   ├── templates/       # EJS テンプレート
+│   │   ├── components/  # HTML コンポーネント
+│   │   └── profile-page.ejs  # ページ本体テンプレート
 │   ├── styles/          # 編集対象の CSS
-│   └── data/            # スキル等の内容を管理するJSONファイル群
-├── scripts/             # HTML/CSSを public に出力するビルドスクリプト
-├── dist/                # vite build による本番用成果物
-└── vite.config.js       # Vite の設定ファイル（今回はほぼデフォルト）
+│   └── data/            # スキルや資格などの JSON データ
+├── scripts/             # ビルド用 Node.js スクリプト
+├── dist/                # `vite build` による本番用ビルド成果物
+└── vite.config.js       # Vite 設定（今回はほぼデフォルト）
 ```
 
-## 開発環境
+## ⚙️ 開発環境の特徴
 
-このプロジェクトは以下の構成で開発されています：
+- EJS による HTML コンポーネント構成
+- `scripts/build.js` で JSON データを EJS に流し込んで HTML を生成
+- Vite による開発サーバー・本番ビルド
+- `nodemon` による `.ejs`, `.css`, `.json` の変更監視と自動ビルド
 
-- EJS を使った HTML コンポーネントのテンプレート化
-- Node.js スクリプトによるテンプレート組み立てと CSS コピー
-- Vite による開発用サーバー & 自動リロード
-- `nodemon` によるテンプレート変更時のビルド自動化
-
-## 使用パッケージ（devDependencies）
+## 🧱 使用パッケージ（devDependencies）
 
 - `ejs`: テンプレートエンジン（HTML の分割と合成に使用）
-- `vite`: 開発用サーバーとビルド（本番用）に使用
-- `nodemon`: ファイル変更を監視して自動ビルド
-- `fs/promises`: JSON ファイルの読み込みに使用（Node.js 標準）
+- `vite`: 高速ビルド・開発サーバー
+- `nodemon`: ファイル変更監視と再実行
+- `fs/promises`: JSON の読み込みに使用（Node.js 標準）
 
-## スクリプトの役割
+## 🧩 スクリプトの役割
 
-- `scripts/build.js`:
-  - `profile-page.ejs` をテンプレートとして各コンポーネントを結合し、HTML に展開
-  - JSON からデータを読み込んでテンプレートに流し込み
-- `scripts/copy-style.js`: CSS を `src/styles/` から `public/styles/` へコピー
+| スクリプト               | 概要                                           |
+| ------------------------ | ---------------------------------------------- |
+| `scripts/build.js`       | EJS + JSON で `public/index.html` を生成       |
+| `nscripts/copy-style.js` | `src/styles` → `public/styles` に CSS をコピー |
 
-## JSON によるデータ管理
+## 🧾 JSON によるデータ管理
 
-- `src/data/*.json` にて、資格・スキルデータを構造化して管理しています。
-- `scripts/build.js` でこの JSON を読み込み、EJS テンプレートに流し込んで `public/index.html` を生成します。
-- JSON ファイルを編集すれば、EJS テンプレート側をいじらずとも内容が更新できます。
-- JSON → EJS → HTML という構成により、保守性と再利用性の高いサイト構成が実現できる
+- `src/data/*.json` に、資格やスキルデータを定義
+- `scripts/build.js` が読み込み → `profile-page.ejs`に流し込み
+- JSON を編集すれば、EJS 側の構造を変更せずに内容を更新可能
+- 保守性・拡張性・再利用性の高い構成
 
-※ 将来的に経歴も同様に JSON から管理する構成に拡張可能です。
+※ 将来的に経歴も同様に JSON から管理する構成に拡張予定。
 
-## セットアップ
+## 🚀 セットアップとコマンド
+
+### 初期セットアップ
 
 ```bash
 npm install
 ```
 
-## 開発用サーバーの起動
+### 開発用サーバーの起動
 
 ```bash
 npm run watch
 ```
 
-- `src/templates/components/*.ejs`を変更すると自動で`public/index.html`が再生成され、ブラウザ（`localhost:5173`）に即時反映されます。
-- CSS (src/styles/style.css) の変更も即時反映されます。
+- `.ejs`, `.css`, `.json` の変更を検知して自動再ビルド
+- ブラウザの`localhost:5173`に即時反映
 
-## 本番用ビルド
+### 本番用ビルド
 
 ```bash
 npm run build
@@ -71,28 +71,29 @@ npm run build
 
 - `public/index.html`を生成し、さらに Vite によって`dist/`フォルダに最適化された成果物が出力されます（将来的にデプロイ用）。
 
-## npm scripts
+## 📜 npm scripts 一覧
 
-| コマンド        | 説明                                                                                                     |
-| --------------- | -------------------------------------------------------------------------------------------------------- |
-| `npm run watch` | src/ 配下の `.ejs` / `.css` ファイルを監視し、変更があれば自動で HTML を再生成し、ブラウザに反映します。 |
-| `npm run build` | EJS で HTML を組み立て、CSS をコピーし、Vite による本番用ビルドを実行します。                            |
-| `npm run dev`   | watch 用の中で使われており、スクリプトを走らせたあと `vite` を起動します。                               |
+| コマンド        | 説明                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------ |
+| `npm run watch` | `src/` 配下の `.ejs`/`.css`/`.json` を監視し、変更があれば HTML を再生成してブラウザに反映 |
+| `npm run build` | EJS + JSON で HTML を生成し、CSS をコピー、本番用に `vite build`を実行                     |
+| `npm run dev`   | `watch` 内部で使用：スクリプト実行後に Vite を起動                                         |
 
-## public と dist の違い
+## 🏗️ public と dist の違い
 
-- `public/`: 開発中に直接使う静的ファイルを置く場所（例: 画像、生成済み HTML、CSS など）
-  - HTML/CSS は `scripts/build.js` や `scripts/copy-style.js` により自動生成されます
-- `dist/`: `vite build` 時に Vite によって最終成果物が吐き出される場所（ホスティング用）
+| ディレクトリ | 目的                                                |
+| ------------ | --------------------------------------------------- |
+| `public/`    | 開発中に参照される静的ファイル（HTML/CSS など）     |
+| `dist/`      | 本番ビルドされた成果物（Vercel などにデプロイ可能） |
 
-## 💡 補足：構成の安定性と将来性
+## 💡 拡張ポイント
 
-- この構成はシンプルながら拡張可能です。
-- 将来的に JSON でデータ管理 → EJS に流し込む → 多言語対応や動的なプロフィール生成も可能。
-- `gh-pages` や `Netlify`, `Vercel` などでそのままホスティングもできます。
+- JSON を用いたデータ分離により、保守性・多言語対応・柔軟なテンプレート変更が容易
+- Tailwind CSS や Sass の導入も可能（vite.config.js に追記）
+- 将来的に React などの UI フレームワークへの移行も視野に設計されており、構造の分離により移行がしやすい
 
-## Tips: カスタマイズ・拡張するなら
+## 🌍 デプロイ候補
 
-- JSON でスキルや資格を管理して EJS に流し込みたい場合は `build.js` を編集
-- Tailwind CSS や Sass を導入したくなったら `vite.config.js` に設定を追加
-- 公開は GitHub Pages / Vercel / Netlify がおすすめ（dist フォルダ or public/index.html を使う）
+- GitHub Pages
+- Netlify
+- Vercel
