@@ -6,59 +6,23 @@
   </h2>
   <h3>保有資格</h3>
   <section class="certification-skill__categories">
+    <% for (const category of certifications) { %>
     <section class="certification-skill__category">
-      <h4>IPA資格</h4>
+      <h4><%= category.category %></h4>
       <ul class="certification-skill__certifications">
+        <% for (const cert of category.items) { %>
         <li>
           <span class="certification-skill__certification-name"
-            >基本情報技術者</span
+            ><%= cert.name %></span
           >
           <span class="certification-skill__certification-date"
-            >（2024.7）</span
+            >（<%= cert.date %>）</span
           >
         </li>
-        <li>
-          <span class="certification-skill__certification-name"
-            >応用情報技術者</span
-          >
-          <span class="certification-skill__certification-date"
-            >（2024.12）</span
-          >
-        </li>
+        <% } %>
       </ul>
     </section>
-
-    <section class="certification-skill__category">
-      <h4>英語</h4>
-      <ul class="certification-skill__certifications">
-        <li>
-          <span class="certification-skill__certification-name"
-            >TOEIC 845点</span
-          >
-          <span class="certification-skill__certification-date"
-            >（2021.10）</span
-          >
-        </li>
-        <li>
-          <span class="certification-skill__certification-name">英検準1級</span>
-          <span class="certification-skill__certification-date"
-            >（2016.6）</span
-          >
-        </li>
-      </ul>
-    </section>
-
-    <section class="certification-skill__category">
-      <h4>その他</h4>
-      <ul class="certification-skill__certifications">
-        <li>
-          <span class="certification-skill__certification-name">簿記3級</span>
-          <span class="certification-skill__certification-date"
-            >（2024.11）</span
-          >
-        </li>
-      </ul>
-    </section>
+    <% } %>
   </section>
 
   <h3>スキル</h3>

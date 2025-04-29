@@ -13,9 +13,14 @@ const templatePath = path.resolve(
   "../src/templates/profile-page.ejs"
 );
 const outputPath = path.resolve(__dirname, "../public/index.html");
-const skillsJsonPath = path.resolve(__dirname, "../src/data/skills.json"); // ← 追加
+const certPath = path.resolve(__dirname, "../src/data/certifications.json"); // 資格データ
+const skillsJsonPath = path.resolve(__dirname, "../src/data/skills.json"); // スキルデータ
 
 try {
+  // 資格データを読み込む
+  const certRaw = await readFile(certPath, "utf8");
+  const certifications = JSON.parse(certRaw);
+
   // スキルデータを読み込む
   const skillsRaw = await readFile(skillsJsonPath, "utf8");
   const skills = JSON.parse(skillsRaw); // ← JSONにパース
@@ -23,7 +28,7 @@ try {
   // EJS テンプレートをレンダリング
   const html = await ejs.renderFile(
     templatePath,
-    { skills }, // ← ここで EJS に渡す
+    { certifications, skills }, // ← ここで EJS に渡す
     {
       root: path.resolve(__dirname, "../src/templates/components"),
       async: true,
