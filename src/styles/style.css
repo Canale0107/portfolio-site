@@ -465,12 +465,13 @@ section {
 
 .research__card-description {
   font-size: var(--font-size-small);
+  margin: var(--space-xs);
 }
 
 .research__publication {
   display: flex;
   align-items: flex-start;
-  padding: var(--space-sm) var(--space-xs);
+  padding: var(--space-xs) var(--space-xs);
 }
 
 .research__publication-content {
