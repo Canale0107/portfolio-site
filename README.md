@@ -92,8 +92,6 @@ npm run build
 - Tailwind CSS や Sass の導入も可能（vite.config.js に追記）
 - 将来的に React などの UI フレームワークへの移行も視野に設計されており、構造の分離により移行がしやすい
 
-## 🌍 デプロイ候補
+## 🌍 デプロイ
 
-- GitHub Pages
-- Netlify
-- Vercel
+Vercel にてデプロイ済（https://kodera.kanare.vercel.app）
