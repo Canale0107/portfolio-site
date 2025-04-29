@@ -1,0 +1,40 @@
+[
+  {
+    "name": "AI / ML / DS",
+    "items": [
+      { "name": "NumPy", "level": 80 },
+      { "name": "pandas", "level": 60 },
+      { "name": "matplotlib", "level": 60 },
+      { "name": "scikit-learn", "level": 70 },
+      { "name": "PyTorch", "level": 40 },
+      { "name": "TensorFlow", "level": 80 },
+      { "name": "MLOps", "level": 10 },
+      { "name": "LLMOps", "level": 10 }
+    ]
+  },
+  {
+    "name": "Frontend",
+    "items": [
+      { "name": "HTML/CSS", "level": 50 },
+      { "name": "JavaScript", "level": 20 }
+    ]
+  },
+  {
+    "name": "Backend / Programming",
+    "items": [
+      { "name": "Python", "level": 90 },
+      { "name": "C", "level": 60 },
+      { "name": "Java", "level": 10 }
+    ]
+  },
+  {
+    "name": "DevOps / Infrastructure",
+    "items": [
+      { "name": "Linux", "level": 60 },
+      { "name": "Docker", "level": 80 },
+      { "name": "Docker Compose", "level": 60 },
+      { "name": "Git/GitHub", "level": 60 },
+      { "name": "CI/CD", "level": 20 }
+    ]
+  }
+]

@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "node scripts/copy-style.js && node scripts/build.js && vite",
     "build": "node scripts/copy-style.js && node scripts/build.js && vite build",
-    "watch": "nodemon --watch src --ext ejs,css --exec \"npm run dev\""
+    "watch": "nodemon --watch src/templates --watch src/styles --watch src/data --ext ejs,css,json --exec \"npm run dev\""
   },
   "dependencies": {
     "ejs": "^3.1.10"

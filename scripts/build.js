@@ -1,4 +1,3 @@
-// scripts/build.js
 import { readFile, writeFile } from "fs/promises";
 import ejs from "ejs";
 import path from "path";
@@ -14,11 +13,17 @@ const templatePath = path.resolve(
   "../src/templates/profile-page.ejs"
 );
 const outputPath = path.resolve(__dirname, "../public/index.html");
+const skillsJsonPath = path.resolve(__dirname, "../src/data/skills.json"); // ← 追加
 
 try {
+  // スキルデータを読み込む
+  const skillsRaw = await readFile(skillsJsonPath, "utf8");
+  const skills = JSON.parse(skillsRaw); // ← JSONにパース
+
+  // EJS テンプレートをレンダリング
   const html = await ejs.renderFile(
     templatePath,
-    {}, // 必要があればここに EJS に渡すデータを記述
+    { skills }, // ← ここで EJS に渡す
     {
       root: path.resolve(__dirname, "../src/templates/components"),
       async: true,

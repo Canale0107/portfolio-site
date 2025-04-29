@@ -9,7 +9,8 @@
 │   ├── templates/       # EJSテンプレートを格納
 │   │   ├── components/  # 分割されたコンポーネント
 │   │   └── profile-page.ejs  # 各コンポーネントを include するメインテンプレート
-│   └── styles/          # 編集対象の CSS
+│   ├── styles/          # 編集対象の CSS
+│   └── data/            # スキル等の内容を管理するJSONファイル群
 ├── scripts/             # HTML/CSSを public に出力するビルドスクリプト
 ├── dist/                # vite build による本番用成果物
 └── vite.config.js       # Vite の設定ファイル（今回はほぼデフォルト）
@@ -29,11 +30,22 @@
 - `ejs`: テンプレートエンジン（HTML の分割と合成に使用）
 - `vite`: 開発用サーバーとビルド（本番用）に使用
 - `nodemon`: ファイル変更を監視して自動ビルド
+- `fs/promises`: JSONファイルの読み込みに使用（Node.js標準）
 
 ## スクリプトの役割
 
-- `scripts/build.js`: profile-page.ejs をテンプレートとして各コンポーネントを結合し、HTML に展開
+- `scripts/build.js`: 
+  - profile-page.ejs をテンプレートとして各コンポーネントを結合し、HTML に展開
+  - skills.json からデータを読み込んでテンプレートに流し込み
 - `scripts/copy-style.js`: CSS を `src/styles/` から `public/styles/` へコピー
+
+## JSON によるデータ管理
+
+- `src/data/skills.json` にて、スキルデータを構造化して管理しています。
+- `scripts/build.js` でこの JSON を読み込み、EJS テンプレートに流し込んで `public/index.html` を生成します。
+- JSON ファイルを編集すれば、EJS テンプレート側をいじらずとも内容が更新できます。
+
+※ 将来的に資格情報や経歴も同様に JSON から管理する構成に拡張可能です。
 
 ## セットアップ
 
