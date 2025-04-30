@@ -54,7 +54,11 @@
   margin-left: 0.5rem;
   transition: transform 0.2s ease;
   color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .theme-toggle-btn:hover {
   transform: scale(1.2);
 }
@@ -186,6 +190,22 @@ a:hover {
 .navbar__list li a:hover {
   color: var(--color-accent-hover);
   border-radius: 0.25rem;
+}
+
+/* ハンバーガーメニュー：デフォルト非表示 */
+.navbar__mobile {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-xs) var(--space-sm);
+}
+
+.navbar__toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text-primary);
 }
 
 /* ========================================
@@ -608,8 +628,41 @@ a:hover {
   }
 }
 
+/* モバイル時にハンバーガーを表示、リストは非表示 */
 @media (max-width: 700px) {
   .navbar {
+    display: block;
+    padding: 0;
+  }
+
+  .navbar__mobile {
+    display: flex;
+  }
+
+  .navbar__list {
+    display: none;
+    flex-direction: column;
+    padding: var(--space-sm);
+    margin: 0;
+    list-style: none;
+    background: var(--color-bg-surface);
+    border-top: 1px solid var(--color-border-default);
+  }
+
+  .navbar__list.open {
+    display: flex;
+  }
+
+  .navbar__list li {
+    margin: var(--space-xs) 0;
+  }
+
+  .navbar__list li a {
+    font-size: var(--font-size-base);
+    font-weight: bold;
+  }
+
+  .theme-toggle-wrapper {
     display: none;
   }
 }

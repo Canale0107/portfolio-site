@@ -1,5 +1,4 @@
-// src/react/components/Navbar.jsx
-import React from "react";
+import React, { useState } from "react";
 import { SunIcon, MoonIcon } from "@/components/icons";
 
 const items = [
@@ -13,16 +12,44 @@ const items = [
 ];
 
 export default function Navbar({ toggleTheme, theme }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="navbar" role="navigation" aria-label="メインナビゲーション">
-      <ul className="navbar__list">
+      {/* スマホ用：ハンバーガー＋テーマ */}
+      <div className="navbar__mobile">
+        <button
+          className="navbar__toggle"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="メニューを開く"
+        >
+          ☰
+        </button>
+        <button
+          onClick={toggleTheme}
+          className="theme-toggle-btn"
+          aria-label="テーマ切替"
+        >
+          {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+        </button>
+      </div>
+
+      {/* PC用 or 展開時のリスト */}
+      <ul className={`navbar__list ${isOpen ? "open" : ""}`}>
         {items.map(({ href, label }) => (
           <li key={href}>
-            <a href={href}>{label}</a>
+            <a href={href} onClick={() => setIsOpen(false)}>
+              {label}
+            </a>
           </li>
         ))}
-        <li>
-          <button onClick={toggleTheme} className="theme-toggle-btn">
+        {/* PC時の右端にテーマ切り替え */}
+        <li className="theme-toggle-wrapper">
+          <button
+            onClick={toggleTheme}
+            className="theme-toggle-btn"
+            aria-label="テーマ切替"
+          >
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}
           </button>
         </li>
