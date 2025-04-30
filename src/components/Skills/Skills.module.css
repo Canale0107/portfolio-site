@@ -46,14 +46,27 @@
   margin-bottom: 0.3125rem;
 }
 
+.skillBarWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* バーと数字の間のスペース */
+}
+
+.percentage {
+  font-size: 0.75rem;
+  font-weight: bold;
+  min-width: 2.5rem;
+  text-align: right;
+}
+
 .skillBar {
   background-color: var(--color-shadow);
   border-radius: 6px;
   height: 0.5rem;
-  margin: 0.1rem 0 0.25rem;
+  width: 10rem; /* ✅ バーの長さを明示的に短くする */
   overflow: hidden;
-  transition: background-color var(--transition-time-base) ease;
   position: relative;
+  flex-shrink: 0; /* バーが縮まないようにする */
 }
 
 .fill {

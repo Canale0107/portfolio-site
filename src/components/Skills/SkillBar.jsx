@@ -9,11 +9,8 @@ export default function SkillBar({ level, trigger }) {
     if (!bar) return;
 
     if (trigger) {
-      // 一旦0%にして次のフレームで目標に
       bar.style.transition = "none";
       bar.style.width = "0%";
-
-      // 2フレーム後にアニメ付きで伸ばす（requestAnimationFrame 2回）
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           bar.style.transition = "width 0.6s ease";
@@ -24,12 +21,11 @@ export default function SkillBar({ level, trigger }) {
   }, [trigger, level]);
 
   return (
-    <div className={styles.skillBar}>
-      <div
-        ref={barRef}
-        className={styles.fill}
-        style={{ width: `${level}%` }} // 初期値
-      />
+    <div className={styles.skillBarWrapper}>
+      <div className={styles.skillBar}>
+        <div ref={barRef} className={styles.fill} />
+      </div>
+      <span className={styles.percentage}>{level}%</span>
     </div>
   );
 }
