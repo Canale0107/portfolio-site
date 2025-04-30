@@ -1,0 +1,47 @@
+/* ========================================
+  グローバル設定 (色・フォント・スペース変数)
+======================================== */
+:root {
+  /* カラー */
+  --color-bg-default: #f9f9f9;
+  --color-bg-muted: #f3f3f3;
+  --color-bg-surface: #ffffff;
+  --color-shadow: #dcdbdc;
+  --color-text-primary: #444;
+  --color-text-secondary: #888;
+  --color-accent: #d8aa00;
+  --color-accent-hover: #f76b1c;
+  --color-border-default: #ddd;
+  --color-accent-bg: #f9e29c;
+
+  /* フォントサイズ */
+  --font-size-xsmall: 0.75rem; /* 12px */
+  --font-size-small: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px基準 */
+  --font-size-large: 1.125rem; /* 18px */
+  --font-size-xlarge: 1.5rem; /* 24px */
+
+  /* スペース */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 2.5rem;
+
+  /* シャドウ */
+  --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] {
+  --color-bg-default: #121212;
+  --color-bg-muted: #2c2c2c;
+  --color-bg-surface: #101010;
+  --color-shadow: #707070;
+  --color-text-primary: #bfbfbf;
+  --color-text-secondary: #909090;
+  --color-accent: #b18c06;
+  --color-accent-hover: #f76b1c;
+  --color-border-default: #333;
+  --color-accent-bg: #6c5509;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SunIcon, MoonIcon } from "@/components/icons";
+import styles from "./Navbar.module.css";
 
 const items = [
   { href: "#top", label: "Top" },
@@ -16,11 +17,15 @@ export default function Navbar({ toggleTheme, theme }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="navbar" role="navigation" aria-label="メインナビゲーション">
+    <nav
+      className={styles.navbar}
+      role="navigation"
+      aria-label="メインナビゲーション"
+    >
       {/* スマホ用：ハンバーガー＋テーマ */}
-      <div className="navbar__mobile">
+      <div className={styles.mobile}>
         <button
-          className="navbar__toggle"
+          className={styles.toggle}
           onClick={() => setIsOpen(!isOpen)}
           aria-label="メニューを開く"
         >
@@ -28,7 +33,7 @@ export default function Navbar({ toggleTheme, theme }) {
         </button>
         <button
           onClick={toggleTheme}
-          className="theme-toggle-btn"
+          className={styles.themeToggleBtn}
           aria-label="テーマ切替"
         >
           {theme === "dark" ? <SunIcon /> : <MoonIcon />}
@@ -36,7 +41,7 @@ export default function Navbar({ toggleTheme, theme }) {
       </div>
 
       {/* PC用 or 展開時のリスト */}
-      <ul className={`navbar__list ${isOpen ? "open" : ""}`}>
+      <ul className={`${styles.list} ${isOpen ? styles.open : ""}`}>
         {items.map(({ href, label }) => (
           <li key={href}>
             <a href={href} onClick={() => setIsOpen(false)}>
@@ -44,11 +49,10 @@ export default function Navbar({ toggleTheme, theme }) {
             </a>
           </li>
         ))}
-        {/* PC時の右端にテーマ切り替え */}
         <li className="theme-toggle-wrapper">
           <button
             onClick={toggleTheme}
-            className="theme-toggle-btn"
+            className={styles.themeToggleBtn}
             aria-label="テーマ切替"
           >
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}
