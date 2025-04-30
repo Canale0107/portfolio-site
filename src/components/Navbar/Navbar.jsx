@@ -8,7 +8,7 @@ const items = [
   { href: "#values", label: "価値観" },
   { href: "#about-me", label: "わたしについて" },
   { href: "#career-timeline", label: "経歴" },
-  { href: "#skills", label: "資格・スキル" },
+  { href: "#skills", label: "スキル" },
   { href: "#research", label: "研究経験" },
   { href: "#interests", label: "趣味・関心" },
 ];

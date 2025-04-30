@@ -90,7 +90,7 @@
 }
 
 /* モバイル時にハンバーガーを表示、リストは非表示 */
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .navbar {
     display: block;
     padding: 0;
