@@ -1,12 +1,11 @@
 # 依存ライブラリ
 /node_modules/
 
+# 中間生成物
+/index.html
+
 # Viteのビルド成果物（本番用）
 /dist/
-
-# 自動生成されるHTMLやCSS（ビルド後の成果物）
-/index.html
-/public/styles/style.css
 
 # macOS特有
 .DS_Store

@@ -2,47 +2,52 @@
 
 ```
 .
-├── public/              # ブラウザが参照する静的ファイル（HTML/CSS 出力先）
-│   └── styles/          # コピーされた CSS（編集しない）
-├── src/                 # 編集対象のソース
-│   ├── templates/       # EJS テンプレート
-│   │   ├── components/  # HTML コンポーネント
-│   │   └── profile-page.ejs  # ページ本体テンプレート
-│   ├── styles/          # 編集対象の CSS
-│   └── data/            # スキルや資格などの JSON データ
-├── scripts/             # ビルド用 Node.js スクリプト
-├── dist/                # `vite build` による本番用ビルド成果物
-├── index.html           # EJS から生成された最終 HTML（編集しない／Git管理対象外）
-└── vite.config.js       # Vite 設定（今回はほぼデフォルト）
+├── public/                   # ブラウザが直接参照する静的ファイル（faviconなど）
+│   └── favicon.ico
+├── src/                      # 開発対象のソースコード（EJS/スタイル/React/データ）
+│   ├── assets/               # Reactでimportされる画像などの静的リソース（ビルド時にハッシュ付き出力）
+│   ├── data/                 # スキルや資格などのJSONデータ
+│   ├── styles/               # CSS（EJSでもReactでも利用可）
+│   ├── templates/            # EJSテンプレート（HTML構造）
+│   │   ├── components/       # 再利用可能なHTMLコンポーネント
+│   │   └── profile-page.ejs  # ページ本体のテンプレート
+│   └── react/                # ReactによるUIコンポーネント（段階的に導入中）
+├── scripts/                  # EJSビルド用のNode.jsスクリプト
+│   └── build.js
+├── dist/                     # Viteによる最終ビルド成果物（ハッシュ付き・デプロイ用）
+├── index.html                # EJSビルドで生成されたHTML（編集不要）
+├── package.json
+└── vite.config.js            # Vite設定（デフォルトベース）
 ```
 
 ## ⚙️ 開発環境の特徴
 
-- EJS による HTML コンポーネント構成
-- `scripts/build.js` で JSON データを EJS に流し込んで HTML を生成
-- Vite による開発サーバー・本番ビルド
-- `nodemon` による `.ejs`, `.css`, `.json` の変更監視と自動ビルド
+- `scripts/build.js` により JSON データを EJS に流し込んで静的 HTML を生成
+- 一部コンポーネント（例：プロフィール画像）を React により動的にレンダリング
+- Vite による開発サーバー＆本番ビルド最適化（画像や JS はハッシュ付き）
+- `nodemon` によって EJS・CSS・JSON の変更を検知して再ビルド
 
 ## 🧱 使用パッケージ（devDependencies）
 
-- `ejs`: テンプレートエンジン（HTML の分割と合成に使用）
-- `vite`: 高速ビルド・開発サーバー
-- `nodemon`: ファイル変更監視と再実行
+- `ejs`: テンプレートエンジン（静的 HTML 生成）
+- `vite`: 高速ビルドツール
+- `react`: react-dom: 最小限の React 導入（部分的に使用）
+- `nodemon`: ファイル変更監視と自動ビルド
 - `fs/promises`: JSON の読み込みに使用（Node.js 標準）
 
 ## 🧩 スクリプトの役割
 
-| スクリプト              | 概要                                           |
-| ----------------------- | ---------------------------------------------- |
-| `scripts/build.js`      | EJS + JSON で `index.html` を生成              |
-| `scripts/copy-style.js` | `src/styles` → `public/styles` に CSS をコピー |
+| スクリプト             | 概要                                                           |
+| ---------------------- | -------------------------------------------------------------- |
+| `scripts/build.js`     | EJS + JSON で `index.html` を生成                              |
+| `src/react/mount*.jsx` | React コンポーネントのマウント処理（例：プロフィール画像表示） |
+| `src/react/*.jsx`      | React による UI パーツ（画像などを `import` で扱う）           |
 
 ## 🧾 JSON によるデータ管理
 
 - `src/data/*.json` に、資格やスキルデータを定義
 - `scripts/build.js` が読み込み → `profile-page.ejs`に流し込み
-- JSON を編集すれば、EJS 側の構造を変更せずに内容を更新可能
-- 保守性・拡張性・再利用性の高い構成
+- 構造を保ったまま内容の更新・多言語対応などが可能
 
 ※ 将来的に経歴も同様に JSON から管理する構成に拡張予定。
 
@@ -62,6 +67,7 @@ npm run watch
 
 - `.ejs`, `.css`, `.json` の変更を検知して自動再ビルド
 - ブラウザの`localhost:5173`に即時反映
+- React コンポーネントも動的にレンダリング
 
 ### 本番用ビルド
 
@@ -69,29 +75,33 @@ npm run watch
 npm run build
 ```
 
-- `index.html`を生成し、さらに Vite によって`dist/`フォルダに最適化された成果物が出力されます（デプロイ用）。
+- EJS + JSON によって`index.html`を生成
+- さらに Vite によって、画像やスタイル、JSを含む最終生活物を`dist/に出力。
 
 ## 📜 npm scripts 一覧
 
 | コマンド        | 説明                                                                                       |
 | --------------- | ------------------------------------------------------------------------------------------ |
-| `npm run watch` | `src/` 配下の `.ejs`/`.css`/`.json` を監視し、変更があれば HTML を再生成してブラウザに反映 |
-| `npm run build` | EJS + JSON で HTML を生成し、CSS をコピー、本番用に `vite build`を実行                     |
-| `npm run dev`   | `watch` 内部で使用：スクリプト実行後に Vite を起動                                         |
+| `npm run watch` | `src/` 配下の `.ejs`/`.css`/`.json` を監視し自動ビルド + サーバー起動 |
+| `npm run build` | 静的 HTML 生成 + Viteによる最終ビルド                     |
+| `npm run dev`   | `watch` 内部で使用：Vite + ビルドスクリプトの連携起動                                         |
 
 ## 🏗️ public と dist の違い
 
 | ディレクトリ | 目的                                                |
 | ------------ | --------------------------------------------------- |
-| `public/`    | 開発中に参照される静的ファイル（HTML/CSS など）     |
-| `dist/`      | 本番ビルドされた成果物（Vercel などにデプロイ可能） |
+| `public/`    | faviconなどブラウザが直接参照するファイルのみ     |
+| `dist/`      | 本番用ビルド成果物（画像やCSSはハッシュ付き、最適化済） |
 
 ## 💡 拡張ポイント
 
 - JSON を用いたデータ分離により、保守性・多言語対応・柔軟なテンプレート変更が容易
-- Tailwind CSS や Sass の導入も可能（vite.config.js に追記）
-- 将来的に React などの UI フレームワークへの移行も視野に設計されており、構造の分離により移行がしやすい
+- 画像やUIをReactコンポーネントとして段階的に移行可能（現在一部導入済み）
+- src/assets/ の画像は import されると Vite により自動で dist/assets/ にハッシュ付き出力される
+- TailwindCSS や Sass の導入、PWA対応も容易
+- EJS → React の完全移行も自然に進められる構成
 
 ## 🌍 デプロイ
 
-Vercel にてデプロイ済：https://kodera-kanare.vercel.app
+Vercel にて公開中：
+🔗 https://kodera-kanare.vercel.app

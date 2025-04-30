@@ -1,13 +1,8 @@
 <!-- 基本情報 -->
 <div class="profile-page__section profile-page__profile">
-  <picture>
-    <source srcset="images/profile-pic.webp" type="image/webp" />
-    <img
-      src="images/profile-pic.jpg"
-      alt="小寺奏怜のプロフィール写真"
-      class="profile-page__profile-image"
-    />
-  </picture>
+  <!-- React でマウントされる領域 -->
+  <div id="react-profile-image"></div>
+  <script type="module" src="/src/react/mountProfileImage.jsx"></script>
   <h2 class="profile-page__name">
     <div class="profile-page__name-japanese">小寺 奏怜</div>
     <div class="profile-page__name-english">Kodera Kanare</div>
