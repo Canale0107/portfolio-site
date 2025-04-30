@@ -8,35 +8,44 @@
 }
 
 .block {
-  background: var(--color-bg-muted);
-  border-left: 4px solid var(--color-shadow);
-  padding: 0.75em 1em;
-  border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  transition: background-color var(--transition-time-base) ease,
-    border-color var(--transition-time-base) ease;
+  position: relative;
+  padding: 10px 15px 10px 50px;
+  box-sizing: border-box;
+  font-style: italic;
+  border: solid 2px var(--color-border-default);
+  border-left: 4px solid var(--color-accent);
+  background-color: var(--color-bg-muted);
+}
+
+.block::before {
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  content: "\f10d";
+  font-family: "FontAwesome";
+  color: var(--color-accent);
+  font-size: 25px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.block:hover {
+  box-shadow: var(--shadow-hover);
 }
 
 .text {
-  font-style: italic;
-  font-size: 1.05em;
-  margin-bottom: 0.3em;
-  text-align: left;
-  transition: color var(--transition-time-base) ease;
+  padding: 0;
+  margin: 10px 0;
+  line-height: 1.7;
 }
 
 .author {
-  margin-top: 0.5em;
-  align-self: flex-end;
-  display: inline-block;
-  text-align: left;
-  font-weight: bold;
-  font-size: 0.9em;
+  display: block;
+  text-align: right;
   color: var(--color-text-secondary);
-  transition: color var(--transition-time-base) ease;
+  font-size: 0.9em;
 }
-
 .commentary {
   font-size: 0.9em;
   color: var(--color-text-secondary);

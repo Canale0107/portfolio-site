@@ -6,11 +6,9 @@ export default function Quotes({ quotes }) {
     <ul className={styles.list}>
       {quotes.map((quote, i) => (
         <li key={i} className={styles.item}>
-          <blockquote>
-            <div className={styles.block}>
-              <div className={styles.text}>{quote.text}</div>
-              <div className={styles.author}>- {quote.author}</div>
-            </div>
+          <blockquote className={styles.block}>
+            <p className={styles.text}>{quote.text}</p>
+            <cite className={styles.author}>- {quote.author}</cite>
           </blockquote>
           <div className={styles.commentary}>{quote.commentary}</div>
         </li>
