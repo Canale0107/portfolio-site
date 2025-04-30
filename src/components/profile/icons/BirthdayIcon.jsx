@@ -11,7 +11,7 @@ export default function BirthdayIcon({ className = "", ...props }) {
     >
       <g>
         <path
-          class="st0"
+          className="st0"
           d="M335.133,142.84c22.712-7.458,41.462-19.608,54.862-34.26c6.69-7.338,12.061-15.307,15.812-23.737
             c3.744-8.422,5.876-17.334,5.876-26.342c0.007-5.989-0.957-12-2.953-17.77c-2.23-6.441-5.469-12.286-9.477-17.349
             c-6.004-7.616-13.695-13.476-22.2-17.416C368.55,2.034,359.209,0,349.68,0c-6.983,0-14.057,1.1-20.942,3.367
@@ -34,19 +34,19 @@ export default function BirthdayIcon({ className = "", ...props }) {
           fill="currentColor"
         ></path>
         <polygon
-          class="st0"
+          className="st0"
           points="271.427,172.595 271.427,265.152 448.844,265.152 448.844,263.774 448.844,233.379 448.844,172.595"
           fill="currentColor"
         ></polygon>
         <polygon
-          class="st0"
+          className="st0"
           points="63.156,233.379 63.156,263.774 63.156,265.152 240.573,265.152 240.573,172.595 63.156,172.595"
           fill="currentColor"
         ></polygon>
         <rect
           x="271.427"
           y="296.007"
-          class="st0"
+          className="st0"
           width="177.416"
           height="215.993"
           fill="currentColor"
@@ -54,7 +54,7 @@ export default function BirthdayIcon({ className = "", ...props }) {
         <rect
           x="63.156"
           y="296.007"
-          class="st0"
+          className="st0"
           width="177.416"
           height="215.993"
           fill="currentColor"
