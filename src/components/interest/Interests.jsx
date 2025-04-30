@@ -3,6 +3,7 @@ import HobbyIntro from "./HobbyIntro";
 import Themes from "./Themes";
 import Influences from "./Influences";
 import Quotes from "./Quotes";
+import influences from "@/data/influences.json";
 import quotes from "@/data/quotes.json";
 
 export default function Interests() {
@@ -23,7 +24,7 @@ export default function Interests() {
       <Themes />
 
       <h3>影響を受けた人物・作品</h3>
-      <Influences />
+      <Influences influences={influences} />
 
       <h3>共鳴する言葉・思想</h3>
       <Quotes quotes={quotes} />
