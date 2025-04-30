@@ -35,7 +35,7 @@
 }
 .purposeJa {
   font-weight: 700;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-large);
 }
 
 .purposeEn {
@@ -58,8 +58,8 @@
 }
 
 .valueIcon {
-  width: 3.75rem;
-  height: 3.75rem;
+  width: 4.5rem;
+  height: 4.5rem;
   background-color: var(--color-accent-bg);
   border-radius: 50%;
   display: flex;
@@ -73,7 +73,7 @@
 }
 
 .value p {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-base);
   color: var(--color-text-secondary);
   margin: 0;
 }
