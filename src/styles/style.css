@@ -281,10 +281,11 @@ a:hover {
 .profile-page__social-links {
   margin-top: 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1rem;
   list-style: none;
   padding: 0;
+  margin: var(--space-md) 0 0 10%;
 }
 
 .profile-page__social-icon {
