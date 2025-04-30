@@ -289,8 +289,8 @@ a:hover {
 }
 
 .profile-page__social-icon {
-  width: 25px;
-  height: 25px;
+  width: 2rem;
+  height: 2rem;
   color: var(--color-text-secondary);
   transition: color 0.3s;
 }
