@@ -101,9 +101,8 @@
   }
 
   .list {
-    display: none;
     flex-direction: column;
-    padding: var(--space-sm);
+    padding: 0 var(--space-sm);
     margin: 0;
     list-style: none;
     background: var(--color-bg-surface);
@@ -113,19 +112,28 @@
     left: 0;
     z-index: 1000;
     box-shadow: var(--shadow-light);
+    border-radius: 0 0.75rem 0.75rem 0.75rem;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none; /* 非表示状態ではクリック不可に */
   }
 
   .list.open {
     display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .list li {
-    margin: var(--space-sm) var(--space-md);
+    margin: var(--space-xs) var(--space-sm);
   }
 
   .list li a {
     font-size: var(--font-size-base);
     font-weight: bold;
+    padding: 0.75rem 1rem;
   }
   .themeToggleListItem {
     display: none;
