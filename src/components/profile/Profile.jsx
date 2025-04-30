@@ -26,7 +26,7 @@ const items = [
 
 export default function Profile() {
   return (
-    <>
+    <section className="profile-page__section profile-page__profile">
       <ProfileImage />
       <h2 className="profile-page__name">
         <div className="profile-page__name-japanese">小寺 奏怜</div>
@@ -40,6 +40,6 @@ export default function Profile() {
           </li>
         ))}
       </ul>
-    </>
+    </section>
   );
 }
