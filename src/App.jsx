@@ -1,6 +1,6 @@
 // src/react/App.jsx
 import React, { useEffect, useState } from "react";
-import Navbar from "@/components/navbar/Navbar";
+import Navbar from "@/components/navbar/navbar";
 import Profile from "@/components/profile/Profile";
 import Overview from "@/components/overview/Overview";
 import Career from "@/components/career/Career";
