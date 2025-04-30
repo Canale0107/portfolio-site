@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar-tmp/Navbar-tmp";
 import Profile from "@/components/Profile-tmp/Profile-tmp";
 import Overview from "@/components/Overview-tmp/Overview-tmp";
-import Career from "@/components/career/Career-tmp";
+import Career from "@/components/Career-tmp/Career-tmp";
 import Skills from "@/components/Skills-tmp/Skills-tmp";
 import Research from "@/components/Research-tmp/Research-tmp";
 import Interests from "@/components/Interests-tmp/Interests-tmp";
