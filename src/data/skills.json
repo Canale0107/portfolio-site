@@ -16,7 +16,9 @@
     "name": "Frontend",
     "items": [
       { "name": "HTML/CSS", "level": 50 },
-      { "name": "JavaScript", "level": 20 }
+      { "name": "JavaScript", "level": 20 },
+      { "name": "React", "level": 20 },
+      { "name": "Vite", "level": 10 }
     ]
   },
   {
