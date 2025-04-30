@@ -295,6 +295,15 @@ a:hover {
   transition: color 0.3s;
 }
 
+.linkedin-icon__bg {
+  fill: var(--color-bg-muted);
+}
+
+.linkedin-icon__fg {
+  fill: var(--color-text-secondary);
+  transition: fill 0.3s;
+}
+
 .profile-page__social-icon:hover {
   color: var(--color-accent-hover);
 }
