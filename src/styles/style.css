@@ -81,12 +81,6 @@ body {
 body,
 .profile-page,
 .navbar,
-.profile-page__overview,
-.profile-page__profile {
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
-}
-
 .profile-page__profile,
 .profile-page__overview,
 .profile-page__wide-section,
@@ -575,6 +569,7 @@ a:hover {
   padding: var(--space-xs) var(--space-sm);
   margin: var(--space-md) var(--space-xs);
   transition: box-shadow 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .research__card:hover {
@@ -636,6 +631,7 @@ a:hover {
   border-radius: 6px;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .text {
@@ -643,6 +639,7 @@ a:hover {
   font-size: 1.05em;
   margin-bottom: 0.3em;
   text-align: left; /* 明示的に左寄せ */
+  transition: color 0.3s ease;
 }
 
 .author {
@@ -653,6 +650,7 @@ a:hover {
   font-weight: bold;
   font-size: 0.9em;
   color: var(--color-text-secondary);
+  transition: color 0.3s ease;
 }
 
 .commentary {
