@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SunIcon, MoonIcon } from "@/components/icons";
+import { FiSun, FiMoon } from "react-icons/fi";
 import styles from "./Navbar.module.css";
 
 const items = [
@@ -36,7 +36,7 @@ export default function Navbar({ toggleTheme, theme }) {
           className={styles.themeToggleBtn}
           aria-label="テーマ切替"
         >
-          {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+          {theme === "dark" ? <FiSun /> : <FiMoon className={styles.moon} />}
         </button>
       </div>
 
@@ -55,7 +55,7 @@ export default function Navbar({ toggleTheme, theme }) {
             className={styles.themeToggleBtn}
             aria-label="テーマ切替"
           >
-            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+            {theme === "dark" ? <FiSun /> : <FiMoon className={styles.moon} />}
           </button>
         </li>
       </ul>

@@ -3,44 +3,41 @@ import classNames from "classnames";
 
 import ProfileImage from "./ProfileImage";
 import styles from "./Profile.module.css";
-import iconStyles from "@/components/icons/Icon.module.css";
 
-import {
-  CompanyIcon,
-  StatusIcon,
-  LocationIcon,
-  BirthdayIcon,
-  GitHubIcon,
-  LinkedInIcon,
-} from "@/components/icons";
+import { IoBusiness } from "react-icons/io5";
+import { MdPushPin } from "react-icons/md";
+import { FaLocationDot } from "react-icons/fa6";
+import { GiPresent } from "react-icons/gi";
+import { FaGithub } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 
 const items = [
   {
-    icon: CompanyIcon,
+    icon: IoBusiness,
     content: "富士通株式会社",
   },
   {
-    icon: StatusIcon,
+    icon: MdPushPin,
     content: "新入社員研修中",
   },
   {
-    icon: LocationIcon,
+    icon: FaLocationDot,
     content: "東京都 大田区",
   },
   {
-    icon: BirthdayIcon,
+    icon: GiPresent,
     content: "2001.1.7",
   },
 ];
 
 const socialLinks = [
   {
-    icon: GitHubIcon,
+    icon: FaGithub,
     url: "https://github.com/Canale0107",
     label: "GitHub",
   },
   {
-    icon: LinkedInIcon,
+    icon: FaLinkedin,
     url: "https://www.linkedin.com/in/kanare-kodera/",
     label: "LinkedIn",
   },
@@ -73,7 +70,7 @@ export default function Profile({ theme }) {
               rel="noopener noreferrer"
               aria-label={label}
             >
-              <Icon className={iconStyles.socialIcon} />
+              <Icon className={styles.socialIcon} />
             </a>
           </li>
         ))}

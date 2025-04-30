@@ -108,3 +108,16 @@
     margin: var(--space-sm) auto var(--space-lg);
   }
 }
+
+.socialIcon {
+  width: 1.8rem;
+  height: 1.8rem;
+  color: var(--color-text-secondary);
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease,
+    border-color var(--transition-time-base) ease;
+}
+
+.socialIcon:hover {
+  color: var(--color-accent-hover);
+}

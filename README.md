@@ -74,6 +74,7 @@ npm run build
 | `vite`                 | 開発・ビルド                                     |
 | `@vitejs/plugin-react` | Vite で React を使うためのプラグイン             |
 | `classnames`           | 複数クラス名の動的結合に使用（CSS Modules 向け） |
+| `react-icons`          | アイコンの使用                                   |
 
 ## 補足事項
 

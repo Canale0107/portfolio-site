@@ -66,8 +66,22 @@
   justify-content: center;
 }
 
+.themeToggleBtn svg {
+  width: 24px;
+  height: 24px;
+  color: #facc15; /* 黄色い太陽の例 */
+  transition: color 0.3s ease;
+}
+
 .themeToggleBtn:hover {
   transform: scale(1.2);
+}
+
+.themeToggleBtn:hover svg {
+  color: #fcd34d; /* ホバーで色が変わる例 */
+}
+.themeToggleBtn svg.moon {
+  color: #40e0d0; /* ターコイズ */
 }
 
 /* オープン状態のリスト */
