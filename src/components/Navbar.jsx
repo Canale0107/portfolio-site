@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { SunIcon, MoonIcon } from "@/components/icons";
 
 const items = [
+  { href: "#top", label: "Top" },
   { href: "#purpose", label: "パーパス" },
   { href: "#values", label: "価値観" },
   { href: "#about-me", label: "わたしについて" },

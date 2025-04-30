@@ -147,6 +147,7 @@ a:hover {
   max-width: 75rem; /* 1200px */
   margin: var(--space-xl) auto;
   box-shadow: var(--shadow-light);
+  scroll-margin-top: 4rem;
 }
 
 .profile-page__section {

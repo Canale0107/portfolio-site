@@ -25,7 +25,7 @@ export default function App() {
   return (
     <>
       <Navbar toggleTheme={toggleTheme} theme={theme} />
-      <main className="profile-page">
+      <main className="profile-page" id="top">
         <h1 className="visually-hidden">小寺奏怜｜プロフィール</h1>
         <Profile />
         <Overview />
