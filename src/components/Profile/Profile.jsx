@@ -10,6 +10,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { GiPresent } from "react-icons/gi";
 import { FaGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
+import NoteIcon from "@/components/Icon/NoteIcon";
 
 const items = [
   {
@@ -40,6 +41,11 @@ const socialLinks = [
     icon: FaLinkedin,
     url: "https://www.linkedin.com/in/kanare-kodera/",
     label: "LinkedIn",
+  },
+  {
+    icon: NoteIcon,
+    url: "https://note.com/canale",
+    label: "note",
   },
 ];
 
