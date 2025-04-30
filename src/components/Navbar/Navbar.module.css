@@ -74,3 +74,43 @@
 .open {
   display: flex !important;
 }
+
+/* モバイル時にハンバーガーを表示、リストは非表示 */
+@media (max-width: 700px) {
+  .navbar {
+    display: block;
+    padding: 0;
+  }
+
+  .mobile {
+    display: flex;
+  }
+
+  .list {
+    display: none;
+    flex-direction: column;
+    padding: var(--space-sm);
+    margin: 0;
+    list-style: none;
+    background: var(--color-bg-surface);
+    border-top: 1px solid var(--color-border-default);
+    position: absolute;
+    top: 100%; /* .navbarの直下に表示 */
+    left: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-light);
+  }
+
+  .list.open {
+    display: flex;
+  }
+
+  .list li {
+    margin: var(--space-sm) var(--space-md);
+  }
+
+  .list li a {
+    font-size: var(--font-size-base);
+    font-weight: bold;
+  }
+}

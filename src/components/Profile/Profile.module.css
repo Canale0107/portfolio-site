@@ -89,3 +89,22 @@
   padding: 0;
   margin: var(--space-md) 0 0 10%;
 }
+
+@media (max-width: 900px) {
+  .profile{
+    width: 100%;
+    border-right: none;
+    border-top: 1px solid var(--color-border-default);
+  }
+
+  .profile {
+    border-top: none; /* 最初のセクションだから上の線はいらない */
+  }
+
+  /* 顔写真のサイズ制限を追加！ */
+  .profileImage, .darkProfileImage {
+    width: 40%;
+    max-width: 150px; /* 必要ならこれも加える */
+    margin: var(--space-sm) auto var(--space-lg);
+  }
+}
