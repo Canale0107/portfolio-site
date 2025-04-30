@@ -1,3 +1,5 @@
+# Canale's portfolio-site
+
 ## 📁 ディレクトリ構成（概要）
 
 ```
