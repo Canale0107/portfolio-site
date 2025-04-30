@@ -108,7 +108,7 @@ React パーツは `src/react/mount*.jsx` で定義され、以下のように E
 // src/react/mountProfileImage.jsx
 const container = document.getElementById("react-profile-image");
 if (container) {
-  ReactDOM.createRoot(container).render(<ReactProfileImage />);
+  ReactDOM.createRoot(container).render(<ProfileImage />);
 }
 ```
 

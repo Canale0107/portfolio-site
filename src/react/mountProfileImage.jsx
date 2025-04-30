@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import ReactProfileImage from "./ReactProfileImage.jsx";
+import ProfileImage from "./ProfileImage.jsx";
 
 const container = document.getElementById("react-profile-image");
 if (container) {
-  ReactDOM.createRoot(container).render(<ReactProfileImage />);
+  ReactDOM.createRoot(container).render(<ProfileImage />);
 }
