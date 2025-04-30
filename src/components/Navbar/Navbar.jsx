@@ -3,7 +3,7 @@ import { FiSun, FiMoon } from "react-icons/fi";
 import styles from "./Navbar.module.css";
 
 const items = [
-  { href: "#top", label: "Top" },
+  { href: "#top", label: "TOP" },
   { href: "#purpose", label: "パーパス" },
   { href: "#values", label: "価値観" },
   { href: "#about-me", label: "わたしについて" },
