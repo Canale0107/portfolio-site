@@ -5,7 +5,7 @@ import {
   StatusIcon,
   LocationIcon,
   BirthdayIcon,
-} from "@/components/profile/icons";
+} from "@/components/icons";
 
 const items = [
   {

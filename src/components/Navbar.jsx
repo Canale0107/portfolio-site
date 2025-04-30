@@ -1,5 +1,6 @@
 // src/react/components/Navbar.jsx
 import React from "react";
+import { SunIcon, MoonIcon } from "@/components/icons";
 
 const items = [
   { href: "#purpose", label: "パーパス" },
@@ -11,7 +12,7 @@ const items = [
   { href: "#interests", label: "趣味・関心" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ toggleTheme, theme }) {
   return (
     <nav className="navbar" role="navigation" aria-label="メインナビゲーション">
       <ul className="navbar__list">
@@ -20,6 +21,11 @@ export default function Navbar() {
             <a href={href}>{label}</a>
           </li>
         ))}
+        <li>
+          <button onClick={toggleTheme} className="theme-toggle-btn">
+            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+          </button>
+        </li>
       </ul>
     </nav>
   );

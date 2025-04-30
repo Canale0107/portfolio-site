@@ -1,5 +1,5 @@
 // src/react/App.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Profile from "@/components/profile/Profile";
 import Overview from "@/components/overview/Overview";
@@ -10,9 +10,21 @@ import Interests from "@/components/interest/Interests";
 import Footer from "@/components/Footer";
 
 export default function App() {
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "light"
+  );
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () =>
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+
   return (
     <>
-      <Navbar />
+      <Navbar toggleTheme={toggleTheme} theme={theme} />
       <main className="profile-page">
         <h1 className="visually-hidden">小寺奏怜｜プロフィール</h1>
         <Profile />
