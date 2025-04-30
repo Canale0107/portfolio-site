@@ -38,12 +38,12 @@
   --color-bg-muted: #2c2c2c;
   --color-bg-surface: #101010;
   --color-shadow: #707070;
-  --color-text-primary: #9f9f9f;
+  --color-text-primary: #bfbfbf;
   --color-text-secondary: #808080;
-  --color-accent: #d8aa00;
+  --color-accent: #b18c06;
   --color-accent-hover: #f76b1c;
   --color-border-default: #333;
-  --color-accent-bg: #664e00;
+  --color-accent-bg: #6c5509;
 }
 
 .theme-toggle-btn {
