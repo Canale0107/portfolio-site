@@ -30,7 +30,7 @@
 
 .certificationName,
 .skillName {
-  font-size: var(--font-size-xsmall);
+  font-size: var(--font-size-small);
   font-weight: bold;
   display: inline-block;
   width: 8.25rem;
@@ -44,7 +44,6 @@
 
 .skillItem {
   margin-bottom: 0.3125rem;
-  font-size: var(--font-size-small);
 }
 
 .skillBar {
