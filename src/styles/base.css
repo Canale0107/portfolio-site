@@ -24,13 +24,6 @@ body,
     border-color var(--transition-time-base) ease;
 }
 
-footer {
-  text-align: center;
-  color: var(--color-text-secondary); /* グレー */
-  font-size: var(--font-size-small);
-  padding: 0 0 1rem;
-}
-
 h2,
 h3,
 h4 {
@@ -60,7 +53,11 @@ a:hover {
 
 /* 強調マーカー */
 .marker {
-  background: linear-gradient(to bottom, transparent 20%, var(--color-accent-bg) 100%);
+  background: linear-gradient(
+    to bottom,
+    transparent 20%,
+    var(--color-accent-bg) 100%
+  );
   font-weight: 600;
 }
 

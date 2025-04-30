@@ -7,7 +7,7 @@ import Career from "@/components/Career/Career";
 import Skills from "@/components/Skills/Skills";
 import Research from "@/components/Research/Research";
 import Interests from "@/components/Interests/Interests";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Footer/Footer";
 
 export default function App() {
   const [theme, setTheme] = useState(
