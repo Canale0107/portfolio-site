@@ -78,6 +78,25 @@ body {
   color: var(--color-text-primary);
 }
 
+body,
+.profile-page,
+.navbar,
+.profile-page__overview,
+.profile-page__profile {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.profile-page__profile,
+.profile-page__overview,
+.profile-page__wide-section,
+.research__card,
+.career__timeline-event,
+.certification-skill__category {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
 footer {
   text-align: center;
   color: var(--color-text-secondary); /* グレー */
@@ -299,6 +318,7 @@ a:hover {
   fill: var(--color-bg-muted);
 }
 
+.linkedin-icon__bg,
 .linkedin-icon__fg {
   transition: fill 0.3s;
 }
@@ -374,6 +394,7 @@ a:hover {
   font-weight: bold;
   font-size: var(--font-size-large);
   flex-shrink: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .overview__value p {
@@ -386,6 +407,7 @@ a:hover {
 .marker {
   background: linear-gradient(transparent 60%, var(--color-accent-bg) 60%);
   font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 /* ========================================
   経歴セクション
