@@ -162,6 +162,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100%;
   background: var(--color-bg-surface);
   border-bottom: 1px solid var(--color-border-default);
   border-radius: 0.5rem;
@@ -173,6 +174,7 @@ a:hover {
 .navbar__list {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   padding: var(--space-sm) 0 var(--space-xs);
   margin: 0;
   list-style: none;
@@ -651,7 +653,6 @@ a:hover {
     position: absolute;
     top: 100%; /* .navbarの直下に表示 */
     left: 0;
-    width: 100%;
     z-index: 1000;
     box-shadow: var(--shadow-light);
   }
@@ -661,7 +662,7 @@ a:hover {
   }
 
   .navbar__list li {
-    margin: var(--space-xs) var(--space-md);
+    margin: var(--space-sm) var(--space-md);
   }
 
   .navbar__list li a {
