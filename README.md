@@ -71,6 +71,14 @@ npm run build
 
 - `index.html` はプロジェクト直下にあり、Vite の HTML エントリーポイントとして利用される。
 - `style.css` は `main.jsx` からインポートされることでグローバルに適用。
+- `index.html` は Vite によって処理される HTML テンプレートであり、React アプリのマウント先を定義している。
+  - `<div id="root"></div>` が配置されており、`main.jsx` から `App.jsx` がこの要素にマウントされる。
+  - 通常の HTML 開発と異なり、Vite によりビルド時に必要なスクリプトが自動で挿入されるため、`<script>` タグを自分で書く必要はない。
+  - HTML の見た目や構造はほとんどこのファイルでは定義せず、実質的に「React のエントリーポイント」としての役割に限定されている。
+  - `index.html` は `public/` ではなくプロジェクト直下に置くのが Vite の公式推奨スタイルです。
+    > index.html is a part of your source code and is processed by Vite. \
+    > It should be placed in the project root, not under public/.\
+    > — [Vite Docs: index.html and Public Directory](https://vite.dev/guide/#index-html-and-project-root)
 
 ## 🌍 公開サイト
 
