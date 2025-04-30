@@ -76,7 +76,7 @@ section {
 /* セクション名 */
 .sec-en {
   font-size: var(--font-size-xlarge);
-  margin-right: 0.5rem;
+  margin-right: var(--space-sm);
 }
 
 .sec-ja {
