@@ -1,6 +1,6 @@
 import React from "react";
-import jpg from "../assets/profile-pic.jpg";
-import webp from "../assets/profile-pic.webp";
+import jpg from "@/assets/profile-pic.jpg";
+import webp from "@/assets/profile-pic.webp";
 
 export default function ProfileImage() {
   return (

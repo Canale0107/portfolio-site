@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import ReactImage from "./ProfileImage.jsx";
+import ReactImage from "./components/profile/ProfileImage.jsx";
+import "@/styles/style.css";
 
 const container = document.getElementById("react-image");
 if (container) {

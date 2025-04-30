@@ -12,6 +12,14 @@
 │   │   ├── components/       # 再利用可能なHTMLコンポーネント
 │   │   └── profile-page.ejs  # ページ本体のテンプレート
 │   └── react/                # ReactによるUIコンポーネント（段階的に導入中）
+│       ├─ components/        # 各セクション単位で整理されたReactコンポーネント群
+│       │   ├── profile/      # プロフィール（画像・名前・基本情報など）
+│       │   ├── overview/     # 概略セクション （今後追加予定）
+│       │   ├── career/       # 経歴セクション （今後追加予定）
+│       │   ├── skills/       # スキル・資格セクション（今後追加予定）
+│       │   ├── research/     # 研究経験セクション（今後追加予定）
+│       │   └── interest/     # 興味・関心セクション（今後追加予定）
+│       └── entrypoints/      # Reactのマウント処理（DOM要素に動的挿入）
 ├── scripts/                  # EJSビルド用のNode.jsスクリプト
 │   └── build.js
 ├── dist/                     # Viteによる最終ビルド成果物（ハッシュ付き・デプロイ用）
@@ -26,22 +34,24 @@
 - 一部コンポーネント（例：プロフィール画像）を React により動的にレンダリング
 - Vite による開発サーバー＆本番ビルド最適化（画像や JS はハッシュ付き）
 - `nodemon` によって EJS・CSS・JSON の変更を検知して再ビルド
+- `@` エイリアスを設定しており、`@/assets/xxx.jpg` のように `src/` 配下を簡潔に参照可能（Vite の `resolve.alias` を使用）
 
 ## 🧱 使用パッケージ（devDependencies）
 
 - `ejs`: テンプレートエンジン（静的 HTML 生成）
 - `vite`: 高速ビルドツール
 - `react`: react-dom: 最小限の React 導入（部分的に使用）
+- `@vitejs/plugin-react`: React 対応の Vite プラグイン
 - `nodemon`: ファイル変更監視と自動ビルド
 - `fs/promises`: JSON の読み込みに使用（Node.js 標準）
 
 ## 🧩 スクリプトの役割
 
-| スクリプト             | 概要                                                           |
-| ---------------------- | -------------------------------------------------------------- |
-| `scripts/build.js`     | EJS + JSON で `index.html` を生成                              |
-| `src/react/mount*.jsx` | React コンポーネントのマウント処理（例：プロフィール画像表示） |
-| `src/react/*.jsx`      | React による UI パーツ（画像などを `import` で扱う）           |
+| スクリプト                    | 概要                                                   |
+| ----------------------------- | ------------------------------------------------------ |
+| `scripts/build.js`            | EJS + JSON で `index.html` を生成                      |
+| `src/react/components/*.jsx`  | UI パーツの実体（プロフィール画像など）                |
+| `src/react/entrypoints/*.jsx` | 各 UI を DOM にマウントする処理（ReactDOM.createRoot） |
 
 ## 🧾 JSON によるデータ管理
 
@@ -98,15 +108,15 @@ npm run build
 このプロジェクトでは、**EJS で静的 HTML を生成しつつ、一部領域を React で動的に描画**しています。
 さらに、資格・スキル・名言などのデータはすべて JSON で管理されており、テンプレートとデータを分離した柔軟な構成となっています。
 
-### ① React のマウント構成
+### ① React のマウント構成（例）
 
 React パーツは `src/react/mount*.jsx` で定義され、以下のように EJS テンプレート内の `id` を指定した DOM にマウントされます。
 
 **例：プロフィール画像のマウント**
 
 ```jsx
-// src/react/mountProfileImage.jsx
-const container = document.getElementById("react-profile-image");
+// src/react/entrypoints/mountProfile.jsx
+const container = document.getElementById("react-profile");
 if (container) {
   ReactDOM.createRoot(container).render(<ProfileImage />);
 }
@@ -114,8 +124,11 @@ if (container) {
 
 ```html
 <!-- profile-page.ejs -->
-<div id="react-profile-image"></div>
-<script type="module" src="/src/react/mountProfileImage.jsx"></script>
+<div id="react-profile"></div>
+<script
+  type="module"
+  src="/src/react/entrypoints/mountProfile.jsx"
+></script>
 ```
 
 各 `mount*.jsx` は必要な DOM 要素があれば動的に React コンポーネントをマウントします。
