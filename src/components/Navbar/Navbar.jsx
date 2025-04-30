@@ -42,13 +42,26 @@ export default function Navbar({ toggleTheme, theme }) {
 
       {/* PC用 or 展開時のリスト */}
       <ul className={`${styles.list} ${isOpen ? styles.open : ""}`}>
-        {items.map(({ href, label }) => (
-          <li key={href}>
-            <a href={href} onClick={() => setIsOpen(false)}>
-              {label}
-            </a>
-          </li>
-        ))}
+        {items.map(({ href, label }) => {
+          const targetId = href.replace("#", ""); // "#about-me" → "about-me"
+          return (
+            <li key={href}>
+              <button
+                onClick={() => {
+                  const el = document.getElementById(targetId);
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                    setIsOpen(false); // モバイル用に閉じる
+                  }
+                }}
+                className={styles.navItemBtn} // 必要ならスタイル追加
+                aria-label={`${label} にスクロール`}
+              >
+                {label}
+              </button>
+            </li>
+          );
+        })}
         <li className={`${styles.themeToggleListItem}`}>
           <button
             onClick={toggleTheme}
