@@ -12,7 +12,7 @@ const templatePath = path.resolve(
   __dirname,
   "../src/templates/profile-page.ejs"
 );
-const outputPath = path.resolve(__dirname, "../public/index.html");
+const outputPath = path.resolve(__dirname, "../index.html");
 const certPath = path.resolve(__dirname, "../src/data/certifications.json"); // 資格データ
 const skillsJsonPath = path.resolve(__dirname, "../src/data/skills.json"); // スキルデータ
 const quotesJsonPath = path.resolve(__dirname, "../src/data/quotes.json"); // 名言データ

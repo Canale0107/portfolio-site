@@ -3,7 +3,6 @@
 ```
 .
 ├── public/              # ブラウザが参照する静的ファイル（HTML/CSS 出力先）
-│   ├── index.html       # EJS から生成された最終 HTML（編集しない）
 │   └── styles/          # コピーされた CSS（編集しない）
 ├── src/                 # 編集対象のソース
 │   ├── templates/       # EJS テンプレート
@@ -13,6 +12,7 @@
 │   └── data/            # スキルや資格などの JSON データ
 ├── scripts/             # ビルド用 Node.js スクリプト
 ├── dist/                # `vite build` による本番用ビルド成果物
+├── index.html           # EJS から生成された最終 HTML（編集しない／Git管理対象外）
 └── vite.config.js       # Vite 設定（今回はほぼデフォルト）
 ```
 
@@ -34,7 +34,7 @@
 
 | スクリプト              | 概要                                           |
 | ----------------------- | ---------------------------------------------- |
-| `scripts/build.js`      | EJS + JSON で `public/index.html` を生成       |
+| `scripts/build.js`      | EJS + JSON で `index.html` を生成              |
 | `scripts/copy-style.js` | `src/styles` → `public/styles` に CSS をコピー |
 
 ## 🧾 JSON によるデータ管理
@@ -69,7 +69,7 @@ npm run watch
 npm run build
 ```
 
-- `public/index.html`を生成し、さらに Vite によって`dist/`フォルダに最適化された成果物が出力されます（将来的にデプロイ用）。
+- `index.html`を生成し、さらに Vite によって`dist/`フォルダに最適化された成果物が出力されます（デプロイ用）。
 
 ## 📜 npm scripts 一覧
 

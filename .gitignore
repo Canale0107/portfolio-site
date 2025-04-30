@@ -5,7 +5,7 @@
 /dist/
 
 # 自動生成されるHTMLやCSS（ビルド後の成果物）
-/public/index.html
+/index.html
 /public/styles/style.css
 
 # macOS特有
