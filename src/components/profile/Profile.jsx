@@ -1,9 +1,11 @@
 import React from "react";
 import ProfileImage from "./ProfileImage";
-import CompanyIcon from "./icons/CompanyIcon";
-import StatusIcon from "./icons/StatusIcon"
-import LocationIcon from "./icons/LocationIcon";
-import BirthdayIcon from "./icons/BirthdayIcon";
+import {
+  CompanyIcon,
+  StatusIcon,
+  LocationIcon,
+  BirthdayIcon,
+} from "@/components/profile/icons";
 
 const items = [
   {
