@@ -101,6 +101,7 @@ npm run build
 ### ① React のマウント構成
 
 React パーツは `src/react/mount*.jsx` で定義され、以下のように EJS テンプレート内の `id` を指定した DOM にマウントされます。
+
 **例：プロフィール画像のマウント**
 
 ```jsx
@@ -125,14 +126,16 @@ if (container) {
 1. `scripts/build.js` が `src/templates/profile-page.ejs` をレンダリングし、`index.html` を出力
 2. テンプレートには React マウント用の `<script type="module" src="...">` が静的に記述されており、そのまま HTML に出力される
 3. Vite は `index.html` をエントリーポイントとして、React や CSS、画像等を最終ビルドに含める
+
    **図解フロー：**
 
-```
-data/*.json + profile-page.ejs
-           ↓ (build.js)
-       index.html（Reactのscriptタグを含む）
-           ↓ (Vite)
-        dist/ にハッシュ付き成果物を出力
+```mermaid
+flowchart TD
+    A[data/*.json] --> C
+    B[profile-page.ejs] --> C
+    C[scripts/build.js] --> D[index.html<br>（Reactのscriptタグを含む）]
+    D --> E[Viteによるビルド]
+    E --> F[dist/<br>ハッシュ付き成果物を出力]
 ```
 
 `index.html` は手動で編集せず、テンプレートで管理します。
@@ -170,7 +173,10 @@ data/*.json + profile-page.ejs
   </ul>
 <% } %>
 ```
+
 このように、JSON データの構造をそのまま EJS で展開することで、構造変更や多言語対応にも柔軟に対応できます。
+
+※ `scripts/build.js` は現在、`skills.json`, `certifications.json`, `quotes.json` を読み込んでいます。
 
 ## 💡 拡張ポイント
 
