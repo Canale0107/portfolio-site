@@ -1,9 +1,6 @@
 # 依存ライブラリ
 /node_modules/
 
-# 中間生成物
-/index.html
-
 # Viteのビルド成果物（本番用）
 /dist/
 
