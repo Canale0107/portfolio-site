@@ -115,3 +115,32 @@ section {
   box-sizing: border-box;
   background-color: var(--color-bg-surface);
 }
+
+/* ========================================
+  スクロールバー
+======================================== */
+
+/* 全体の太さ */
+::-webkit-scrollbar {
+  width: 12px; /* 縦スクロールバーの幅 */
+  height: 12px; /* 横スクロールバーの高さ（必要に応じて） */
+}
+
+/* トラック部分（背景） */
+::-webkit-scrollbar-track {
+  background: var(--color-bg-default);
+  border-radius: 8px;
+}
+
+/* つまみ部分（スライダー） */
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent); /* 通常の色 */
+  border-radius: 10px; /* 丸み */
+  border: 1px solid transparent; /* スクロールバーに余白感を出す */
+  background-clip: content-box;
+}
+
+/* ホバー時の色変更 */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-accent-hover);
+}
