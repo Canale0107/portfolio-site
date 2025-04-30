@@ -7,10 +7,12 @@ html {
 }
 
 body {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "IBM Plex Sans JP", sans-serif;
   margin: 0;
   background: var(--color-bg-default);
   color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body,
