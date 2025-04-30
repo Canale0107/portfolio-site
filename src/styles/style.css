@@ -295,6 +295,7 @@ a:hover {
   color: var(--color-accent);
   margin-right: var(--space-xs);
   flex-shrink: 0;
+  transition: color 0.3s ease;
 }
 
 .profile-page__social-links {
