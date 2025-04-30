@@ -11,7 +11,7 @@ export default function Skills() {
       id="skills"
     >
       <h2>
-        <span className="sec-en">CERTIFICATIONS / SKILLS</span>
+        <span className="sec-en">SKILLS</span>
         <span className="sec-ja">資格・スキル</span>
       </h2>
 

@@ -661,7 +661,7 @@ a:hover {
   }
 
   .navbar__list li {
-    margin: var(--space-xs) 0;
+    margin: var(--space-xs) var(--space-md);
   }
 
   .navbar__list li a {
