@@ -49,7 +49,7 @@ export default function Navbar({ toggleTheme, theme }) {
             </a>
           </li>
         ))}
-        <li className="theme-toggle-wrapper">
+        <li className={`${styles.themeToggleListItem}`}>
           <button
             onClick={toggleTheme}
             className={styles.themeToggleBtn}
