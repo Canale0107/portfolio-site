@@ -5,6 +5,8 @@ import {
   StatusIcon,
   LocationIcon,
   BirthdayIcon,
+  GitHubIcon,
+  LinkedInIcon,
 } from "@/components/icons";
 
 const items = [
@@ -26,6 +28,19 @@ const items = [
   },
 ];
 
+const socialLinks = [
+  {
+    icon: GitHubIcon,
+    url: "https://github.com/Canale0107",
+    label: "GitHub",
+  },
+  {
+    icon: LinkedInIcon,
+    url: "https://www.linkedin.com/in/kanare-kodera/",
+    label: "LinkedIn",
+  },
+];
+
 export default function Profile() {
   return (
     <section className="profile-page__section profile-page__profile">
@@ -39,6 +54,22 @@ export default function Profile() {
           <li key={i}>
             <Icon className="profile-page__info-icon" />
             <div className="profile-page__info-text">{content}</div>
+          </li>
+        ))}
+      </ul>
+
+      {/* SNSリンクアイコンボックス */}
+      <ul className="profile-page__social-links">
+        {socialLinks.map(({ icon: Icon, url, label }, i) => (
+          <li key={i}>
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+            >
+              <Icon className="profile-page__social-icon" />
+            </a>
           </li>
         ))}
       </ul>

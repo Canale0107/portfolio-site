@@ -278,6 +278,26 @@ a:hover {
   flex-shrink: 0;
 }
 
+.profile-page__social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.profile-page__social-icon {
+  width: 25px;
+  height: 25px;
+  color: var(--color-text-secondary);
+  transition: color 0.3s;
+}
+
+.profile-page__social-icon:hover {
+  color: var(--color-accent-hover);
+}
+
 /* ========================================
   パーパス・価値観セクション
 ======================================== */
