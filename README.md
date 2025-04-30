@@ -3,7 +3,7 @@
 ```
 .
 ├── public/                   # ブラウザが直接参照する静的ファイル（faviconなど）
-│   └── favicon.ico
+│   └── favicons
 ├── src/                      # 開発対象のソースコード（EJS/スタイル/React/データ）
 │   ├── assets/               # Reactでimportされる画像などの静的リソース（ビルド時にハッシュ付き出力）
 │   ├── data/                 # スキルや資格などのJSONデータ
