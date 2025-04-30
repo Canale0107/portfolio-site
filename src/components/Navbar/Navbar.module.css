@@ -102,7 +102,7 @@
 
   .list {
     flex-direction: column;
-    padding: 0 var(--space-sm);
+    padding: var(--space-sm);
     margin: 0;
     list-style: none;
     background: var(--color-bg-surface);
