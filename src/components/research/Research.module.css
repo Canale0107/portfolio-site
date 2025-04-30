@@ -1,0 +1,49 @@
+.card {
+  background: var(--color-bg-muted);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light);
+  padding: var(--space-xs) var(--space-sm);
+  margin: var(--space-md) var(--space-xs);
+  transition: box-shadow var(--transition-time-base) ease,
+    color var(--transition-time-base) ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.description {
+  font-size: var(--font-size-small);
+  margin: var(--space-xs);
+}
+
+.publication {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--space-xs);
+}
+
+.pubContent {
+  border-left: 0.25rem solid var(--color-accent);
+  padding-left: var(--space-sm);
+}
+
+.pubContent p {
+  margin: 0;
+}
+
+.authors {
+  font-size: var(--font-size-small);
+  font-weight: bold;
+}
+
+.titleEn {
+  font-style: italic;
+  font-size: var(--font-size-base);
+  color: var(--color-accent);
+}
+
+.venue {
+  font-style: italic;
+  font-size: var(--font-size-small);
+}

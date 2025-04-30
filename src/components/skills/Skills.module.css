@@ -1,0 +1,70 @@
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+}
+
+.category {
+  background: var(--color-bg-muted);
+  padding: 0 var(--space-sm) var(--space-sm);
+  border-radius: 0.5rem;
+  width: 13.75rem;
+  box-shadow: var(--shadow-light);
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease,
+    box-shadow var(--transition-time-base) ease;
+}
+
+.category:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.certifications,
+.skills {
+  list-style: none;
+  padding-left: var(--space-xs);
+}
+
+.certificationName,
+.skillName {
+  font-size: var(--font-size-xsmall);
+  font-weight: bold;
+  display: inline-block;
+  width: 8.25rem;
+}
+
+.certificationDate {
+  color: var(--color-text-secondary);
+  font-size: 0.625rem;
+  margin-left: var(--space-xs);
+}
+
+.skillItem {
+  margin-bottom: 0.3125rem;
+  font-size: var(--font-size-small);
+}
+
+.skillBar {
+  background-color: var(--color-shadow);
+  border-radius: 6px;
+  height: 0.5rem;
+  margin: 0.1rem 0 0.25rem;
+  overflow: hidden;
+  transition: background-color var(--transition-time-base) ease;
+  position: relative;
+}
+
+.fill {
+  background-color: var(--color-accent);
+  height: 100%;
+  width: 0%;
+  border-radius: 6px;
+  transition: width 0.6s ease;
+}
+
+.active {
+  width: var(--target-width);
+}

@@ -1,0 +1,91 @@
+/* ========================================
+  プロフィールセクション
+======================================== */
+.profile {
+  width: 25%;
+  background: var(--color-bg-muted);
+  text-align: left;
+  border-right: 1px solid var(--color-border-default);
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease,
+    border-color var(--transition-time-base) ease;
+}
+
+.profileImage {
+  width: 80%;
+  border-radius: 20%;
+  margin: var(--space-md) auto var(--space-lg);
+  display: block;
+  box-shadow: var(--shadow-light);
+}
+
+.profileImage:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* ダークモードでは少し暗くする */
+.darkProfileImage {
+  filter: brightness(0.75); /* 0〜1 で暗くする（1=そのまま） */
+  box-shadow: var(--shadow-light);
+}
+
+.darkProfileImage:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.name {
+  margin-left: 10%;
+  transition: color var(--transition-time-base);
+}
+
+.nameJa {
+  font-size: var(--font-size-xlarge);
+  margin-bottom: -0.3125rem;
+}
+
+.nameEn {
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+}
+
+.name::after {
+  content: "";
+  display: block;
+  width: 90%;
+  height: 0.1875rem;
+  background: var(--color-accent);
+  margin: var(--space-md) 0 0;
+}
+
+/* 基本情報リスト */
+.details {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 0 10%;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  font-size: var(--font-size-small);
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-accent);
+  margin-right: var(--space-xs);
+  flex-shrink: 0;
+  transition: color var(--transition-time-base) ease;
+}
+
+.socialLinks {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 0 10%;
+}

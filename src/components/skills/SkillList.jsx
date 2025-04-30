@@ -1,20 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import styles from "./Skills.module.css";
+import SkillBar from "./SkillBar";
 
 export default function SkillList({ data }) {
+  const [triggerMap, setTriggerMap] = useState({});
+
+  const handleHover = (catIndex) => {
+    setTriggerMap((prev) => ({
+      ...prev,
+      [catIndex]: Date.now(), // ✅ 毎回異なる値で更新
+    }));
+  };
+
   return (
-    <section className="certification-skill__categories">
-      {data.map((category, i) => (
-        <section className="certification-skill__category" key={i}>
+    <section className={styles.categories}>
+      {data.map((category, catIndex) => (
+        <section
+          className={styles.category}
+          key={catIndex}
+          onMouseEnter={() => handleHover(catIndex)}
+        >
           <h4>{category.name}</h4>
-          <ul className="certification-skill__skills">
-            {category.items.map((skill, j) => (
-              <li key={j}>
-                <span className="certification-skill__skill-name">
-                  {skill.name}
-                </span>
-                <div className="skill-bar">
-                  <div style={{ width: `${skill.level}%` }}></div>
-                </div>
+          <ul className={styles.skills}>
+            {category.items.map((skill, skillIndex) => (
+              <li key={skillIndex} className={styles.skillItem}>
+                <span className={styles.skillName}>{skill.name}</span>
+                <SkillBar
+                  level={skill.level}
+                  trigger={triggerMap[catIndex] ?? 0}
+                />
               </li>
             ))}
           </ul>

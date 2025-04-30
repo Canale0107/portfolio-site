@@ -15,15 +15,13 @@ body {
 
 body,
 .profile-page,
-.navbar,
-.profile-page__profile,
-.profile-page__overview,
 .profile-page__wide-section,
 .research__card,
 .career__timeline-event,
 .certification-skill__category {
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease,
+    border-color var(--transition-time-base) ease;
 }
 
 footer {
@@ -39,6 +37,7 @@ h4 {
   color: var(--color-text-primary);
   margin-bottom: var(--space-xs);
   padding-bottom: 0.25rem;
+  transition: color var(--transition-time-base) ease;
 }
 
 h3 {
@@ -61,9 +60,8 @@ a:hover {
 
 /* 強調マーカー */
 .marker {
-  background: linear-gradient(transparent 60%, var(--color-accent-bg) 60%);
+  background: linear-gradient(to bottom, transparent 20%, var(--color-accent-bg) 100%);
   font-weight: 600;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* セクション名 */
@@ -110,4 +108,13 @@ section {
 .profile-page__section {
   padding: var(--space-md) var(--space-lg);
   box-sizing: border-box;
+}
+
+.profile-page__wide-section {
+  width: 100%;
+  scroll-margin-top: 2rem;
+  border-top: 1px solid var(--color-border-default); /* 上に線をつける */
+  padding: var(--space-sm) var(--space-md);
+  box-sizing: border-box;
+  background-color: var(--color-bg-surface);
 }

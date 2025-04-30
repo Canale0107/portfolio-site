@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Research.module.css";
 
 export default function ResearchCard({
   title,
@@ -9,20 +10,20 @@ export default function ResearchCard({
   location,
 }) {
   return (
-    <section className="research__card">
+    <section className={styles.card}>
       <h3>{title}</h3>
       <p
-        className="research__card-description"
+        className={styles.description}
         dangerouslySetInnerHTML={{ __html: description }}
       />
-      <div className="research__publication">
-        <div className="research__publication-content">
-          <p className="research__publication-authors">{authors}</p>
-          <p className="research__publication-title">{title_en}</p>
-          <p className="research__publication-venue">
+      <div className={styles.publication}>
+        <div className={styles.pubContent}>
+          <p className={styles.authors}>{authors}</p>
+          <p className={styles.titleEn}>{title_en}</p>
+          <p className={styles.venue}>
             <i>{venue}</i>
           </p>
-          <p className="research__publication-venue">{location}</p>
+          <p className={styles.venue}>{location}</p>
         </div>
       </div>
     </section>

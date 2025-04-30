@@ -1,5 +1,10 @@
 import React from "react";
+import classNames from "classnames";
+
 import ProfileImage from "./ProfileImage";
+import styles from "./Profile.module.css";
+import iconStyles from "@/components/icons/Icon.module.css";
+
 import {
   CompanyIcon,
   StatusIcon,
@@ -41,25 +46,25 @@ const socialLinks = [
   },
 ];
 
-export default function Profile() {
+export default function Profile({ theme }) {
   return (
-    <section className="profile-page__section profile-page__profile">
-      <ProfileImage />
-      <h2 className="profile-page__name">
-        <div className="profile-page__name-japanese">小寺 奏怜</div>
-        <div className="profile-page__name-english">Kodera Kanare</div>
+    <section className={classNames("profile-page__section", styles.profile)}>
+      <ProfileImage theme={theme} />
+      <h2 className={styles.name}>
+        <div className={styles.nameJa}>小寺 奏怜</div>
+        <div className={styles.nameEn}>Kodera Kanare</div>
       </h2>
-      <ul className="profile-page__profile-details">
+      <ul className={styles.details}>
         {items.map(({ icon: Icon, content }, i) => (
-          <li key={i}>
-            <Icon className="profile-page__info-icon" />
-            <div className="profile-page__info-text">{content}</div>
+          <li key={i} className={styles.detailItem}>
+            <Icon className={styles.icon} />
+            <div>{content}</div>
           </li>
         ))}
       </ul>
 
       {/* SNSリンクアイコンボックス */}
-      <ul className="profile-page__social-links">
+      <ul className={styles.socialLinks}>
         {socialLinks.map(({ icon: Icon, url, label }, i) => (
           <li key={i}>
             <a
@@ -68,7 +73,7 @@ export default function Profile() {
               rel="noopener noreferrer"
               aria-label={label}
             >
-              <Icon className="profile-page__social-icon" />
+              <Icon className={iconStyles.socialIcon} />
             </a>
           </li>
         ))}

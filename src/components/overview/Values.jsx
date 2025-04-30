@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Overview.module.css"
 import values from "@/data/values.json";
 
 export default function Values() {
@@ -8,10 +9,10 @@ export default function Values() {
         <span className="sec-en">MY VALUES</span>
         <span className="sec-ja">大切にする価値観</span>
       </h2>
-      <div className="overview__values">
+      <div className={styles.values}>
         {values.map((item, i) => (
-          <div className="overview__value" key={i}>
-            <div className="overview__value-icon">{item.label}</div>
+          <div className={styles.value} key={i}>
+            <div className={styles.valueIcon}>{item.label}</div>
             <p dangerouslySetInnerHTML={{ __html: item.text }} />
           </div>
         ))}

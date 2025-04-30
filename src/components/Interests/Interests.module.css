@@ -1,0 +1,43 @@
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  margin-bottom: 1.5em;
+}
+
+.block {
+  background: var(--color-bg-muted);
+  border-left: 4px solid var(--color-shadow);
+  padding: 0.75em 1em;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--transition-time-base) ease,
+    border-color var(--transition-time-base) ease;
+}
+
+.text {
+  font-style: italic;
+  font-size: 1.05em;
+  margin-bottom: 0.3em;
+  text-align: left;
+  transition: color var(--transition-time-base) ease;
+}
+
+.author {
+  margin-top: 0.5em;
+  align-self: flex-end;
+  display: inline-block;
+  text-align: left;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-time-base) ease;
+}
+
+.commentary {
+  font-size: 0.9em;
+  color: var(--color-text-secondary);
+}

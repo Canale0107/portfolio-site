@@ -1,0 +1,79 @@
+/* ========================================
+  パーパス・価値観セクション
+======================================== */
+.overview {
+  width: 75%;
+  border-right: 1px solid var(--color-border-default);
+  background-color: var(--color-bg-surface);
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease,
+    border-color var(--transition-time-base) ease;
+}
+
+/* パーパス横の線とパーパスの内容*/
+.purpose {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+/* パーパス左の線 */
+.purposeLine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.25rem;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--color-accent-hover), #f5a623);
+  border-radius: 0.125rem;
+}
+
+/* パーパスの内容　*/
+.purposeTexts {
+  margin-left: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+}
+.purposeJa {
+  font-weight: 700;
+  font-size: var(--font-size-base);
+}
+
+.purposeEn {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+  font-style: italic;
+}
+
+/* 価値観リスト */
+.values {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.value {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.valueIcon {
+  width: 3.75rem;
+  height: 3.75rem;
+  background-color: var(--color-accent-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: var(--font-size-large);
+  flex-shrink: 0;
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease;
+}
+
+.value p {
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  margin: 0;
+}

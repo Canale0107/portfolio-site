@@ -1,0 +1,82 @@
+/* ========================================
+  経歴セクション
+======================================== */
+
+/* Career.module.css */
+.timeline {
+  list-style: none;
+  margin: 0 auto 0 6em;
+  padding-left: 34px; /* 棒の位置が変わる */
+  border-left: 5px solid var(--color-accent);
+  box-sizing: border-box;
+}
+
+.item {
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+  position: relative;
+}
+
+.date {
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  color: var(--color-accent);
+  width: 71px;
+  display: inline-block;
+  margin-left: -112px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  margin-top: var(--space-sm);
+  vertical-align: top;
+  position: relative;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.date::after {
+  content: "";
+  position: absolute;
+  right: -15px; /* 丸の位置が変わる*/
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border: 5px solid var(--color-accent);
+  border-radius: 50%;
+  background: var(--color-bg-surface);
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease,
+    border-color var(--transition-time-base) ease;
+}
+
+.event {
+  display: inline-block;
+  width: 100%;
+  margin-left: 20px;
+  padding: 15px 10px;
+  vertical-align: middle;
+  background: var(--color-bg-muted);
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light);
+  transition: box-shadow var(--transition-time-base) ease;
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease,
+    border-color var(--transition-time-base) ease;
+}
+
+.event:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.title {
+  font-weight: 700;
+  margin: 0.25rem 0;
+}
+
+.description {
+  font-size: var(--font-size-small);
+  font-weight: normal;
+  margin: 0.25rem 0;
+  color: var(--color-text-secondary);
+}
