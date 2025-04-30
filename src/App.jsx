@@ -1,12 +1,13 @@
 // src/react/App.jsx
 import React from "react";
-import Navbar from "./components/Navbar";
-import Profile from "./components/profile/Profile";
-import Overview from "./components/overview/Overview";
-import Career from "./components/career/Career";
-import Skills from "./components/skills/Skills";
-import Research from "./components/research/Research";
-import Interests from "./components/interest/Interests";
+import Navbar from "@/components/Navbar";
+import Profile from "@/components/profile/Profile";
+import Overview from "@/components/overview/Overview";
+import Career from "@/components/career/Career";
+import Skills from "@/components/skills/Skills";
+import Research from "@/components/research/Research";
+import Interests from "@/components/interest/Interests";
+import Footer from "@/components/Footer";
 
 export default function App() {
   return (
@@ -21,9 +22,7 @@ export default function App() {
         <Research />
         <Interests />
       </main>
-      <footer className="profile-page__footer">
-        <p>© 2025 Kodera Kanare</p>
-      </footer>
+      <Footer />
     </>
   );
 }

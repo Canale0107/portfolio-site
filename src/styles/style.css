@@ -73,6 +73,15 @@ section {
   scroll-margin-top: 4rem;
 }
 
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
 /* セクション名 */
 .sec-en {
   font-size: var(--font-size-xlarge);
@@ -492,15 +501,6 @@ section {
   font-style: italic;
   font-size: var(--font-size-base);
   color: var(--color-primary);
-}
-
-.research__publication-content a {
-  color: var(--color-primary);
-  text-decoration: underline;
-}
-
-.research__publication-content a:hover {
-  color: var(--color-primary-hover);
 }
 
 .research__publication-venue {
