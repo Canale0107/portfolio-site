@@ -1,13 +1,13 @@
 // src/react/App.jsx
 import React, { useEffect, useState } from "react";
-import Navbar from "@/components/Navbar-tmp/Navbar-tmp";
-import Profile from "@/components/Profile-tmp/Profile-tmp";
-import Overview from "@/components/Overview-tmp/Overview-tmp";
-import Career from "@/components/Career-tmp/Career-tmp";
-import Skills from "@/components/Skills-tmp/Skills-tmp";
-import Research from "@/components/Research-tmp/Research-tmp";
-import Interests from "@/components/Interests-tmp/Interests-tmp";
-import Footer from "@/components/Footer-tmp";
+import Navbar from "@/components/Navbar/Navbar";
+import Profile from "@/components/Profile/Profile";
+import Overview from "@/components/Overview/Overview";
+import Career from "@/components/Career/Career";
+import Skills from "@/components/Skills/Skills";
+import Research from "@/components/Research/Research";
+import Interests from "@/components/Interests/Interests";
+import Footer from "@/components/Footer";
 
 export default function App() {
   const [theme, setTheme] = useState(
