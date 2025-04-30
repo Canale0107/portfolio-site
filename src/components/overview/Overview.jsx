@@ -6,7 +6,7 @@ import AboutMe from "./AboutMe";
 export default function Overview() {
   return (
     <section
-      class="profile-page__section profile-page__overview"
+      className="profile-page__section profile-page__overview"
       id="react-overview"
     >
       <Purpose />
