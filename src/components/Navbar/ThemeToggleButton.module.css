@@ -35,8 +35,6 @@
   position: absolute;
   width: 16px;
   height: 16px;
-  left: 8px;
-  bottom: 4px;
   border-radius: 50%;
   background: var(--color-bg-surface);
   transition: all var(--transition-time-sm) ease;
