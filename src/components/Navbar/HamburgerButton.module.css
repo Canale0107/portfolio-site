@@ -9,7 +9,16 @@
   display: inline-block;
   box-sizing: border-box;
   transition: all 0.5s;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
 }
+
+.btnTrigger:focus-visible {
+  outline: 2px solid #333; /* キーボード操作用のアウトライン */
+}
+
 .btnTrigger span {
   position: absolute;
   left: 0;
