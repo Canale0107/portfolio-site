@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
 import styles from "./Navbar.module.css";
 import { navItems } from "@/constants/navigation";
+import HamburgerButton from "./HamburgerButton";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 export default function Navbar({ toggleTheme, theme }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,22 +16,8 @@ export default function Navbar({ toggleTheme, theme }) {
     >
       {/* スマホ用：ハンバーガー＋テーマ */}
       <div className={styles.mobile}>
-        <div
-          className={`${styles.btnTrigger} ${isOpen ? styles.active : ""}`}
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="メニューを開く"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <button
-          onClick={toggleTheme}
-          className={styles.themeToggleBtn}
-          aria-label="テーマ切替"
-        >
-          {theme === "dark" ? <FiSun /> : <FiMoon className={styles.moon} />}
-        </button>
+        <HamburgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+        <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />
       </div>
 
       {/* PC用 or 展開時のリスト */}
@@ -59,13 +47,7 @@ export default function Navbar({ toggleTheme, theme }) {
 
         {/* テーマ切替ボタンは常時表示 */}
         <li className={styles.themeToggleListItem}>
-          <button
-            onClick={toggleTheme}
-            className={styles.themeToggleBtn}
-            aria-label="テーマ切替"
-          >
-            {theme === "dark" ? <FiSun /> : <FiMoon className={styles.moon} />}
-          </button>
+          <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />
         </li>
       </ul>
     </nav>

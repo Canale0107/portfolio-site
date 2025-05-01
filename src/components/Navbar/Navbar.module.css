@@ -45,86 +45,17 @@
   padding: var(--space-xs) var(--space-sm);
 }
 
-/* ========================================
-  ハンバーガーメニュー
-======================================== */
-.btnTrigger {
-  position: relative;
-  width: 30px;
-  height: 24px;
-  cursor: pointer;
-  display: inline-block;
-  box-sizing: border-box;
-  transition: all 0.5s;
-}
-.btnTrigger span {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: var(--color-text-primary);
-  border-radius: 4px;
-  transition: all 0.5s;
-  box-sizing: border-box;
-}
-.btnTrigger span:nth-of-type(1) {
-  top: 0;
-}
-.btnTrigger span:nth-of-type(2) {
-  top: 10px;
-}
-.btnTrigger span:nth-of-type(3) {
-  bottom: 0;
-}
-
-/* アクティブ時の変形 */
-.active {
-  transform: rotate(360deg);
-}
-.active span:nth-of-type(1) {
-  transform: translateY(10px) rotate(-45deg);
-}
-.active span:nth-of-type(2) {
-  transform: translateY(0) rotate(45deg);
-}
-.active span:nth-of-type(3) {
-  opacity: 0;
-}
-
-.themeToggleBtn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-  margin-left: 0.5rem;
-  transition: transform var(--transition-time-base) ease;
-  color: var(--color-text-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.themeToggleBtn svg {
-  width: 24px;
-  height: 24px;
-  color: #facc15; /* 黄色い太陽の例 */
-  transition: color 0.3s ease;
-}
-
-.themeToggleBtn:hover {
-  transform: scale(1.2);
-}
-
-.themeToggleBtn:hover svg {
-  color: #fcd34d; /* ホバーで色が変わる例 */
-}
-.themeToggleBtn svg.moon {
-  color: #40e0d0; /* ターコイズ */
-}
-
 /* オープン状態のリスト */
 .open {
   display: flex !important;
+}
+
+.mobile {
+  display: none;
+}
+
+.mobileOnly {
+  display: none;
 }
 
 /* モバイル時にハンバーガーを表示、リストは非表示 */
@@ -136,6 +67,10 @@
 
   .mobile {
     display: flex;
+  }
+
+  .mobileOnly {
+    display: block;
   }
 
   .list {
@@ -192,14 +127,4 @@
 
 .navItemBtn:hover {
   color: var(--color-accent-hover);
-}
-
-.mobileOnly {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .mobileOnly {
-    display: none;
-  }
 }

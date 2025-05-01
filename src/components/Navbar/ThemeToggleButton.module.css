@@ -1,0 +1,30 @@
+.themeToggleBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  transition: transform var(--transition-time-base) ease;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themeToggleBtn svg {
+  width: 24px;
+  height: 24px;
+  color: #facc15; /* 黄色い太陽の例 */
+  transition: color 0.3s ease;
+}
+
+.themeToggleBtn:hover {
+  transform: scale(1.2);
+}
+
+.themeToggleBtn:hover svg {
+  color: #fcd34d; /* ホバーで色が変わる例 */
+}
+.themeToggleBtn svg.moon {
+  color: #40e0d0; /* ターコイズ */
+}
