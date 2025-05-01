@@ -27,7 +27,7 @@
   border-radius: 50%;
   background: var(--color-sunmoon-icon);
   position: relative;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.75s ease-in-out;
 }
 
 .icon::after {
@@ -37,7 +37,8 @@
   height: 28px;
   border-radius: 50%;
   background: var(--color-bg-surface);
-  transition: all var(--transition-time-sm) ease;
+  transition: background-color var(--transition-time-sm) ease, transform 0.5s ease,
+    left 0.25s ease, bottom 0.25s ease;
 }
 
 .ray {
@@ -53,7 +54,7 @@
 
 .ray {
   --angle: 0deg;
-  transform: rotate(var(--angle)) translateX(16px);
+  transform: rotate(var(--angle)) translateX(24px);
 }
 
 .ray:nth-child(1) {
@@ -100,13 +101,13 @@
 }
 .dark .icon::after {
   transform: scale(0);
-  left: 22px;
-  bottom: 20px;
+  left: 20px;
+  bottom: 18px;
 }
 
 .dark .ray {
   --angle: 0deg;
-  transform: rotate(var(--angle)) translateX(-24px);
+  transform: rotate(var(--angle)) translateX(-26px);
 }
 
 .dark .ray:nth-child(1) {
