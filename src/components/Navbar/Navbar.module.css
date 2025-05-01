@@ -86,7 +86,8 @@
     visibility: hidden;
     opacity: 0;
     transform: translateY(-10px);
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s linear 0.3s;
+    transition: transform 0.3s ease, opacity 0.3s ease,
+      visibility 0s linear 0.3s;
     pointer-events: none; /* 非表示状態ではクリック不可に */
     display: flex;
     flex-direction: column;

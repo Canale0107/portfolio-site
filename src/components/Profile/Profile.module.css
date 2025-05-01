@@ -68,8 +68,8 @@
   margin: var(--space-md) 0 0 10%;
 }
 
-@media (max-width: 900px) {
-  .profile{
+@media (max-width: 800px) {
+  .profile {
     width: 100%;
     border-right: none;
     border-top: 1px solid var(--color-border-default);
