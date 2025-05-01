@@ -17,7 +17,6 @@
 }
 
 .list {
-  display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding: var(--space-xs) var(--space-sm);
@@ -61,6 +60,13 @@
   display: none;
 }
 
+/* デスクトップ用（801px以上）の時に表示 */
+@media (min-width: 801px) {
+  .list {
+    display: flex;
+  }
+}
+
 /* モバイル時にハンバーガーを表示、リストは非表示 */
 @media (max-width: 800px) {
   .navbar {
@@ -77,6 +83,7 @@
   }
 
   .list {
+    display: none;
     flex-direction: column;
     padding: var(--space-sm);
     margin: 0;
