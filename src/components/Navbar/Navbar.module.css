@@ -83,29 +83,31 @@
   }
 
   .list {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s linear 0.3s;
+    pointer-events: none; /* 非表示状態ではクリック不可に */
+    display: flex;
     flex-direction: column;
     padding: var(--space-sm);
-    margin: 0;
-    list-style: none;
     background: var(--color-bg-surface);
     border-top: 1px solid var(--color-border-default);
     position: absolute;
+    margin: 0;
+    list-style: none;
     top: 100%; /* .navbarの直下に表示 */
     left: 0;
     z-index: 1000;
     box-shadow: var(--shadow-light);
     border-radius: 0 0.75rem 0.75rem 0.75rem;
-    transform: translateY(-10px);
-    opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    pointer-events: none; /* 非表示状態ではクリック不可に */
   }
 
   .list.open {
-    display: flex;
-    transform: translateY(0);
+    visibility: visible;
     opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s;
     pointer-events: auto;
   }
 
