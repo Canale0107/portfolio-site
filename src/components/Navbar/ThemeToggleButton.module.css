@@ -9,6 +9,10 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .icon {
