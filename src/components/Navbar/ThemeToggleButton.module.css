@@ -47,29 +47,34 @@
   transition: transform var(--transition-time-base) ease-in-out;
 }
 
+.ray {
+  --angle: 0deg;
+  transform: rotate(var(--angle)) translateX(8px);
+}
+
 .ray:nth-child(1) {
-  transform: rotate(45deg) translateX(0);
+  --angle: 45deg;
 }
 .ray:nth-child(2) {
-  transform: rotate(90deg) translateX(0);
+  --angle: 90deg;
 }
 .ray:nth-child(3) {
-  transform: rotate(135deg) translateX(0);
+  --angle: 135deg;
 }
 .ray:nth-child(4) {
-  transform: rotate(180deg) translateX(0);
+  --angle: 180deg;
 }
 .ray:nth-child(5) {
-  transform: rotate(225deg) translateX(0);
+  --angle: 225deg;
 }
 .ray:nth-child(6) {
-  transform: rotate(270deg) translateX(0);
+  --angle: 270deg;
 }
 .ray:nth-child(7) {
-  transform: rotate(315deg) translateX(0);
+  --angle: 315deg;
 }
 .ray:nth-child(8) {
-  transform: rotate(360deg) translateX(0);
+  --angle: 360deg;
 }
 
 /* --- Light Theme --- */
@@ -94,27 +99,33 @@
   left: 15px;
   bottom: 8px;
 }
+
+.dark .ray{
+  --angle: 0deg;
+  transform: rotate(var(--angle)) translateX(-16px);
+}
+
 .dark .ray:nth-child(1) {
-  transform: rotate(45deg) translateX(-16px);
+  --angle: 45deg;
 }
 .dark .ray:nth-child(2) {
-  transform: rotate(90deg) translateX(-16px);
+  --angle: 90deg;
 }
 .dark .ray:nth-child(3) {
-  transform: rotate(135deg) translateX(-16px);
+  --angle: 135deg;
 }
 .dark .ray:nth-child(4) {
-  transform: rotate(180deg) translateX(-16px);
+  --angle: 180deg;
 }
 .dark .ray:nth-child(5) {
-  transform: rotate(225deg) translateX(-16px);
+  --angle: 225deg;
 }
 .dark .ray:nth-child(6) {
-  transform: rotate(270deg) translateX(-16px);
+  --angle: 270deg;
 }
 .dark .ray:nth-child(7) {
-  transform: rotate(315deg) translateX(-16px);
+  --angle: 315deg;
 }
 .dark .ray:nth-child(8) {
-  transform: rotate(360deg) translateX(-16px);
+  --angle: 360deg;
 }
