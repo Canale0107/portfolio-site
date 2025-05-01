@@ -101,11 +101,11 @@ a:hover {
   max-width: 75rem; /* 1200px */
   margin: var(--space-xl) auto;
   box-shadow: var(--shadow-light);
-  scroll-margin-top: 4rem;
+  scroll-margin-top: 5rem;
 }
 
 section {
-  scroll-margin-top: 4rem;
+  scroll-margin-top: 5rem;
 }
 
 .profile-page__section {
@@ -115,7 +115,7 @@ section {
 
 .profile-page__wide-section {
   width: 100%;
-  scroll-margin-top: 2rem;
+  scroll-margin-top: 3rem;
   border-top: 1px solid var(--color-border-default); /* 上に線をつける */
   padding: var(--space-sm) var(--space-md);
   box-sizing: border-box;
