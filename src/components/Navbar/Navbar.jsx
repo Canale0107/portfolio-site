@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FiSun, FiMoon } from "react-icons/fi";
 import styles from "./Navbar.module.css";
 import { navItems } from "@/constants/navigation";
 import HamburgerButton from "./HamburgerButton";
