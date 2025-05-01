@@ -11,6 +11,9 @@
   box-shadow: var(--shadow-light);
   max-width: 75rem;
   margin: 0 auto;
+  transition: background-color var(--transition-time-sm) ease,
+    color var(--transition-time-base) ease,
+    border-color var(--transition-time-base) ease;
 }
 
 .list {

@@ -1,19 +1,22 @@
 import React from "react";
-import { BiSolidSun, BiSolidMoon } from "react-icons/bi";
 import styles from "./ThemeToggleButton.module.css";
 
-export default function ThemeToggleButton({ theme, toggleTheme }) {
+export default function DarkModeToggle({ theme, toggleTheme }) {
+  const isDark = theme === "dark";
+
   return (
     <button
       onClick={toggleTheme}
-      className={styles.themeToggleBtn}
+      className={`${styles.toggleButton} ${
+        isDark ? styles.dark : styles.light
+      }`}
       aria-label="テーマ切替"
     >
-      {theme === "dark" ? (
-        <BiSolidSun />
-      ) : (
-        <BiSolidMoon className={styles.moon} />
-      )}
+      <div className={styles.icon}>
+        {Array.from({ length: 8 }).map((_, i) => (
+          <span key={i} className={styles.ray}></span>
+        ))}
+      </div>
     </button>
   );
 }

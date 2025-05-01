@@ -17,6 +17,7 @@
   --space-xl: 2.5rem;
 
   /* transition time */
+  --transition-time-sm: 0.1s;
   --transition-time-base: 0.3s;
 }
 
@@ -32,6 +33,7 @@
   --color-accent-hover: #f76b1c;
   --color-border-default: #ddd;
   --color-accent-bg: #f9e29c;
+  --color-sunmoon-icon: #40e0d0;
 
   /* シャドウ */
   --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.08);
@@ -49,6 +51,7 @@
   --color-accent-hover: #f76b1c;
   --color-border-default: #333;
   --color-accent-bg: #6c5509;
+  --color-sunmoon-icon: #facc15;
   /* シャドウ */
   --shadow-light: 0 2px 4px rgba(255, 255, 255, 0.08);
   --shadow-hover: 0 4px 8px rgba(255, 255, 255, 0.3);
