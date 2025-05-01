@@ -30,6 +30,7 @@
   --color-text-primary: #444;
   --color-text-secondary: #666;
   --color-accent: #d8aa00;
+  --color-accent-transparent: rgba(216, 170, 0, 0.5);
   --color-accent-hover: #f76b1c;
   --color-border-default: #ddd;
   --color-accent-bg: #f9e29c;
@@ -48,6 +49,7 @@
   --color-text-primary: #bfbfbf;
   --color-text-secondary: #949494;
   --color-accent: #b18c06;
+  --color-accent-transparent: rgba(177, 140, 6, 0.5);
   --color-accent-hover: #f76b1c;
   --color-border-default: #333;
   --color-accent-bg: #6c5509;

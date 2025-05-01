@@ -55,12 +55,16 @@ a:hover {
 
 /* 強調マーカー */
 .marker {
-  background: linear-gradient(
-    to bottom,
-    transparent 20%,
-    var(--color-accent-bg) 100%
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--color-accent-transparent) 0,
+    var(--color-accent-transparent) 2px,
+    transparent 2px,
+    transparent 4px
   );
-  font-weight: 600;
+  background-position: 0% 85%;
+  background-size: 100% 30%;
+  background-repeat: no-repeat;
 }
 
 /* セクション名 */
