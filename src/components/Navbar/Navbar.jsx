@@ -24,13 +24,15 @@ export default function Navbar({ toggleTheme, theme }) {
     >
       {/* スマホ用：ハンバーガー＋テーマ */}
       <div className={styles.mobile}>
-        <button
-          className={styles.toggle}
+        <div
+          className={`${styles.btnTrigger} ${isOpen ? styles.active : ""}`}
           onClick={() => setIsOpen(!isOpen)}
           aria-label="メニューを開く"
         >
-          ☰
-        </button>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <button
           onClick={toggleTheme}
           className={styles.themeToggleBtn}
