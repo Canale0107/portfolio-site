@@ -1,6 +1,6 @@
 .toggleButton {
-  width: 48px;
-  height: 48px;
+  width: 54px;
+  height: 54px;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -22,8 +22,8 @@
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--color-sunmoon-icon);
   position: relative;
@@ -33,8 +33,8 @@
 .icon::after {
   content: "";
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: var(--color-bg-surface);
   transition: all var(--transition-time-sm) ease;
@@ -42,18 +42,18 @@
 
 .ray {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background: var(--color-sunmoon-icon);
   border-radius: 50%;
-  left: 7px;
-  top: 7px;
+  left: 12px;
+  top: 12px;
   transition: transform var(--transition-time-base) ease-in-out;
 }
 
 .ray {
   --angle: 0deg;
-  transform: rotate(var(--angle)) translateX(8px);
+  transform: rotate(var(--angle)) translateX(16px);
 }
 
 .ray:nth-child(1) {
@@ -87,8 +87,8 @@
 }
 .light .icon::after {
   transform: scale(1);
-  left: 8px;
-  bottom: 4px;
+  left: 12px;
+  bottom: 8px;
 }
 .light .ray:nth-child(n) {
   transform: rotate(var(--angle)) translateX(0);
@@ -100,13 +100,13 @@
 }
 .dark .icon::after {
   transform: scale(0);
-  left: 15px;
-  bottom: 8px;
+  left: 22px;
+  bottom: 20px;
 }
 
 .dark .ray {
   --angle: 0deg;
-  transform: rotate(var(--angle)) translateX(-16px);
+  transform: rotate(var(--angle)) translateX(-24px);
 }
 
 .dark .ray:nth-child(1) {
