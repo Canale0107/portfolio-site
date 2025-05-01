@@ -22,7 +22,7 @@
   box-shadow: var(--shadow-hover);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   /* 顔写真のサイズ制限を追加！ */
   .profileImage,
   .darkProfileImage {

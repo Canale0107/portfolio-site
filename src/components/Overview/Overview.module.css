@@ -78,7 +78,7 @@
   margin: 0;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .overview {
     width: 100%;
     border-right: none;
