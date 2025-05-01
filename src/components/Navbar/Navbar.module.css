@@ -1,73 +1,71 @@
-/* Navbar.module.css */
+/* 共通スタイル */
 
 .navbar {
   position: sticky;
   top: 0;
   z-index: 100;
   width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
   background: var(--color-bg-surface);
   border-bottom: 1px solid var(--color-border-default);
   border-radius: 0.5rem;
   box-shadow: var(--shadow-light);
-  max-width: 75rem;
-  margin: 0 auto;
   transition: background-color var(--transition-time-sm) ease,
     color var(--transition-time-base) ease,
     border-color var(--transition-time-base) ease;
 }
 
 .list {
+  margin: 0;
+  padding: var(--space-xs) var(--space-sm);
+  list-style: none;
   justify-content: space-evenly;
   align-items: center;
-  padding: var(--space-xs) var(--space-sm);
-  margin: 0;
-  list-style: none;
 }
 
-.list li a {
-  text-decoration: none;
-  color: var(--color-text-primary);
-  font-weight: bold;
-  font-size: var(--font-size-small);
+.list li a,
+.navItemBtn {
   display: block;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: var(--font-size-small);
   border-radius: 0.25rem;
+  color: var(--color-text-primary);
   transition: background-color var(--transition-time-base) ease;
 }
 
-.list li a:hover {
+.list li a:hover,
+.navItemBtn:hover {
   color: var(--color-accent-hover);
-  border-radius: 0.25rem;
 }
 
-/* モバイルメニュー */
-.mobile {
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-xs) var(--space-sm);
+.navItemBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
 }
 
-/* オープン状態のリスト */
-.open {
-  display: flex !important;
-}
+/* レスポンシブ用クラス */
 
-.mobile {
-  display: none;
-}
-
+.mobile,
 .mobileOnly {
   display: none;
 }
 
-/* デスクトップ用（801px以上）の時に表示 */
+.open {
+  display: flex !important;
+}
+
+/* デスクトップ表示（801px以上） */
 @media (min-width: 801px) {
   .list {
     display: flex;
   }
 }
 
-/* モバイル時にハンバーガーを表示、リストは非表示 */
+/* モバイル表示（800px以下） */
 @media (max-width: 800px) {
   .navbar {
     display: block;
@@ -76,6 +74,9 @@
 
   .mobile {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-xs) var(--space-sm);
   }
 
   .mobileOnly {
@@ -83,36 +84,33 @@
   }
 
   .list {
-    display: none;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: transform 0.3s ease, opacity 0.3s ease,
-      visibility 0s linear 0.3s;
-    pointer-events: none; /* 非表示状態ではクリック不可に */
     display: flex;
     flex-direction: column;
-    padding: var(--space-sm);
-    background: var(--color-bg-surface);
-    border-top: 1px solid var(--color-border-default);
     position: absolute;
-    margin: 0;
-    list-style: none;
-    top: 100%; /* .navbarの直下に表示 */
+    top: 100%;
     left: 0;
     z-index: 1000;
-    box-shadow: var(--shadow-light);
+    margin: 0;
+    padding: var(--space-sm);
+    list-style: none;
+    background: var(--color-bg-surface);
+    border-top: 1px solid var(--color-border-default);
     border-radius: 0 0.75rem 0.75rem 0.75rem;
+    box-shadow: var(--shadow-light);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    pointer-events: none;
     will-change: opacity, transform;
     backface-visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease,
+      visibility 0s linear 0.3s;
   }
 
   .list.open {
-    display: flex;
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
-    transition: transform 0.3s ease, opacity 0.3s ease;
     transition-delay: 0s;
     pointer-events: auto;
   }
@@ -123,26 +121,10 @@
 
   .list li a {
     font-size: var(--font-size-base);
-    font-weight: bold;
     padding: 0.75rem 1rem;
   }
+
   .themeToggleListItem {
     display: none;
   }
-}
-.navItemBtn {
-  background: none;
-  border: none;
-  color: var(--color-text-primary);
-  font-weight: bold;
-  font-size: var(--font-size-small);
-  text-decoration: none;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  transition: background-color var(--transition-time-base) ease;
-}
-
-.navItemBtn:hover {
-  color: var(--color-accent-hover);
 }
