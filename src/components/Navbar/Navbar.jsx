@@ -1,17 +1,7 @@
 import React, { useState } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
 import styles from "./Navbar.module.css";
-
-const items = [
-  { href: "#top", label: "TOP" },
-  { href: "#purpose", label: "パーパス" },
-  { href: "#values", label: "価値観" },
-  { href: "#about-me", label: "わたしについて" },
-  { href: "#career-timeline", label: "経歴" },
-  { href: "#skills", label: "スキル" },
-  { href: "#research", label: "研究経験" },
-  { href: "#interests", label: "趣味・関心" },
-];
+import { navItems } from "@/constants/navigation";
 
 export default function Navbar({ toggleTheme, theme }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +34,7 @@ export default function Navbar({ toggleTheme, theme }) {
 
       {/* PC用 or 展開時のリスト */}
       <ul className={`${styles.list} ${isOpen ? styles.open : ""}`}>
-        {items.map(({ href, label }) => {
+        {navItems.map(({ href, label }) => {
           const targetId = href.replace("#", ""); // "#about-me" → "about-me"
           return (
             <li key={href}>
@@ -53,6 +43,7 @@ export default function Navbar({ toggleTheme, theme }) {
                   const el = document.getElementById(targetId);
                   if (el) {
                     el.scrollIntoView({ behavior: "smooth" });
+                    history.replaceState(null, "", href);
                     setIsOpen(false); // モバイル用に閉じる
                   }
                 }}

@@ -9,7 +9,11 @@ import Research from "@/components/Research/Research";
 import Interests from "@/components/Interests/Interests";
 import Footer from "@/components/Footer/Footer";
 
+import { sectionIds } from "@/constants/navigation";
+import useSectionObserver from "@/hooks/useSectionObserver";
+
 export default function App() {
+  useSectionObserver(sectionIds);
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) return savedTheme;
@@ -32,7 +36,8 @@ export default function App() {
   return (
     <>
       <Navbar toggleTheme={toggleTheme} theme={theme} />
-      <main className="profile-page" id="top">
+      <div id="top" style={{ height: "1px", position: "absolute", top: 0 }} />
+      <main className="profile-page">
         <h1 className="visually-hidden">小寺奏怜｜プロフィール</h1>
         <Profile theme={theme} />
         <Overview />
