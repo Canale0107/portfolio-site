@@ -5,6 +5,7 @@
   position: relative;
   width: 30px;
   height: 24px;
+  margin: 0 10px;
   cursor: pointer;
   display: inline-block;
   box-sizing: border-box;
