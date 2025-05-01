@@ -1,5 +1,5 @@
 import React from "react";
-import { FiSun, FiMoon } from "react-icons/fi";
+import { BiSolidSun, BiSolidMoon } from "react-icons/bi";
 import styles from "./ThemeToggleButton.module.css";
 
 export default function ThemeToggleButton({ theme, toggleTheme }) {
@@ -9,7 +9,11 @@ export default function ThemeToggleButton({ theme, toggleTheme }) {
       className={styles.themeToggleBtn}
       aria-label="テーマ切替"
     >
-      {theme === "dark" ? <FiSun /> : <FiMoon className={styles.moon} />}
+      {theme === "dark" ? (
+        <BiSolidSun />
+      ) : (
+        <BiSolidMoon className={styles.moon} />
+      )}
     </button>
   );
 }
