@@ -83,6 +83,7 @@
   }
 
   .list {
+    display: none;
     visibility: hidden;
     opacity: 0;
     transform: translateY(-10px);
@@ -102,12 +103,16 @@
     z-index: 1000;
     box-shadow: var(--shadow-light);
     border-radius: 0 0.75rem 0.75rem 0.75rem;
+    will-change: opacity, transform;
+    backface-visibility: hidden;
   }
 
   .list.open {
+    display: flex;
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
     transition-delay: 0s;
     pointer-events: auto;
   }
