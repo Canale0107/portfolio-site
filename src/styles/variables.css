@@ -17,8 +17,8 @@
   --space-xl: 2.5rem;
 
   /* transition time */
-  --transition-time-sm: 0.1s;
-  --transition-time-base: 0.3s;
+  --transition-time-sm: 0.25s;
+  --transition-time-base: 0.5s;
 }
 
 :root {
