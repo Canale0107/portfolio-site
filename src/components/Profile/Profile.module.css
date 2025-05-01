@@ -11,28 +11,6 @@
     border-color var(--transition-time-base) ease;
 }
 
-.profileImage {
-  width: 80%;
-  border-radius: 20%;
-  margin: var(--space-md) auto var(--space-lg);
-  display: block;
-  box-shadow: var(--shadow-light);
-}
-
-.profileImage:hover {
-  box-shadow: var(--shadow-hover);
-}
-
-/* ダークモードでは少し暗くする */
-.darkProfileImage {
-  filter: brightness(0.75); /* 0〜1 で暗くする（1=そのまま） */
-  box-shadow: var(--shadow-light);
-}
-
-.darkProfileImage:hover {
-  box-shadow: var(--shadow-hover);
-}
-
 .name {
   margin-left: 10%;
   transition: color var(--transition-time-base);
@@ -99,13 +77,6 @@
 
   .profile {
     border-top: none; /* 最初のセクションだから上の線はいらない */
-  }
-
-  /* 顔写真のサイズ制限を追加！ */
-  .profileImage, .darkProfileImage {
-    width: 40%;
-    max-width: 150px; /* 必要ならこれも加える */
-    margin: var(--space-sm) auto var(--space-lg);
   }
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import jpg from "@/assets/profile-pic.jpg";
 import webp from "@/assets/profile-pic.webp";
-import styles from "./Profile.module.css"
+import styles from "./ProfileImage.module.css";
 
 export default function ProfileImage({ theme }) {
   const isDark = theme === "dark";
