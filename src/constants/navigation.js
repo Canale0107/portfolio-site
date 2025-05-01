@@ -1,9 +1,9 @@
 // src/constants/navigation.js
 export const navItems = [
   { href: "#top", label: "TOP" },
-  { href: "#purpose", label: "パーパス" },
-  { href: "#values", label: "価値観" },
-  { href: "#about-me", label: "わたしについて" },
+  { href: "#purpose", label: "パーパス", mobileOnly: true },
+  { href: "#values", label: "価値観", mobileOnly: true },
+  { href: "#about-me", label: "わたしについて", mobileOnly: true },
   { href: "#career-timeline", label: "経歴" },
   { href: "#skills", label: "スキル" },
   { href: "#research", label: "研究経験" },

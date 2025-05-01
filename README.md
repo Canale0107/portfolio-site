@@ -15,7 +15,10 @@
 │   │   ├── Skills/          # スキル・資格（プログレスバー付き）
 │   │   ├── Research/        # 研究・開発経験
 │   │   └── Interests/       # 趣味・関心・名言など
+│   ├── constants/           # 定数の定義（セクションID・ナビゲーションリンクなど）
+│   │   └── navigation.js    # ナビゲーション項目とセクションIDを一元管理
 │   ├── data/                # スキル・資格・名言など構造化データ（JSON）
+│   ├── hooks/              # カスタムフック（IntersectionObserverによるセクション監視）
 │   ├── styles/              # グローバル CSS（変数定義や基本リセット）
 │   ├── App.jsx              # 全体レイアウトとセクション構成
 │   └── main.jsx             # Vite によるエントリーポイント
@@ -37,6 +40,7 @@
 - **画像最適化**：`<picture>` タグで WebP/JPG を切り替え表示
 - **モジュール構成**：セクション単位のディレクトリと CSS を分離
 - **エイリアス `@/`**：`vite.config.js` により `src/` を簡潔に参照可能に（例：`@/assets/profile-pic.jpg`）
+- **スクロール同期ナビゲーション**：IntersectionObserver を用いて、スクロール位置に応じて URL のハッシュ（#about-me など）を自動更新。ナビゲーションと現在地の連携を実現。
 
 ## 🚀 セットアップ
 
@@ -88,6 +92,13 @@ npm run build
 - CSS Modules では、クラス名の競合を防ぎつつ、コンポーネント単位でスタイルを管理可能。
 - 一部スタイル（.marker, .visually-hidden など）はグローバル CSS で定義し、全体で共有。
 - ダークモード切り替えには、[data-theme]属性 + CSS 変数を活用。
+
+### 🧭 スクロール連動ナビゲーション
+
+- 各セクションに `id` を割り当て、IntersectionObserver によって現在の表示位置を監視。
+- 画面中央に来たセクションの `id` を `history.replaceState()` により URL に反映。
+- 戻るボタンなどの履歴を汚さず、ユーザーが「今どのセクションを見ているか」を URL で明示。
+- `<Navbar />` のボタン操作時にも `scrollIntoView()` と `replaceState()` により URL を更新。
 
 ## 🌍 公開サイト
 

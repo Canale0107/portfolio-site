@@ -193,3 +193,13 @@
 .navItemBtn:hover {
   color: var(--color-accent-hover);
 }
+
+.mobileOnly {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .mobileOnly {
+    display: none;
+  }
+}

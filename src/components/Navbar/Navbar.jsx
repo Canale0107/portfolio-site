@@ -34,20 +34,21 @@ export default function Navbar({ toggleTheme, theme }) {
 
       {/* PC用 or 展開時のリスト */}
       <ul className={`${styles.list} ${isOpen ? styles.open : ""}`}>
-        {navItems.map(({ href, label }) => {
-          const targetId = href.replace("#", ""); // "#about-me" → "about-me"
+        {navItems.map(({ href, label, mobileOnly }) => {
+          const targetId = href.replace("#", "");
+
           return (
-            <li key={href}>
+            <li key={href} className={mobileOnly ? styles.mobileOnly : ""}>
               <button
                 onClick={() => {
                   const el = document.getElementById(targetId);
                   if (el) {
                     el.scrollIntoView({ behavior: "smooth" });
                     history.replaceState(null, "", href);
-                    setIsOpen(false); // モバイル用に閉じる
+                    setIsOpen(false);
                   }
                 }}
-                className={styles.navItemBtn} // 必要ならスタイル追加
+                className={styles.navItemBtn}
                 aria-label={`${label} にスクロール`}
               >
                 {label}
@@ -55,7 +56,9 @@ export default function Navbar({ toggleTheme, theme }) {
             </li>
           );
         })}
-        <li className={`${styles.themeToggleListItem}`}>
+
+        {/* テーマ切替ボタンは常時表示 */}
+        <li className={styles.themeToggleListItem}>
           <button
             onClick={toggleTheme}
             className={styles.themeToggleBtn}
