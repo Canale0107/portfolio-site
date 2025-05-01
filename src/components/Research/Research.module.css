@@ -5,7 +5,8 @@
   padding: var(--space-xs) var(--space-sm);
   margin: var(--space-md) var(--space-xs);
   transition: box-shadow var(--transition-time-base) ease,
-    color var(--transition-time-base) ease;
+    color var(--transition-time-base) ease,
+    background-color var(--transition-time-base) ease;
 }
 
 .card:hover {

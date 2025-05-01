@@ -67,6 +67,7 @@
   overflow: hidden;
   position: relative;
   flex-shrink: 0; /* バーが縮まないようにする */
+  transition: background-color var(--transition-time-base) ease;
 }
 
 .fill {
