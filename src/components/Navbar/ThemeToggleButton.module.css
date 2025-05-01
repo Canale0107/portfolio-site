@@ -15,6 +15,12 @@
   -webkit-user-select: none;
 }
 
+/* アクセシビリティ対応：キーボード操作でのみフォーカス表示 */
+.toggleButton:focus-visible {
+  outline: 2px solid #666; /* お好みでカスタマイズ */
+  outline-offset: 4px;
+}
+
 .icon {
   width: 20px;
   height: 20px;
@@ -100,7 +106,7 @@
   bottom: 8px;
 }
 
-.dark .ray{
+.dark .ray {
   --angle: 0deg;
   transform: rotate(var(--angle)) translateX(-16px);
 }
