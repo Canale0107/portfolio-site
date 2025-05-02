@@ -4,25 +4,26 @@ import styles from "./Skills.module.css";
 export default function SkillBar({ level, trigger }) {
   const barRef = useRef(null);
   const [displayedLevel, setDisplayedLevel] = useState(0);
-  const animationRef = useRef(null); // アニメーションキャンセル用
+  const animationRef = useRef(null);
 
+  // バーの幅のアニメーション
   useEffect(() => {
     const bar = barRef.current;
     if (!bar) return;
 
-    // バーのアニメーション
     bar.style.transition = "none";
     bar.style.width = "0%";
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        bar.style.transition = "width 0.6s ease";
-        bar.style.width = `${level}%`;
-      });
-    });
 
-    // 数値のアニメーション
+    requestAnimationFrame(() => {
+      bar.style.transition = "width 0.6s ease";
+      bar.style.width = `${level}%`;
+    });
+  }, [trigger, level]);
+
+  // 数値表示のアニメーション
+  useEffect(() => {
     let start = null;
-    const duration = 600; // 0.6秒
+    const duration = 600;
     const from = 0;
     const to = level;
 
@@ -36,7 +37,7 @@ export default function SkillBar({ level, trigger }) {
       }
     };
 
-    cancelAnimationFrame(animationRef.current); // 既存アニメーション停止
+    cancelAnimationFrame(animationRef.current);
     animationRef.current = requestAnimationFrame(animate);
   }, [trigger, level]);
 
