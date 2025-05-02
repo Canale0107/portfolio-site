@@ -25,7 +25,10 @@ export default function Navbar({ toggleTheme, theme }) {
           const targetId = href.replace("#", "");
 
           return (
-            <li key={href} className={mobileOnly ? styles.mobileOnly : ""}>
+            <li
+              key={href}
+              className={mobileOnly ? styles.navItemMobileOnly : ""}
+            >
               <button
                 onClick={() => {
                   const el = document.getElementById(targetId);

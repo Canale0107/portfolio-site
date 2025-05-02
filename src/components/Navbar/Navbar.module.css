@@ -50,7 +50,7 @@
 /* レスポンシブ用クラス */
 
 .mobile,
-.mobileOnly {
+.navItemMobileOnly {
   display: none;
 }
 
@@ -79,7 +79,7 @@
     padding: var(--space-xs) var(--space-sm);
   }
 
-  .mobileOnly {
+  .navItemMobileOnly {
     display: block;
   }
 
