@@ -67,6 +67,7 @@
 
 .event:hover {
   box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
 }
 
 .title {
