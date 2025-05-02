@@ -23,10 +23,10 @@
 
 :root {
   /* カラー */
-  --color-bg-default: #f9f9f9;
-  --color-bg-muted: #f3f3f3;
+  --color-bg-default: #f9f7f2;
+  --color-bg-muted: #e0dfdb;
   --color-bg-surface: #ffffff;
-  --color-shadow: #dcdbdc;
+  --color-shadow: #c8c6c1;
   --color-shadow-hover: rgba(150, 150, 150, 0.5);
   --color-text-primary: #444;
   --color-text-secondary: #666;
@@ -43,9 +43,9 @@
 }
 
 [data-theme="dark"] {
-  --color-bg-default: #121212;
-  --color-bg-muted: #2c2c2c;
-  --color-bg-surface: #101010;
+  --color-bg-default: #171716;
+  --color-bg-muted: #2d2d2c;
+  --color-bg-surface: #131210;
   --color-shadow: #707070;
   --color-shadow-hover: rgba(100, 100, 100, 0.5);
   --color-text-primary: #bfbfbf;
