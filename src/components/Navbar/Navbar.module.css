@@ -24,6 +24,7 @@
 /* 左端：ハンバーガー */
 .iconLeft {
   flex: 0 0 auto;
+  padding: 8px 0 0 0;
 }
 
 /* 中央：NavList を広げて使う */
