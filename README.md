@@ -17,8 +17,10 @@
 │   │   └── Interests/       # 趣味・関心・名言など
 │   ├── constants/           # 定数の定義（セクションID・ナビゲーションリンクなど）
 │   │   └── navigation.js    # ナビゲーション項目とセクションIDを一元管理
+│   ├── contexts/            # グローバル状態管理用の Context（例：テーマ切替）
+│   │   └── ThemeContext.jsx # テーマ状態の共有（ダーク/ライトモード切替）
 │   ├── data/                # スキル・資格・名言など構造化データ（JSON）
-│   ├── hooks/              # カスタムフック（IntersectionObserverによるセクション監視）
+│   ├── hooks/               # カスタムフック（IntersectionObserverによるセクション監視）
 │   ├── styles/              # グローバル CSS（変数定義や基本リセット）
 │   ├── App.jsx              # 全体レイアウトとセクション構成
 │   └── main.jsx             # Vite によるエントリーポイント
@@ -37,6 +39,7 @@
   - `variables.css`：色・サイズ・スペースなどの CSS 変数を定義
   - `base.css`：リセットや基本タグ（`body`, `h1-h6`, `a` など）スタイル
 - **構造化データ（JSON）**：経歴・資格・スキル・名言などを `data/` にて管理し、import 経由で動的に表示
+- **テーマ切替（Context API）**：`ThemeContext` を使ってテーマ状態をグローバルに管理。ダーク/ライトの切替を全体で共有。
 - **画像最適化**：`<picture>` タグで WebP/JPG を切り替え表示
 - **モジュール構成**：セクション単位のディレクトリと CSS を分離
 - **エイリアス `@/`**：`vite.config.js` により `src/` を簡潔に参照可能に（例：`@/assets/profile-pic.jpg`）
@@ -92,6 +95,8 @@ npm run build
 - CSS Modules では、クラス名の競合を防ぎつつ、コンポーネント単位でスタイルを管理可能。
 - 一部スタイル（.marker, .visually-hidden など）はグローバル CSS で定義し、全体で共有。
 - ダークモード切り替えには、[data-theme]属性 + CSS 変数を活用。
+  - 状態管理には React Context API（`ThemeContext`）を用いており、アプリ全体から `useTheme()` フックで現在のテーマ状態と切替関数にアクセス可能。
+  - テーマの値は `localStorage` に保存され、ブラウザ再読み込み後も状態が保持される。
 
 ### 🧭 スクロール連動ナビゲーション
 
