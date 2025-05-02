@@ -22,12 +22,13 @@
   box-shadow: var(--shadow-hover);
 }
 
-.certifications,
-.skills {
+/* 資格リスト・スキルリスト */
+.itemList {
   list-style: none;
   padding-left: var(--space-xs);
 }
 
+/* 資格名・スキル名*/
 .certificationName,
 .skillName {
   font-size: var(--font-size-small);
