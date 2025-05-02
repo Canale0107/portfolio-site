@@ -23,8 +23,8 @@
 
 :root {
   /* カラー */
-  --color-bg-default: #f9f7f2;
-  --color-bg-muted: #e0dfdb;
+  --color-bg-default: #fcfaf6;
+  --color-bg-muted: #efeeea;
   --color-bg-surface: #ffffff;
   --color-shadow: #c8c6c1;
   --color-shadow-hover: rgba(150, 150, 150, 0.5);
