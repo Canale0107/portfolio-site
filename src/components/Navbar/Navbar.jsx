@@ -48,7 +48,7 @@ export default function Navbar({ toggleTheme, theme }) {
         })}
 
         {/* テーマ切替ボタンは常時表示 */}
-        <li className={styles.themeToggleListItem}>
+        <li className={styles.navItemThemeToggle}>
           <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />
         </li>
       </ul>
