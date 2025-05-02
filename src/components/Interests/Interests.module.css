@@ -33,8 +33,14 @@
   font-weight: 900;
 }
 
+.block:hover::before{
+  transform: scale(1.1);
+}
+
 .block:hover {
   box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+  transition: border-left-color 0;
 }
 
 .text {
