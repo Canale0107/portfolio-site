@@ -27,6 +27,7 @@
   --color-bg-muted: #f3f3f3;
   --color-bg-surface: #ffffff;
   --color-shadow: #dcdbdc;
+  --color-shadow-hover: rgba(150, 150, 150, 0.5);
   --color-text-primary: #444;
   --color-text-secondary: #666;
   --color-accent: #d8aa00;
@@ -46,6 +47,7 @@
   --color-bg-muted: #2c2c2c;
   --color-bg-surface: #101010;
   --color-shadow: #707070;
+  --color-shadow-hover: rgba(100, 100, 100, 0.5);
   --color-text-primary: #bfbfbf;
   --color-text-secondary: #949494;
   --color-accent: #b18c06;
