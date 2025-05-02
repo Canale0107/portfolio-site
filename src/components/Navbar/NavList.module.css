@@ -1,0 +1,61 @@
+.list {
+  margin: 0;
+  padding: var(--space-xs) var(--space-sm);
+  list-style: none;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.list li a,
+.navItemBtn {
+  display: block;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: var(--font-size-small);
+  border-radius: 0.25rem;
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-time-base) ease;
+}
+
+.list li a:hover,
+.navItemBtn:hover {
+  color: var(--color-accent-hover);
+}
+
+@media (min-width: 801px) {
+  .list {
+    display: flex;
+  }
+}
+
+/* モバイル表示（800px以下） */
+@media (max-width: 800px) {
+  .list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    margin: 0;
+    padding: var(--space-sm);
+    list-style: none;
+    background: var(--color-bg-surface);
+    border-top: 1px solid var(--color-border-default);
+    border-radius: 0 0.75rem 0.75rem 0.75rem;
+    box-shadow: var(--shadow-light);
+  }
+
+  .list li {
+    margin: var(--space-xs) var(--space-sm);
+  }
+
+  .list li a {
+    font-size: var(--font-size-base);
+    padding: 0.75rem 1rem;
+  }
+
+  .navItemThemeToggle {
+    display: none;
+  }
+}

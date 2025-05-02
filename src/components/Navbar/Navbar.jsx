@@ -25,11 +25,13 @@ export default function Navbar() {
 
       {/* ナビゲーションリスト */}
       <AnimatePresence>
-        <NavList
-          isMobile={isMobile}
-          isOpen={isOpen}
-          onItemClick={() => setIsOpen(false)}
-        />
+        {(isMobile && isOpen) || !isMobile ? (
+          <NavList
+            isMobile={isMobile}
+            isOpen={isOpen}
+            onItemClick={() => setIsOpen(false)}
+          />
+        ) : null}
       </AnimatePresence>
     </nav>
   );

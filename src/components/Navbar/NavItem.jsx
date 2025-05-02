@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Navbar.module.css";
+import styles from "./NavItem.module.css";
 
 export default function NavItem({ href, label, onClick, mobileOnly = false }) {
   const targetId = href.replace("#", "");

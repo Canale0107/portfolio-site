@@ -2,14 +2,17 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import { navItems } from "@/constants/navigation";
-import { menuVariants } from "@/animations/menuVariants";
 import ThemeToggleButton from "./ThemeToggleButton";
 import NavItem from "./NavItem";
-import styles from "./Navbar.module.css";
+import styles from "./NavList.module.css";
+
+const menuVariants = {
+  hidden: { opacity: 0, y: -10, transition: { duration: 0.3 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.3 } },
+};
 
 export default function NavList({ isMobile, isOpen, onItemClick }) {
-  if (isMobile && !isOpen) return null;
-
   const Wrapper = isMobile ? motion.ul : "ul";
   const wrapperProps = isMobile
     ? {
