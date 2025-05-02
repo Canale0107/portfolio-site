@@ -2,8 +2,10 @@ import React from "react";
 import jpg from "@/assets/profile-pic.jpg";
 import webp from "@/assets/profile-pic.webp";
 import styles from "./ProfileImage.module.css";
+import { useTheme } from "@/contexts/ThemeContext";
 
-export default function ProfileImage({ theme }) {
+export default function ProfileImage() {
+  const { theme } = useTheme();
   const isDark = theme === "dark";
 
   return (

@@ -49,10 +49,10 @@ const socialLinks = [
   },
 ];
 
-export default function Profile({ theme }) {
+export default function Profile() {
   return (
     <section className={classNames("profile-page__section", styles.profile)}>
-      <ProfileImage theme={theme} />
+      <ProfileImage />
       <h2 className={styles.name}>
         <div className={styles.nameJa}>小寺 奏怜</div>
         <div className={styles.nameEn}>Kodera Kanare</div>

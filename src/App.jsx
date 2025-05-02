@@ -14,32 +14,14 @@ import useSectionObserver from "@/hooks/useSectionObserver";
 
 export default function App() {
   useSectionObserver(sectionIds);
-  const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) return savedTheme;
-
-    // prefers-color-schemeがサポートされている場合
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    return prefersDark ? "dark" : "light";
-  });
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () =>
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
 
   return (
     <>
-      <Navbar toggleTheme={toggleTheme} theme={theme} />
+      <Navbar />
       <div id="top" style={{ height: "1px", position: "absolute", top: 0 }} />
       <main className="profile-page">
         <h1 className="visually-hidden">小寺奏怜｜プロフィール</h1>
-        <Profile theme={theme} />
+        <Profile />
         <Overview />
         <Career />
         <Skills />

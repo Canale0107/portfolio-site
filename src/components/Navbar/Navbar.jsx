@@ -3,9 +3,11 @@ import styles from "./Navbar.module.css";
 import { navItems } from "@/constants/navigation";
 import HamburgerButton from "./HamburgerButton";
 import ThemeToggleButton from "./ThemeToggleButton";
+import { useTheme } from "@/contexts/ThemeContext";
 
-export default function Navbar({ toggleTheme, theme }) {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <nav
@@ -16,7 +18,7 @@ export default function Navbar({ toggleTheme, theme }) {
       {/* スマホ用：ハンバーガー＋テーマ */}
       <div className={styles.mobile}>
         <HamburgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-        <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />
+        <ThemeToggleButton />
       </div>
 
       {/* PC用 or 展開時のリスト */}
@@ -49,7 +51,7 @@ export default function Navbar({ toggleTheme, theme }) {
 
         {/* テーマ切替ボタンは常時表示 */}
         <li className={styles.navItemThemeToggle}>
-          <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />
+          <ThemeToggleButton />
         </li>
       </ul>
     </nav>
