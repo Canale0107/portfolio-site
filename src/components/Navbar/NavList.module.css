@@ -6,6 +6,11 @@
   align-items: center;
 }
 
+.list li {
+  padding: 0 15px;
+  margin: 0 5px
+}
+
 .list li a,
 .navItemBtn {
   display: block;

@@ -1,4 +1,3 @@
-/* 共通スタイル */
 .navbar {
   position: sticky;
   top: 0;
@@ -15,25 +14,39 @@
     border-color var(--transition-time-base) ease;
 }
 
-.mobile{
-  display: none;
+.navbarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xs) var(--space-sm);
 }
 
-/* モバイル表示（800px以下） */
+/* 左端：ハンバーガー */
+.iconLeft {
+  flex: 0 0 auto;
+}
+
+/* 中央：NavList を広げて使う */
+.navListWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* 右端：常にテーマボタン用 */
+.iconRight {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+/* モバイル時：ナビゲーションは下に出るため display block 維持 */
 @media (max-width: 800px) {
   .navbar {
     display: block;
     padding: 0;
   }
 
-  .mobile {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .navbarInner {
     padding: var(--space-xs) var(--space-sm);
-  }
-
-  .navItemMobileOnly {
-    display: block;
   }
 }

@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import { navItems } from "@/constants/navigation";
-import ThemeToggleButton from "./ThemeToggleButton";
 import NavItem from "./NavItem";
 import styles from "./NavList.module.css";
 
@@ -39,9 +38,6 @@ export default function NavList({ isMobile, isOpen, onItemClick }) {
           onClick={isMobile ? onItemClick : undefined}
         />
       ))}
-      <li className={styles.navItemThemeToggle}>
-        <ThemeToggleButton />
-      </li>
     </Wrapper>
   );
 }

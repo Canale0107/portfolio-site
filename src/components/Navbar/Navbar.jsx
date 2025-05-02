@@ -44,22 +44,35 @@ export default function Navbar() {
       aria-label="メインナビゲーション"
       ref={navRef}
     >
-      {/* スマホ用：ハンバーガー＋テーマ */}
-      <div className={styles.mobile}>
-        <HamburgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-        <ThemeToggleButton />
-      </div>
+      <div className={styles.navbarInner}>
+        {/* モバイル時：左端にハンバーガー */}
+        {isMobile && (
+          <div className={styles.iconLeft}>
+            <HamburgerButton
+              isOpen={isOpen}
+              onClick={() => setIsOpen(!isOpen)}
+            />
+          </div>
+        )}
 
-      {/* ナビゲーションリスト */}
-      <AnimatePresence>
-        {(isMobile && isOpen) || !isMobile ? (
-          <NavList
-            isMobile={isMobile}
-            isOpen={isOpen}
-            onItemClick={() => setIsOpen(false)}
-          />
-        ) : null}
-      </AnimatePresence>
+        {/* 中央：NavList */}
+        <AnimatePresence>
+          {(isMobile && isOpen) || !isMobile ? (
+            <div className={styles.navListWrapper}>
+              <NavList
+                isMobile={isMobile}
+                isOpen={isOpen}
+                onItemClick={() => setIsOpen(false)}
+              />
+            </div>
+          ) : null}
+        </AnimatePresence>
+
+        {/* 常に右端：テーマ切り替え */}
+        <div className={styles.iconRight}>
+          <ThemeToggleButton />
+        </div>
+      </div>
     </nav>
   );
 }
