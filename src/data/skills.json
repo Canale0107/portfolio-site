@@ -24,7 +24,7 @@
     "items": [
       { "name": "Python", "level": 90 },
       { "name": "C", "level": 60 },
-      { "name": "Java", "level": 10 }
+      { "name": "Java", "level": 50 }
     ]
   },
   {
