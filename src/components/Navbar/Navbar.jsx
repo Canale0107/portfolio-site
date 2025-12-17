@@ -22,18 +22,12 @@ export default function Navbar() {
       }
     };
 
-    const handleScroll = () => {
-      setIsOpen(false);
-    };
-
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("touchstart", handleClickOutside); // ←スマホ用（後述）
-    window.addEventListener("scroll", handleScroll);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchstart", handleClickOutside);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, [isMobile, isOpen]);
 

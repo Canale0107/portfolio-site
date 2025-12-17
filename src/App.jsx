@@ -1,5 +1,5 @@
 // src/react/App.jsx
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Profile from "@/components/Profile/Profile";
 import Overview from "@/components/Overview/Overview";
@@ -9,11 +9,44 @@ import Research from "@/components/Research/Research";
 import Interests from "@/components/Interests/Interests";
 import Footer from "@/components/Footer/Footer";
 
-import { sectionIds } from "@/constants/navigation";
-import useSectionObserver from "@/hooks/useSectionObserver";
+import { useSection } from "@/contexts/SectionContext";
 
 export default function App() {
-  useSectionObserver(sectionIds);
+  const { activeSection } = useSection();
+
+  // セクションIDのマッピング
+  // TOPセクションは "top" で、Profile + Overview を含む
+  const renderSection = () => {
+    switch (activeSection) {
+      case "top":
+      case "purpose":
+      case "values":
+      case "about-me":
+        // TOPセクション（Profile + Overview）を表示
+        // purpose, values, about-me は Overview 内のサブセクションなので、TOPセクション全体を表示
+        return (
+          <>
+            <Profile />
+            <Overview />
+          </>
+        );
+      case "career-timeline":
+        return <Career />;
+      case "skills":
+        return <Skills />;
+      case "research":
+        return <Research />;
+      case "interests":
+        return <Interests />;
+      default:
+        return (
+          <>
+            <Profile />
+            <Overview />
+          </>
+        );
+    }
+  };
 
   return (
     <>
@@ -21,12 +54,7 @@ export default function App() {
       <div id="top" style={{ height: "1px", position: "absolute", top: 0 }} />
       <main className="profile-page">
         <h1 className="visually-hidden">小寺奏怜｜プロフィール</h1>
-        <Profile />
-        <Overview />
-        <Career />
-        <Skills />
-        <Research />
-        <Interests />
+        {renderSection()}
       </main>
       <Footer />
     </>

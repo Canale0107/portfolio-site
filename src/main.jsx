@@ -5,10 +5,13 @@ import App from "@/App";
 import "@/styles/variables.css";
 import "@/styles/base.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { SectionProvider } from "@/contexts/SectionContext";
 
 const root = document.getElementById("root");
 ReactDOM.createRoot(root).render(
   <ThemeProvider>
-    <App />
+    <SectionProvider>
+      <App />
+    </SectionProvider>
   </ThemeProvider>
 );
