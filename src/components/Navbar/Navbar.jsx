@@ -8,7 +8,7 @@ import NavList from "./NavList";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
-  const isMobile = useMediaQuery("(max-width: 800px)");
+  const isMobile = useMediaQuery("(max-width: 750px)");
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null); // ナビゲーション領域の参照
 
