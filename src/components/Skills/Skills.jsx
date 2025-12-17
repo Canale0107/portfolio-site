@@ -1,7 +1,9 @@
 import React from "react";
 import certifications from "@/data/certifications.json";
 import skills from "@/data/skills.json";
+import badges from "@/data/badges.json";
 import CertificationList from "./CertificationList";
+import BadgeList from "./BadgeList";
 import SkillList from "./SkillList";
 import styles from "./Skills.module.css";
 
@@ -18,6 +20,13 @@ export default function Skills() {
 
       <h3>保有資格</h3>
       <CertificationList data={certifications} />
+
+      {badges && badges.length > 0 && (
+        <>
+          <h3>バッジ</h3>
+          <BadgeList data={badges} />
+        </>
+      )}
 
       <h3>スキル</h3>
       <SkillList data={skills} />

@@ -85,3 +85,97 @@
 .active {
   width: var(--target-width);
 }
+
+/* ========================================
+  バッジ関連スタイル
+======================================== */
+.badgeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin: var(--space-md) 0;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.badgeCard {
+  background: var(--color-bg-muted);
+  border-radius: 0.5rem;
+  padding: var(--space-md);
+  box-shadow: var(--shadow-light);
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease,
+    box-shadow var(--transition-time-base) ease;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.badgeCard:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.badgeLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  gap: var(--space-sm);
+  flex: 1;
+  justify-content: space-between;
+}
+
+.badgeImage {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+.badgeInfo {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-height: fit-content;
+}
+
+.badgeName {
+  font-size: var(--font-size-small);
+  font-weight: bold;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.badgeDate {
+  font-size: var(--font-size-xsmall);
+  color: var(--color-text-secondary);
+}
+
+.badgeLoading {
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: var(--space-md);
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badgeError {
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: var(--space-md);
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
