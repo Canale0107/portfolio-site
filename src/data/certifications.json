@@ -2,15 +2,23 @@
   {
     "category": "IPA資格",
     "items": [
-      { "name": "基本情報技術者", "date": "2024.7" },
+      { "name": "基本情報技術者", "date": "2024.07" },
       { "name": "応用情報技術者", "date": "2024.12" }
+    ]
+  },
+  {
+    "category": "AWS",
+    "items": [
+      { "name": "CLF-C02", "date": "2025.09" },
+      { "name": "SAA-C03", "date": "2025.11" },
+      { "name": "SOA-C03", "date": "2025.11" }
     ]
   },
   {
     "category": "英語",
     "items": [
       { "name": "TOEIC 845点", "date": "2021.10" },
-      { "name": "英検準1級", "date": "2016.6" }
+      { "name": "英検準1級", "date": "2016.06" }
     ]
   },
   {
