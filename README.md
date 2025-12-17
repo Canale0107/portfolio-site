@@ -20,10 +20,11 @@
 │   │   └── Interests/       # 趣味・関心・名言など
 │   ├── constants/           # 定数の定義（セクションID・ナビゲーションリンクなど）
 │   │   └── navigation.js    # ナビゲーション項目とセクションIDを一元管理
-│   ├── contexts/            # グローバル状態管理用の Context（例：テーマ切替）
-│   │   └── ThemeContext.jsx # テーマ状態の共有（ダーク/ライトモード切替）
+│   ├── contexts/            # グローバル状態管理用の Context
+│   │   ├── ThemeContext.jsx # テーマ状態の共有（ダーク/ライトモード切替）
+│   │   └── SectionContext.jsx # セクション切り替え状態の管理
 │   ├── data/                # スキル・資格・名言など構造化データ（JSON）
-│   ├── hooks/               # カスタムフック（IntersectionObserverによるセクション監視）
+│   ├── hooks/               # カスタムフック
 │   ├── styles/              # グローバル CSS（変数定義や基本リセット）
 │   ├── App.jsx              # 全体レイアウトとセクション構成
 │   └── main.jsx             # Vite によるエントリーポイント
@@ -46,7 +47,7 @@
 - **画像最適化**：`<picture>` タグで WebP/JPG を切り替え表示
 - **モジュール構成**：セクション単位のディレクトリと CSS を分離
 - **エイリアス `@/`**：`vite.config.js` により `src/` を簡潔に参照可能に（例：`@/assets/profile-pic.jpg`）
-- **スクロール同期ナビゲーション**：IntersectionObserver を用いて、スクロール位置に応じて URL のハッシュ（#about-me など）を自動更新。ナビゲーションと現在地の連携を実現。
+- **セクション切り替え（Context API）**：`SectionContext` を使ってセクション状態をグローバルに管理。ナビゲーションクリック時にセクションを切り替え、URL ハッシュも更新。ブラウザの戻る/進むボタンにも対応。
 
 ## 🚀 セットアップ
 
@@ -73,6 +74,11 @@ npm run build
 
 - `dist/` 以下にハッシュ付きファイルが出力される
 - Vercel や Netlify 等にデプロイ可能
+
+### デプロイ
+
+- このリポジトリは Vercel と連携しており、`main` ブランチに `git push` すると自動でデプロイされます
+- デプロイが完了すると、公開サイト（https://kanare.dev）に変更が反映されます
 
 ## 🧾 使用パッケージ
 
@@ -101,13 +107,85 @@ npm run build
   - 状態管理には React Context API（`ThemeContext`）を用いており、アプリ全体から `useTheme()` フックで現在のテーマ状態と切替関数にアクセス可能。
   - テーマの値は `localStorage` に保存され、ブラウザ再読み込み後も状態が保持される。
 
-### 🧭 スクロール連動ナビゲーション
+### セクション切り替え機能
 
-- 各セクションに `id` を割り当て、IntersectionObserver によって現在の表示位置を監視。
-- 画面中央に来たセクションの `id` を `history.replaceState()` により URL に反映。
-- 戻るボタンなどの履歴を汚さず、ユーザーが「今どのセクションを見ているか」を URL で明示。
-- `<Navbar />` のボタン操作時にも `scrollIntoView()` と `replaceState()` により URL を更新。
+- `SectionContext` により、現在表示中のセクション（`activeSection`）をグローバルに管理。
+- ナビゲーションボタンをクリックすると、`changeSection()` が呼び出され、対応するセクションが表示される。
+- セクション切り替え時に URL ハッシュ（例：`#career-timeline`）が `history.replaceState()` により更新される。
+- ブラウザの戻る/進むボタンで URL ハッシュが変更された場合、`hashchange` イベントを監視してセクションを自動切り替え。
+- TOP セクション内のサブセクション（`purpose`, `values`, `about-me`）は全て "top" セクションとして扱われる。
 
-## 🌍 公開サイト
+### 📝 資格データ・バッジデータの更新方法
 
-🔗 https://kodera-kanare.vercel.app
+新しい資格を追加する場合は、[`src/data/certifications.json`](https://github.com/Canale0107/portfolio-site/blob/main/src/data/certifications.json) を編集します。
+
+1. **既存のカテゴリに追加する場合**：
+
+   - 該当カテゴリの `items` 配列に新しいオブジェクトを追加
+   - 形式：`{ "name": "資格名", "date": "YYYY.MM" }`
+   - 日付は取得年月を `YYYY.MM` 形式で記入（例：`"2024.07"`）
+
+2. **新しいカテゴリを追加する場合**：
+
+   - ファイル末尾（最後の `]` の前）に新しいオブジェクトを追加
+   - 形式：
+     ```json
+     {
+       "category": "カテゴリ名",
+       "items": [{ "name": "資格名", "date": "YYYY.MM" }]
+     }
+     ```
+
+3. **例**（既存カテゴリに追加）：
+
+   ```json
+   {
+     "category": "AWS",
+     "items": [
+       { "name": "CLF-C02", "date": "2025.09" },
+       { "name": "SAA-C03", "date": "2025.11" },
+       { "name": "新規資格", "date": "2025.11" } // ← 追加
+     ]
+   }
+   ```
+
+4. **注意事項**：
+   - JSON の構文エラーに注意（カンマの位置、引用符など）
+   - 日付は新しい順に並べることを推奨（表示順は実装によって異なる場合あり）
+   - 変更後、開発サーバーが自動でリロードされ、変更が反映されます
+
+新しいバッジを追加する場合は、[`src/data/badges.json`](https://github.com/Canale0107/portfolio-site/blob/main/src/data/badges.json) を編集します。
+
+1. **バッジを追加する場合**：
+
+   - ファイル末尾（最後の `]` の前）に新しいオブジェクトを追加
+   - 形式：`{ "url": "バッジの共有URL", "note": "バッジの説明（任意）" }`
+   - `url` は **OpenBadge v2** の共有 URL を指定してください（例：`https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/...`）
+   - OpenBadge v2 の URL であることを確認してください（URL に `/v2/` が含まれている必要があります）
+   - `note` はバッジの説明やメモ（フォールバック表示用、任意）
+
+2. **例**：
+
+   ```json
+   [
+     {
+       "url": "https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/既存のID",
+       "note": "既存のバッジ"
+     },
+     {
+       "url": "https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/新しいID",
+       "note": "新規バッジ" // ← 追加
+     }
+   ]
+   ```
+
+3. **注意事項**：
+   - JSON の構文エラーに注意（カンマの位置、引用符など）
+   - `url` は **OpenBadge v2** の正しい共有 URL である必要があります（URL に `/v2/` が含まれていることを確認してください）
+   - バッジ情報（名前、画像、発行日など）は URL から自動的に取得されます
+   - `note` は表示されませんが、データ管理の参考として記入することができます
+   - 変更後、開発サーバーが自動でリロードされ、変更が反映されます
+
+## 公開サイト
+
+🔗 https://kanare.dev
