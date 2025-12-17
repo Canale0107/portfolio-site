@@ -17,7 +17,7 @@ export default function Footer() {
           className={styles.link}
         >
           <FaGithub className={styles.icon} />
-          <span>Source</span>
+          <span>Source of this page</span>
         </a>
       </div>
     </footer>
