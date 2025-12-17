@@ -16,7 +16,7 @@ const items = [
   },
   {
     icon: FaSitemap,
-    content: "新入社員研修中",
+    content: "インフラSE",
   },
   {
     icon: FaLocationDot,
