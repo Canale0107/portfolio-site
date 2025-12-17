@@ -49,6 +49,52 @@
     border-color var(--transition-time-base) ease;
 }
 
+.dateRange {
+  width: 71px;
+  display: inline-block;
+  margin-left: -112px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  margin-top: var(--space-sm);
+  vertical-align: top;
+  position: relative;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.dateRange::after {
+  content: "";
+  position: absolute;
+  right: -15px; /* 丸の位置が変わる*/
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border: 5px solid var(--color-accent);
+  border-radius: 50%;
+  background: var(--color-bg-surface);
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease,
+    border-color var(--transition-time-base) ease;
+}
+
+.dateStart {
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  color: var(--color-accent);
+  display: block;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.dateEnd {
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  color: var(--color-accent);
+  display: block;
+  text-align: right;
+  line-height: 1.4;
+}
+
 .event {
   display: inline-block;
   width: 100%;
@@ -80,4 +126,25 @@
   font-weight: normal;
   margin: 0.25rem 0;
   color: var(--color-text-secondary);
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.techTag {
+  display: inline-block;
+  font-size: var(--font-size-xsmall);
+  font-weight: 600;
+  padding: 0.25rem var(--space-sm);
+  background: var(--color-bg-default);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: 0.25rem;
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease,
+    border-color var(--transition-time-base) ease;
 }
