@@ -1,5 +1,8 @@
 # Canale's portfolio-site
 
+![CI](https://github.com/Canale0107/portfolio-site/actions/workflows/ci.yml/badge.svg)
+![Vercel](https://vercelbadge.vercel.app/api/kodera-kanare)
+
 ## 📁 ディレクトリ構成（概要）
 
 ```
