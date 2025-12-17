@@ -298,9 +298,13 @@ export default function BadgeCard({ url, fallbackName }) {
     fetchBadgeData();
   }, [url]);
 
-  // 読み込み中も空のdivのみ返す
+  // 読み込み中は「読み込み中」と表示する
   if (loading) {
-    return <div className={styles.badgeCard}></div>;
+    return (
+      <div className={`${styles.badgeCard} ${styles.badgeLoading}`}>
+        読み込み中...
+      </div>
+    );
   }
 
   if (error || !badgeData) {

@@ -109,6 +109,7 @@
   width: 200px;
   display: flex;
   flex-direction: column;
+  min-height: 150px;
 }
 
 .badgeCard:hover {
