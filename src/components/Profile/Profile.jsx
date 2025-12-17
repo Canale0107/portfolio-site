@@ -78,6 +78,19 @@ export default function Profile() {
           </li>
         ))}
       </ul>
+
+      {/* ソースリンク */}
+      <div className={styles.sourceLinks}>
+        <a
+          href="https://github.com/Canale0107/portfolio-site"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.sourceLink}
+        >
+          <FaGithub className={styles.sourceIcon} />
+          <span>Source of this page</span>
+        </a>
+      </div>
     </section>
   );
 }
