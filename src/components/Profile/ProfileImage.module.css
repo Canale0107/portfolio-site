@@ -22,7 +22,7 @@
   transform: scale(1.05);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 750px) {
   /* 顔写真のサイズ制限を追加！ */
   .profileImage,
   .darkProfileImage {

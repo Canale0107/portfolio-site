@@ -27,14 +27,14 @@
   color: var(--color-accent-hover);
 }
 
-@media (min-width: 801px) {
+@media (min-width: 751px) {
   .list {
     display: flex;
   }
 }
 
 /* モバイル表示（800px以下） */
-@media (max-width: 800px) {
+@media (max-width: 750px) {
   .list {
     display: flex;
     flex-direction: column;

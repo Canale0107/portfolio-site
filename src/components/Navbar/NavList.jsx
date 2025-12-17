@@ -23,9 +23,7 @@ export default function NavList({ isMobile, isOpen, onItemClick }) {
       }
     : {};
 
-  const items = isMobile
-    ? navItems
-    : navItems.filter(({ mobileOnly }) => !mobileOnly);
+  const items = navItems.filter(({ mobileOnly }) => !mobileOnly);
 
   return (
     <Wrapper className={styles.list} {...wrapperProps}>

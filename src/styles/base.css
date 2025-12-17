@@ -106,7 +106,7 @@ a:hover {
   scroll-margin-top: 5rem;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 750px) {
   .profile-page {
     margin: var(--space-xl) auto;
     padding: 0;
