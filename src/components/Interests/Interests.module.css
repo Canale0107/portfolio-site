@@ -4,12 +4,12 @@
 }
 
 .item {
-  margin-bottom: 1.5em;
+  margin-bottom: var(--space-md);
 }
 
 .block {
   position: relative;
-  padding: 10px 15px 10px 50px;
+  padding: var(--space-sm) var(--space-md) var(--space-sm) 3rem;
   box-sizing: border-box;
   font-style: italic;
   border: solid 2px var(--color-border-default);
@@ -23,12 +23,12 @@
 .block::before {
   display: inline-block;
   position: absolute;
-  top: 20px;
-  left: 15px;
+  top: 1.25rem;
+  left: var(--space-md);
   content: "\f10d";
   font-family: "FontAwesome";
   color: var(--color-accent);
-  font-size: 25px;
+  font-size: var(--font-size-xlarge);
   line-height: 1;
   font-weight: 900;
 }
@@ -45,7 +45,7 @@
 
 .text {
   padding: 0;
-  margin: 10px 0;
+  margin: var(--space-sm) 0;
   line-height: 1.7;
 }
 
@@ -58,5 +58,5 @@
 .commentary {
   font-size: 0.9em;
   color: var(--color-text-secondary);
-  padding: 0px 40px 5px;
+  padding: 0 var(--space-lg) var(--space-xs);
 }

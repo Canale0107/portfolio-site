@@ -3,6 +3,7 @@ import certifications from "@/data/certifications.json";
 import skills from "@/data/skills.json";
 import CertificationList from "./CertificationList";
 import SkillList from "./SkillList";
+import styles from "./Skills.module.css";
 
 export default function Skills() {
   return (

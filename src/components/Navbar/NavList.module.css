@@ -7,8 +7,8 @@
 }
 
 .list li {
-  padding: 0 15px;
-  margin: 0 5px
+  padding: 0 var(--space-md);
+  margin: 0 var(--space-xs);
 }
 
 .list li a,
@@ -57,7 +57,7 @@
 
   .list li a {
     font-size: var(--font-size-base);
-    padding: 0.75rem 1rem;
+    padding: var(--space-sm) var(--space-md);
   }
 
   .navItemThemeToggle {

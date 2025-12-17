@@ -2,7 +2,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: var(--space-xs) var(--space-md);
   display: block;
   font-weight: bold;
   text-decoration: none;

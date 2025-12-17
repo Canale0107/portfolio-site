@@ -10,11 +10,11 @@
   --font-size-xlarge: 1.5rem; /* 24px */
 
   /* スペース */
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 1.5rem;
-  --space-lg: 2rem;
-  --space-xl: 2.5rem;
+  --space-xs: 0.4rem;
+  --space-sm: 0.8rem;
+  --space-md: 1.2rem;
+  --space-lg: 1.6rem;
+  --space-xl: 2rem;
 
   /* transition time */
   --transition-time-sm: 0.25s;

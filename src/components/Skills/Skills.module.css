@@ -1,3 +1,5 @@
+/* Skillsセクションはprofile-page__wide-sectionと同じpaddingなので、特別な設定は不要 */
+
 .categories {
   display: flex;
   flex-wrap: wrap;

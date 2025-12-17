@@ -2,7 +2,7 @@
   ベーススタイル
 ======================================== */
 html {
-  font-size: 16px; /* 全体のスケール基準。ここを変えるだけでOK！ */
+  font-size: 14px; /* 全体のスケール基準。ここを変えるだけでOK！ */
   scroll-behavior: smooth;
 }
 
@@ -100,8 +100,17 @@ a:hover {
   flex-wrap: wrap;
   max-width: 75rem; /* 1200px */
   margin: var(--space-xl) auto;
+  padding: 0;
+  box-sizing: border-box;
   box-shadow: var(--shadow-light);
   scroll-margin-top: 5rem;
+}
+
+@media (max-width: 800px) {
+  .profile-page {
+    margin: var(--space-xl) auto;
+    padding: 0;
+  }
 }
 
 section {
@@ -117,7 +126,7 @@ section {
   width: 100%;
   scroll-margin-top: 3rem;
   border-top: 1px solid var(--color-border-default); /* 上に線をつける */
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   box-sizing: border-box;
   background-color: var(--color-bg-surface);
 }
