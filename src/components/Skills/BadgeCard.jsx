@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Skills.module.css";
 
+// グローバルなメモリキャッシュ
+const badgeCache = {};
+
 export default function BadgeCard({ url, fallbackName }) {
   const [badgeData, setBadgeData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -8,10 +11,19 @@ export default function BadgeCard({ url, fallbackName }) {
   const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchBadgeData = async () => {
+      setLoading(true);
+      setError(null);
+
+      // キャッシュがあればすぐ返す
+      if (badgeCache[url]) {
+        setBadgeData(badgeCache[url]);
+        setLoading(false);
+        return;
+      }
+
       try {
-        setLoading(true);
-        setError(null);
 
         // URLからアサーションIDを抽出
         const assertionIdMatch = url.match(/\/GetAssertionShare\/([^\/]+)/);
@@ -140,7 +152,9 @@ export default function BadgeCard({ url, fallbackName }) {
 
         // 3. APIからデータを取得できた場合は使用
         if (badgeDataFromApi) {
+          badgeCache[url] = badgeDataFromApi;
           setBadgeData(badgeDataFromApi);
+          setLoading(false);
           return;
         }
 
@@ -284,12 +298,9 @@ export default function BadgeCard({ url, fallbackName }) {
     fetchBadgeData();
   }, [url]);
 
+  // 読み込み中も空のdivのみ返す
   if (loading) {
-    return (
-      <div className={styles.badgeCard}>
-        <div className={styles.badgeLoading}>読み込み中...</div>
-      </div>
-    );
+    return <div className={styles.badgeCard}></div>;
   }
 
   if (error || !badgeData) {
