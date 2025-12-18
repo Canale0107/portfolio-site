@@ -246,27 +246,17 @@
 }
 
 .badgeName {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-small);
   font-weight: bold;
   color: var(--color-text-primary);
   margin-bottom: var(--space-xs);
   word-wrap: break-word;
   line-height: 1.4;
 }
-@media (max-width: 749px) {
-  .badgeName {
-    font-size: var(--font-size-large);
-  }
-}
 
 .badgeDate {
   font-size: var(--font-size-xsmall);
   color: var(--color-text-secondary);
-}
-@media (max-width: 749px) {
-  .badgeDate {
-    font-size: var(--font-size-base);
-  }
 }
 
 .badgeLoading {
