@@ -63,6 +63,7 @@
 .socialLinks {
   margin-top: 1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   gap: 1rem;
   list-style: none;
