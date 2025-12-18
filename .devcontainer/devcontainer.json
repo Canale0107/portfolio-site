@@ -1,0 +1,30 @@
+{
+  "name": "Vite Portfolio Development",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:0-20",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      },
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  },
+  "postCreateCommand": "npm install",
+  "portsAttributes": {
+    "5173": {
+      "label": "Vite Dev Server",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "forwardPorts": [5173],
+  "initializeCommand": "npm install --global vite"
+}
+

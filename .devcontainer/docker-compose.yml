@@ -1,0 +1,4 @@
+# Optional: only needed if using additional services (DB等)。基本不要なので空でもOK
+version: '3.8'
+services: {}
+
