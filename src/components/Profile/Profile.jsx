@@ -8,6 +8,8 @@ import { FaBuilding, FaSitemap, FaLocationDot, FaGift } from "react-icons/fa6";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdPushPin } from "react-icons/md"; /* 部署アイコンの代替 */
 import NoteIcon from "@/components/Icon/NoteIcon";
+import ZennIcon from "@/components/Icon/ZennIcon";
+import HatenaBlogIcon from "@/components/Icon/HatenaBlogIcon";
 
 const items = [
   {
@@ -38,6 +40,16 @@ const socialLinks = [
     icon: FaLinkedin,
     url: "https://www.linkedin.com/in/kanare-kodera/",
     label: "LinkedIn",
+  },
+  {
+    icon: ZennIcon,
+    url: "https://zenn.dev/canale",
+    label: "Zenn",
+  },
+  {
+    icon: HatenaBlogIcon,
+    url: "https://canale0107.hatenablog.com/",
+    label: "HatenaBlog",
   },
   {
     icon: NoteIcon,
