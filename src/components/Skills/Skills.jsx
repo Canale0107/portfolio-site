@@ -23,7 +23,7 @@ export default function Skills() {
 
       {badges && badges.length > 0 && (
         <>
-          <h3>バッジ</h3>
+          <h3>保有バッジ</h3>
           <BadgeList data={badges} />
         </>
       )}
