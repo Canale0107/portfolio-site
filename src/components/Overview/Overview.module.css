@@ -29,7 +29,7 @@
 
 /* パーパスの内容　*/
 .purposeTexts {
-  margin-left: var(--space-sm);
+  margin-left: var(--space-md);
   display: flex;
   flex-direction: column;
 }
