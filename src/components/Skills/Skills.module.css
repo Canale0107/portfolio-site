@@ -20,6 +20,22 @@
     box-shadow var(--transition-time-base) ease;
 }
 
+@media (max-width: 749px) {
+  .category {
+    width: 100vw;
+    max-width: 100vw;
+    border-radius: 0;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+}
+@media (min-width: 750px) {
+  .category {
+    width: 13.75rem;
+    border-radius: 0.5rem;
+  }
+}
+
 .category:hover {
   box-shadow: var(--shadow-hover);
   transform: translateY(-3px);
@@ -29,6 +45,11 @@
 .itemList {
   list-style: none;
   padding-left: var(--space-xs);
+}
+@media (max-width: 749px) {
+  .itemList {
+    padding-left: var(--space-xl);
+  }
 }
 
 /* 資格名・スキル名*/
@@ -44,6 +65,11 @@
   color: var(--color-text-secondary);
   font-size: 0.625rem;
   margin-left: var(--space-xs);
+}
+@media (max-width: 749px) {
+  .certificationDate {
+    margin-left: var(--space-xl);
+  }
 }
 
 .skillItem {
@@ -72,6 +98,12 @@
   position: relative;
   flex-shrink: 0; /* バーが縮まないようにする */
   transition: background-color var(--transition-time-base) ease;
+}
+
+@media (max-width: 749px) {
+  .skillBar {
+    width: 80%;
+  }
 }
 
 .fill {
