@@ -18,11 +18,11 @@ const items = [
   },
   {
     icon: FaSitemap,
-    content: "インフラSE",
+    content: "Cloud Engineer",
   },
   {
     icon: FaLocationDot,
-    content: "東京都 大田区",
+    content: "Tokyo, Japan",
   },
   {
     icon: FaGift,
