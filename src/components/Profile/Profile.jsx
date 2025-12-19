@@ -14,7 +14,7 @@ import HatenaBlogIcon from "@/components/Icon/HatenaBlogIcon";
 const items = [
   {
     icon: FaBuilding,
-    content: "富士通株式会社",
+    content: "Fujitsu",
   },
   {
     icon: FaSitemap,
