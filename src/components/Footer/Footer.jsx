@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.left}>
         <FaRegCopyright className={styles.icon} />
-        <span>2025 Kodera Kanare</span>
+        <span>2025 Kanare Kodera</span>
       </div>
       <div className={styles.right}>
         <a
