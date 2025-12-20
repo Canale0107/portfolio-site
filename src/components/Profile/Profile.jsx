@@ -14,15 +14,15 @@ import HatenaBlogIcon from "@/components/Icon/HatenaBlogIcon";
 const items = [
   {
     icon: FaBuilding,
-    content: "富士通株式会社",
+    content: "Fujitsu",
   },
   {
     icon: FaSitemap,
-    content: "インフラSE",
+    content: "Cloud Engineer",
   },
   {
     icon: FaLocationDot,
-    content: "東京都 大田区",
+    content: "Tokyo, Japan",
   },
   {
     icon: FaGift,
