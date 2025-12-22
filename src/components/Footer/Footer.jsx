@@ -6,12 +6,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.left}>
-        <a
-          href="https://kanare.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.link}
-        >
+        <a href="https://kanare.dev" className={styles.link}>
           <FaRegCopyright className={styles.icon} />
           <span>2025 Kanare Kodera</span>
         </a>
