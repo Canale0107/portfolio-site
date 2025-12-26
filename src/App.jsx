@@ -52,10 +52,12 @@ export default function App() {
     <>
       <Navbar />
       <div id="top" style={{ height: "1px", position: "absolute", top: 0 }} />
-      <main className="profile-page">
-        <h1 className="visually-hidden">小寺奏怜｜プロフィール</h1>
-        {renderSection()}
-      </main>
+      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        <main className="profile-page">
+          <h1 className="visually-hidden">小寺奏怜｜プロフィール</h1>
+          {renderSection()}
+        </main>
+      </div>
       <Footer />
     </>
   );

@@ -15,6 +15,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Sticky Footer のためのレイアウト */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 body,
 .profile-page,
 .profile-page__wide-section,
