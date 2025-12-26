@@ -8,7 +8,7 @@ export default function CertificationList({ data }) {
       renderItem={(cert) => (
         <>
           <span className={styles.certificationName}>{cert.name}</span>
-          <span className={styles.certificationDate}>（{cert.date}）</span>
+          <span className={styles.certificationDate}>{cert.date}</span>
         </>
       )}
     />

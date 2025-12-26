@@ -63,7 +63,7 @@
 
 .certificationDate {
   color: var(--color-text-secondary);
-  font-size: 0.625rem;
+  font-size: var(--font-size-xsmall);
   margin-left: var(--space-xs);
 }
 @media (max-width: 749px) {
