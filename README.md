@@ -24,7 +24,8 @@
 │   │   ├── ThemeContext.jsx         # テーマ状態の共有（ダーク/ライトモード切替）
 │   │   └── SectionContext.jsx       # セクション切り替え状態の管理
 │   ├── data/                        # スキル・資格・名言など構造化データ（JSON）
-│   │   ├── badges.json              # OpenBadge バッジ情報
+│   │   ├── badge-urls.json          # OpenBadge バッジURL（手動編集）
+│   │   ├── badges.json              # OpenBadge バッジ完全データ（自動生成）
 │   │   ├── career.json              # 経歴データ
 │   │   ├── certifications.json      # 資格データ
 │   │   ├── influences.json          # 影響を受けた人物・作品
@@ -38,6 +39,8 @@
 │   ├── styles/                      # グローバル CSS（変数定義や基本リセット）
 │   ├── App.jsx                      # 全体レイアウトとセクション構成
 │   └── main.jsx                     # Vite によるエントリーポイント
+├── scripts/                         # 自動化スクリプト
+│   └── fetch-badge-data.js          # バッジデータ取得スクリプト
 ├── index.html                       # React アプリの HTML エントリーポイント
 ├── dist/                            # 本番ビルド成果物（Vite により自動生成）
 ├── package.json                     # npm パッケージ定義
@@ -177,56 +180,77 @@ npm run preview
 
 新しいバッジを追加する場合は、以下の手順に従ってください：
 
-#### 1. badges.json にバッジURLを追加
+#### 方法1: GitHub経由で追加（推奨）
 
-[`src/data/badges.json`](https://github.com/Canale0107/portfolio-site/blob/main/src/data/badges.json) を開き、ファイル末尾（最後の `]` の前）に新しいバッジのURLを追加します。
+1. **badge-urls.json にバッジURLを追加**
 
-- 形式：`{ "url": "バッジの共有URL", "note": "バッジ名" }`
-- `url` は **OpenBadge v2** の共有 URL を指定（例：`https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/...`）
-- `note` はバッジ名（任意、フォールバック表示用）
+   [`src/data/badge-urls.json`](https://github.com/Canale0107/portfolio-site/blob/main/src/data/badge-urls.json) を開き、ファイル末尾（最後の `]` の前）に新しいバッジのURLを追加します。
 
-**例**：
+   - 形式：`{ "url": "バッジの共有URL", "note": "バッジ名" }`
+   - `url` は **OpenBadge v2** の共有 URL を指定（例：`https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/...`）
+   - `note` はバッジ名（任意、フォールバック表示用）
 
-```json
-[
-  {
-    "url": "https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/既存のID",
-    "note": "既存のバッジ"
-  },
-  {
-    "url": "https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/新しいID",
-    "note": "新規バッジ"
-  }
-]
-```
+   **例**：
 
-#### 2. スクリプトを実行してバッジデータを取得
+   ```json
+   [
+     {
+       "url": "https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/既存のID",
+       "note": "既存のバッジ"
+     },
+     {
+       "url": "https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/新しいID",
+       "note": "新規バッジ"
+     }
+   ]
+   ```
 
-以下のコマンドを実行して、バッジの詳細情報（名前、説明、画像、発行日）を自動取得します：
+2. **コミット・プッシュ**
 
-```bash
-node scripts/fetch-badge-data.js
-```
+   変更をコミットして `main` ブランチにプッシュすると、GitHub Actions が自動的に：
+   - バッジの詳細情報（名前、説明、画像、発行日）を API から取得
+   - `src/data/badges.json` を更新
+   - 変更を自動コミット
 
-このスクリプトは：
-- 各バッジの URL から API 経由でバッジ情報を取得
-- `src/data/badges.json` を自動的に更新
-- 名前、説明、画像URL、発行日を含む完全なバッジデータを保存
+3. **確認**
 
-#### 3. 動作確認
+   GitHub Actions が完了したら、サイトに新しいバッジが表示されます。
 
-開発サーバーで変更を確認します：
+#### 方法2: ローカルで追加
 
-```bash
-npm run dev
-```
+1. **badge-urls.json にバッジURLを追加**（方法1と同じ）
+
+2. **スクリプトを実行**
+
+   ```bash
+   node scripts/fetch-badge-data.js
+   ```
+
+   このスクリプトは：
+   - `src/data/badge-urls.json` から URL を読み込み
+   - API 経由でバッジ情報を取得
+   - `src/data/badges.json` を自動更新
+
+3. **動作確認**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **コミット・プッシュ**
+
+   両方のファイル（`badge-urls.json` と `badges.json`）をコミットしてプッシュ
+
+#### ファイルの役割
+
+- **`src/data/badge-urls.json`**: 手動で編集するファイル（URLとnoteのみ）
+- **`src/data/badges.json`**: 自動生成されるファイル（完全なバッジデータ）
 
 #### 注意事項
 
 - JSON の構文エラーに注意（カンマの位置、引用符など）
 - `url` は **OpenBadge v2** の正しい共有 URL である必要があります
-- スクリプト実行により、バッジ情報はローカルに保存され、サイト表示時のAPIリクエストが不要になります
-- バッジ情報を更新する場合も、同じスクリプトを再実行してください
+- `badges.json` は自動生成されるため、直接編集しないでください
 
 ## 📌 補足事項
 

@@ -1,5 +1,9 @@
 /**
  * バッジデータを取得して静的JSONファイルを生成するスクリプト
+ *
+ * 入力: src/data/badge-urls.json（手動で編集するファイル、URLとnoteのみ）
+ * 出力: src/data/badges.json（自動生成、完全なバッジデータ）
+ *
  * 使い方: node scripts/fetch-badge-data.js
  */
 
@@ -10,9 +14,9 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 既存のbadges.jsonを読み込む
-const badgesJsonPath = path.join(__dirname, '../src/data/badges.json');
-const badgesData = JSON.parse(await fs.readFile(badgesJsonPath, 'utf-8'));
+// badge-urls.jsonを読み込む（手動で入力するファイル）
+const badgeUrlsPath = path.join(__dirname, '../src/data/badge-urls.json');
+const badgesData = JSON.parse(await fs.readFile(badgeUrlsPath, 'utf-8'));
 
 console.log(`バッジ数: ${badgesData.length}`);
 
