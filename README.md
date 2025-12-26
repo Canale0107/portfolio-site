@@ -175,37 +175,58 @@ npm run preview
 
 ### バッジデータの更新方法
 
-新しいバッジを追加する場合は、[`src/data/badges.json`](https://github.com/Canale0107/portfolio-site/blob/main/src/data/badges.json) を編集します。
+新しいバッジを追加する場合は、以下の手順に従ってください：
 
-1. **バッジを追加する場合**：
+#### 1. badges.json にバッジURLを追加
 
-   - ファイル末尾（最後の `]` の前）に新しいオブジェクトを追加
-   - 形式：`{ "url": "バッジの共有URL", "note": "バッジの説明（任意）" }`
-   - `url` は **OpenBadge v2** の共有 URL を指定してください（例：`https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/...`）
-   - OpenBadge v2 の URL であることを確認してください（URL に `/v2/` が含まれている必要があります）
-   - `note` はバッジの説明やメモ（フォールバック表示用、任意）
+[`src/data/badges.json`](https://github.com/Canale0107/portfolio-site/blob/main/src/data/badges.json) を開き、ファイル末尾（最後の `]` の前）に新しいバッジのURLを追加します。
 
-2. **例**：
+- 形式：`{ "url": "バッジの共有URL", "note": "バッジ名" }`
+- `url` は **OpenBadge v2** の共有 URL を指定（例：`https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/...`）
+- `note` はバッジ名（任意、フォールバック表示用）
 
-   ```json
-   [
-     {
-       "url": "https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/既存のID",
-       "note": "既存のバッジ"
-     },
-     {
-       "url": "https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/新しいID",
-       "note": "新規バッジ" // ← 追加
-     }
-   ]
-   ```
+**例**：
 
-3. **注意事項**：
-   - JSON の構文エラーに注意（カンマの位置、引用符など）
-   - `url` は **OpenBadge v2** の正しい共有 URL である必要があります（URL に `/v2/` が含まれていることを確認してください）
-   - バッジ情報（名前、画像、発行日など）は URL から自動的に取得されます
-   - `note` は表示されませんが、データ管理の参考として記入することができます
-   - 変更後、開発サーバーが自動でリロードされ、変更が反映されます
+```json
+[
+  {
+    "url": "https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/既存のID",
+    "note": "既存のバッジ"
+  },
+  {
+    "url": "https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/新しいID",
+    "note": "新規バッジ"
+  }
+]
+```
+
+#### 2. スクリプトを実行してバッジデータを取得
+
+以下のコマンドを実行して、バッジの詳細情報（名前、説明、画像、発行日）を自動取得します：
+
+```bash
+node scripts/fetch-badge-data.js
+```
+
+このスクリプトは：
+- 各バッジの URL から API 経由でバッジ情報を取得
+- `src/data/badges.json` を自動的に更新
+- 名前、説明、画像URL、発行日を含む完全なバッジデータを保存
+
+#### 3. 動作確認
+
+開発サーバーで変更を確認します：
+
+```bash
+npm run dev
+```
+
+#### 注意事項
+
+- JSON の構文エラーに注意（カンマの位置、引用符など）
+- `url` は **OpenBadge v2** の正しい共有 URL である必要があります
+- スクリプト実行により、バッジ情報はローカルに保存され、サイト表示時のAPIリクエストが不要になります
+- バッジ情報を更新する場合も、同じスクリプトを再実行してください
 
 ## 📌 補足事項
 
