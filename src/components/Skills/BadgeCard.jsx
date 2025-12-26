@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Skills.module.css";
+import styles from "./Badges.module.css";
 
 export default function BadgeCard({ badge }) {
   const [imageError, setImageError] = useState(false);

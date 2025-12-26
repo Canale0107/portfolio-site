@@ -1,0 +1,22 @@
+/* 保有資格専用のスタイル */
+
+/* 資格名 */
+.certificationName {
+  font-size: var(--font-size-small);
+  font-weight: bold;
+  display: inline-block;
+  width: 8.25rem;
+}
+
+/* 資格取得日 */
+.certificationDate {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xsmall);
+  margin-left: var(--space-xs);
+}
+
+@media (max-width: 749px) {
+  .certificationDate {
+    margin-left: var(--space-xl);
+  }
+}

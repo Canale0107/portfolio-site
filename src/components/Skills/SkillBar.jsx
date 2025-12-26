@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./Skills.module.css";
+import styles from "./SkillsContent.module.css";
 
 export default function SkillBar({ level, trigger }) {
   const barRef = useRef(null);

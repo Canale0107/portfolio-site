@@ -5,7 +5,6 @@ import badges from "@/data/badges.json";
 import CertificationList from "./CertificationList";
 import BadgeList from "./BadgeList";
 import SkillList from "./SkillList";
-import styles from "./Skills.module.css";
 
 export default function Skills() {
   return (

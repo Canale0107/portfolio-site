@@ -1,6 +1,6 @@
 import React from "react";
 import BadgeCard from "./BadgeCard";
-import styles from "./Skills.module.css";
+import styles from "./Badges.module.css";
 
 export default function BadgeList({ data }) {
   if (!data || data.length === 0) {

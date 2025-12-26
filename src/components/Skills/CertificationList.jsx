@@ -1,4 +1,4 @@
-import styles from "./Skills.module.css";
+import styles from "./Certifications.module.css";
 import CategoryList from "./CategoryList";
 
 export default function CertificationList({ data }) {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Skills.module.css";
+import styles from "./SkillsContent.module.css";
 import SkillBar from "./SkillBar";
 import CategoryList from "./CategoryList";
 

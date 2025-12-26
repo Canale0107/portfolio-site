@@ -1,0 +1,209 @@
+/* バッジ専用のスタイル */
+
+/* バッジリンク */
+.badgeLinks {
+  display: flex;
+  gap: var(--space-md);
+  margin: var(--space-md) 0 0 0;
+  justify-content: center;
+}
+
+.badgeExternalLink {
+  font-size: var(--font-size-small);
+  font-weight: bold;
+  color: var(--color-accent);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: 4px;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
+  box-shadow: var(--shadow-light);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.badgeExternalLink:hover {
+  background: var(--color-bg-surface);
+  /* 色は変えず、影のみを変化させる */
+  color: var(--color-accent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+/* バッジリスト */
+.badgeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin: var(--space-md) 0;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* バッジカード */
+.badgeCard {
+  background: var(--color-bg-muted);
+  border-radius: 0.5rem;
+  padding: var(--space-md);
+  box-shadow: var(--shadow-light);
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease,
+    box-shadow var(--transition-time-base) ease;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+}
+
+@media (max-width: 749px) {
+  .badgeCard {
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    min-height: 110px;
+    padding: var(--space-md);
+  }
+}
+
+@media (min-width: 750px) {
+  .badgeCard {
+    flex-direction: column;
+    width: 200px;
+    min-height: 150px;
+    align-items: stretch;
+    padding: var(--space-md);
+  }
+}
+
+.badgeCard:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+/* バッジリンク */
+.badgeLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  gap: var(--space-sm);
+  flex: 1;
+  justify-content: space-between;
+}
+
+@media (max-width: 749px) {
+  .badgeLink {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--space-lg);
+  }
+}
+
+@media (min-width: 750px) {
+  .badgeLink {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+}
+
+/* バッジ画像 */
+.badgeImage {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+@media (max-width: 749px) {
+  .badgeImage {
+    width: 96px;
+    height: 96px;
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: var(--space-sm);
+  }
+}
+
+@media (min-width: 750px) {
+  .badgeImage {
+    width: 110px;
+    height: 110px;
+    margin-right: 0;
+  }
+}
+
+/* バッジ情報 */
+.badgeInfo {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-height: fit-content;
+}
+
+@media (max-width: 749px) {
+  .badgeInfo {
+    text-align: left;
+    align-items: flex-start;
+    justify-content: center;
+    height: 96px;
+    gap: var(--space-sm);
+  }
+}
+
+@media (min-width: 750px) {
+  .badgeInfo {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    height: auto;
+  }
+}
+
+/* バッジ名 */
+.badgeName {
+  font-size: var(--font-size-small);
+  font-weight: bold;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* バッジ取得日 */
+.badgeDate {
+  font-size: var(--font-size-xsmall);
+  color: var(--color-text-secondary);
+}
+
+/* バッジ読み込み中 */
+.badgeLoading {
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: var(--space-md);
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* バッジエラー */
+.badgeError {
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: var(--space-md);
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
