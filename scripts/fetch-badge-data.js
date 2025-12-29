@@ -60,11 +60,34 @@ async function fetchBadgeData(badgeUrl, note) {
                   (typeof badgeData.image === 'string' ? badgeData.image : null) ||
                   `https://nlp.netlearning.co.jp/api/v1.0/openbadge/v2/Assertion/Host/${assertionId}/Image`;
 
+                // issuer情報を取得
+                let issuerName = null;
+                if (badgeData.issuer) {
+                  if (typeof badgeData.issuer === 'string') {
+                    // issuerがURLの場合、URLからデータを取得
+                    try {
+                      const issuerResponse = await fetch(badgeData.issuer);
+                      if (issuerResponse.ok) {
+                        const issuerData = await issuerResponse.json();
+                        issuerName = issuerData.name;
+                        console.log(`  発行者取得: ${issuerName}`);
+                      }
+                    } catch (issuerErr) {
+                      console.log(`  ! 発行者取得失敗（CORS制限の可能性）`);
+                    }
+                  } else if (badgeData.issuer.name) {
+                    // issuerがオブジェクトの場合
+                    issuerName = badgeData.issuer.name;
+                    console.log(`  発行者取得: ${issuerName}`);
+                  }
+                }
+
                 badgeInfo = {
                   name: badgeData.name || note,
                   description: badgeData.description || '',
                   image: imageUrl,
                   issuedOn: issuedOn,
+                  ...(issuerName && { issuer: issuerName }),
                 };
                 console.log(`  ✓ Host API経由で取得成功`);
               }
@@ -101,11 +124,34 @@ async function fetchBadgeData(badgeUrl, note) {
                 const imageUrl = altJsonData.image || badgeData.image ||
                   `https://nlp.netlearning.co.jp/api/v1.0/openbadge/v2/Assertion/${assertionId}/image`;
 
+                // issuer情報を取得
+                let issuerName = null;
+                if (badgeData.issuer) {
+                  if (typeof badgeData.issuer === 'string') {
+                    // issuerがURLの場合、URLからデータを取得
+                    try {
+                      const issuerResponse = await fetch(badgeData.issuer);
+                      if (issuerResponse.ok) {
+                        const issuerData = await issuerResponse.json();
+                        issuerName = issuerData.name;
+                        console.log(`  発行者取得: ${issuerName}`);
+                      }
+                    } catch (issuerErr) {
+                      console.log(`  ! 発行者取得失敗（CORS制限の可能性）`);
+                    }
+                  } else if (badgeData.issuer.name) {
+                    // issuerがオブジェクトの場合
+                    issuerName = badgeData.issuer.name;
+                    console.log(`  発行者取得: ${issuerName}`);
+                  }
+                }
+
                 badgeInfo = {
                   name: badgeData.name || note,
                   description: badgeData.description || '',
                   image: imageUrl,
                   issuedOn: issuedOn,
+                  ...(issuerName && { issuer: issuerName }),
                 };
                 console.log(`  ✓ 代替API経由で取得成功`);
               }
@@ -119,11 +165,7 @@ async function fetchBadgeData(badgeUrl, note) {
 
     // 3. APIから取得できた場合は返す
     if (badgeInfo) {
-      return {
-        url: badgeUrl,
-        note: note,
-        ...badgeInfo
-      };
+      return badgeInfo;
     }
 
     // 4. JSON APIが失敗した場合、HTMLからメタタグを取得
@@ -189,8 +231,6 @@ async function fetchBadgeData(badgeUrl, note) {
 
     console.log(`  ✓ HTMLから取得成功`);
     return {
-      url: badgeUrl,
-      note: note,
       name: title || note,
       description: description || '',
       image: imageUrl,
@@ -205,8 +245,6 @@ async function fetchBadgeData(badgeUrl, note) {
     if (assertionIdMatch) {
       const assertionId = assertionIdMatch[1];
       return {
-        url: badgeUrl,
-        note: note,
         name: note,
         description: '',
         image: `https://nlp.netlearning.co.jp/api/v1.0/openbadge/v2/Assertion/Host/${assertionId}/Image`,
