@@ -5,7 +5,8 @@
   display: block;
   box-shadow: var(--shadow-light);
   transition: filter var(--transition-time-base) ease,
-    box-shadow var(--transition-time-base) ease;
+    box-shadow var(--transition-time-base) ease,
+    transform 0.3s ease;
 }
 
 .profileImage:hover {
