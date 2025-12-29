@@ -7,8 +7,8 @@
 }
 
 .list li {
-  padding: 0 var(--space-md);
-  margin: 0 var(--space-xs);
+  padding: 0 var(--space-sm);
+  margin: 0 0.2rem;
 }
 
 .list li a,
@@ -27,14 +27,35 @@
   color: var(--color-accent-hover);
 }
 
-@media (min-width: 751px) {
+@media (min-width: 901px) {
   .list {
     display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .list li {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0 var(--space-sm);
+    margin: 0 0.2rem;
   }
 }
 
-/* モバイル表示（800px以下） */
-@media (max-width: 750px) {
+/* 中サイズの画面（900px〜1100px）でフォントサイズと間隔を調整 */
+@media (min-width: 901px) and (max-width: 1100px) {
+  .list li {
+    padding: 0 var(--space-sm);
+    margin: 0 0.2rem;
+  }
+
+  .navItemBtn {
+    font-size: var(--font-size-xsmall);
+    padding: var(--space-xs) var(--space-sm);
+  }
+}
+
+/* モバイル表示（900px以下） */
+@media (max-width: 900px) {
   .list {
     display: flex;
     flex-direction: column;
