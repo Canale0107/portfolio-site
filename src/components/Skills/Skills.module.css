@@ -1,55 +1,170 @@
-/* 保有資格・スキル・バッジセクション共通のスタイル */
+/* スキル専用のスタイル */
 
-.categories {
+/* Categories Container */
+.categoriesContainer {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-  list-style: none;
-  padding: 0;
-  justify-content: center;
+  flex-direction: column;
+  gap: var(--space-xl);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.category {
-  background: var(--color-bg-muted);
-  padding: var(--space-sm);
-  border-radius: 0.5rem;
-  width: 13.75rem;
-  box-shadow: var(--shadow-light);
-  transition: background-color var(--transition-time-base) ease,
-    color var(--transition-time-base) ease,
-    box-shadow var(--transition-time-base) ease;
-}
-
-@media (max-width: 749px) {
-  .category {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0;
-    padding-left: var(--space-lg);
-    padding-right: var(--space-lg);
+/* PC時は4列のグリッドレイアウト */
+@media (min-width: 900px) {
+  .categoriesContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
   }
 }
 
-@media (min-width: 750px) {
-  .category {
-    width: 13.75rem;
+/* Category Card - カテゴリごとに一つのカード */
+.categoryCard {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: 0.75rem;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-light);
+  transition: all var(--transition-time-base) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* PC時はパディングとスペーシングをさらに減らす */
+@media (min-width: 900px) {
+  .categoryCard {
+    padding: var(--space-sm);
     border-radius: 0.5rem;
   }
 }
 
-.category:hover {
+.categoryCard::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--color-accent),
+    var(--color-accent-hover)
+  );
+  opacity: 0;
+  transition: opacity var(--transition-time-base) ease;
+}
+
+.categoryCard:hover {
   box-shadow: var(--shadow-hover);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
 }
 
-/* 資格リスト・スキルリスト共通 */
-.itemList {
-  list-style: none;
-  padding-left: var(--space-xs);
+.categoryCard:hover::before {
+  opacity: 1;
 }
 
-@media (max-width: 749px) {
-  .itemList {
-    padding-left: var(--space-xl);
+/* Category Header */
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+/* PC時はヘッダーのマージンとギャップを減らす */
+@media (min-width: 900px) {
+  .categoryHeader {
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
+  }
+}
+
+.categoryTitle {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+/* PC時はタイトルサイズをさらに小さく */
+@media (min-width: 900px) {
+  .categoryTitle {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+}
+
+.categoryBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background: var(--color-bg-muted);
+  border: 1px solid var(--color-border-default);
+  border-radius: 1rem;
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color var(--transition-time-base) ease,
+    color var(--transition-time-base) ease,
+    border-color var(--transition-time-base) ease;
+}
+
+/* PC時はバッジのパディングを減らす */
+@media (min-width: 900px) {
+  .categoryBadge {
+    padding: 0.2rem 0.5rem;
+    font-size: var(--font-size-xsmall);
+  }
+}
+
+.categoryDivider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    var(--color-border-default),
+    transparent
+  );
+  margin-bottom: var(--space-md);
+}
+
+/* PC時はマージンをさらに減らす */
+@media (min-width: 900px) {
+  .categoryDivider {
+    margin-bottom: var(--space-xs);
+  }
+}
+
+/* Items List - カード内のスキルリスト */
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* PC時はギャップをさらに減らす */
+@media (min-width: 900px) {
+  .itemsList {
+    gap: var(--space-xs);
+  }
+}
+
+.itemWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 599px) {
+  .categoryCard {
+    padding: var(--space-md);
   }
 }
