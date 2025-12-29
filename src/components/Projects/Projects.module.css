@@ -1,0 +1,222 @@
+/* プロジェクトグリッド */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin: var(--space-md) 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* モバイル表示 */
+@media (max-width: 750px) {
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* タブレット表示 */
+@media (min-width: 751px) and (max-width: 1024px) {
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+}
+
+/* プロジェクトカード */
+.projectCard {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+  transition: all var(--transition-time-base) ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.projectCard:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+}
+
+/* 画像コンテナ */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-bg-muted);
+  flex-shrink: 0;
+  padding: var(--space-md);
+  box-sizing: border-box;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform var(--transition-time-base) ease;
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-time-base) ease;
+}
+
+.projectCard:hover .imageOverlay {
+  opacity: 1;
+}
+
+/* プロジェクト情報 */
+.projectInfo {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex-grow: 1;
+}
+
+/* プロジェクトヘッダー */
+.projectHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.projectTitle {
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  transition: color var(--transition-time-base) ease;
+}
+
+.projectCard:hover .projectTitle {
+  color: var(--color-accent);
+}
+
+.projectTitleJa {
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+/* プロジェクト説明 */
+.projectDescription {
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 技術スタックタグ */
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin: var(--space-xs) 0;
+}
+
+.techTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: var(--font-size-xsmall);
+  font-weight: 600;
+  color: var(--color-bg-surface);
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: 0.5rem;
+  transition: all var(--transition-time-base) ease;
+}
+
+.projectCard:hover .techTag {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: var(--color-bg-surface);
+}
+
+/* プロジェクトリンク */
+.projectLinks {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.githubLink,
+.demoLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all var(--transition-time-base) ease;
+  flex: 1;
+}
+
+.githubLink {
+  color: var(--color-text-primary);
+  background: var(--color-bg-muted);
+  border: 1px solid var(--color-border-default);
+}
+
+.githubLink:hover {
+  background: var(--color-bg-surface);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-light);
+}
+
+.demoLink {
+  color: var(--color-bg-surface);
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.demoLink:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  box-shadow: var(--shadow-light);
+  transform: translateY(-2px);
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+

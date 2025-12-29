@@ -7,6 +7,7 @@ export const navItems = [
   { href: "#career-timeline", label: "経歴" },
   { href: "#skills", label: "スキル" },
   { href: "#research", label: "研究経験" },
+  { href: "#projects", label: "プロジェクト" },
   { href: "#interests", label: "趣味・関心" },
 ];
 

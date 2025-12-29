@@ -2,7 +2,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: var(--space-xs) var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
   display: block;
   font-weight: bold;
   text-decoration: none;
@@ -10,6 +10,7 @@
   border-radius: 0.25rem;
   color: var(--color-text-primary);
   transition: background-color var(--transition-time-base) ease;
+  white-space: nowrap;
 }
 
 .navItemBtn:hover {
@@ -20,7 +21,7 @@
   display: none;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
   .navItemMobileOnly {
     display: block;
   }
