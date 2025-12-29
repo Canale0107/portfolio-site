@@ -4,7 +4,7 @@ import styles from "./Badges.module.css";
 export default function BadgeCard({ badge }) {
   const [imageError, setImageError] = useState(false);
 
-  const { url, name, description, image, issuedOn } = badge;
+  const { name, description, image, issuedOn, issuer } = badge;
 
   // 日付をYYYY.MM形式に変換
   const formatDate = (dateString) => {
@@ -23,13 +23,7 @@ export default function BadgeCard({ badge }) {
 
   return (
     <div className={styles.badgeCard}>
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.badgeLink}
-        title={description}
-      >
+      <div className={styles.badgeLink} title={description}>
         {image && !imageError && (
           <img
             src={image}
@@ -46,10 +40,10 @@ export default function BadgeCard({ badge }) {
         <div className={styles.badgeInfo}>
           <div className={styles.badgeName}>{name}</div>
           {formattedDate && (
-            <div className={styles.badgeDate}>{formattedDate}</div>
+            <div className={styles.badgeDate}>Issued on: {formattedDate}</div>
           )}
         </div>
-      </a>
+      </div>
     </div>
   );
 }

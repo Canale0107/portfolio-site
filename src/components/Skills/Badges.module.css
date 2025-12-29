@@ -180,6 +180,14 @@
   line-height: 1.4;
 }
 
+/* バッジ認定機関 */
+.badgeIssuer {
+  font-size: var(--font-size-xsmall);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+  word-wrap: break-word;
+}
+
 /* バッジ取得日 */
 .badgeDate {
   font-size: var(--font-size-xsmall);
