@@ -136,6 +136,7 @@ section {
   padding: var(--space-md) var(--space-lg);
   box-sizing: border-box;
   background-color: var(--color-bg-surface);
+  overflow-x: hidden;
 }
 
 /* ========================================

@@ -2,10 +2,15 @@ import React from "react";
 import certStyles from "./Certifications.module.css";
 import skillStyles from "./Skills.module.css";
 
-export default function CategoryList({ data, renderItem, onHover, type = "certification" }) {
+export default function CategoryList({
+  data,
+  renderItem,
+  onHover,
+  type = "certification",
+}) {
   // 資格の場合はCertifications.module.css、スキルの場合はSkills.module.cssを使用
   const styles = type === "certification" ? certStyles : skillStyles;
-  
+
   return (
     <div className={styles.categoriesContainer}>
       {data.map((category, i) => (

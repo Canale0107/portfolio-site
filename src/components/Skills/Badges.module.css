@@ -4,194 +4,258 @@
 .badgeLinks {
   display: flex;
   gap: var(--space-md);
-  margin: var(--space-md) 0 0 0;
+  margin: var(--space-lg) 0 0 0;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .badgeExternalLink {
   font-size: var(--font-size-small);
-  font-weight: bold;
-  color: var(--color-accent);
+  font-weight: 600;
+  color: var(--color-text-primary);
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border-default);
-  border-radius: 4px;
-  padding: 0.5rem 1.2rem;
+  border-radius: 0.75rem;
+  padding: var(--space-sm) var(--space-lg);
   text-decoration: none;
   box-shadow: var(--shadow-light);
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  transition: all var(--transition-time-base) ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .badgeExternalLink:hover {
   background: var(--color-bg-surface);
-  /* 色は変えず、影のみを変化させる */
   color: var(--color-accent);
+  border-color: var(--color-accent);
   box-shadow: var(--shadow-hover);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 }
 
 /* バッジリスト */
 .badgeList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--space-md);
   margin: var(--space-md) 0;
-  align-items: stretch;
-  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* 900px未満はモバイル表示 */
+@media (max-width: 899px) {
+  .badgeList {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+}
+
+@media (min-width: 900px) {
+  .badgeList {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-md);
+  }
+}
+
+/* バッジカードリンク */
+.badgeCardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
 }
 
 /* バッジカード */
 .badgeCard {
-  background: var(--color-bg-muted);
-  border-radius: 0.5rem;
-  padding: var(--space-md);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: 0.75rem;
+  overflow: hidden;
   box-shadow: var(--shadow-light);
-  transition: background-color var(--transition-time-base) ease,
-    color var(--transition-time-base) ease,
-    box-shadow var(--transition-time-base) ease;
-  width: 200px;
+  transition: all var(--transition-time-base) ease;
   display: flex;
   flex-direction: column;
-  min-height: 150px;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
 }
 
-@media (max-width: 749px) {
+/* 900px未満は横長レイアウト */
+@media (max-width: 899px) {
   .badgeCard {
     flex-direction: row;
-    width: 100%;
-    max-width: 100%;
-    align-items: center;
-    min-height: 110px;
-    padding: var(--space-md);
-  }
-}
-
-@media (min-width: 750px) {
-  .badgeCard {
-    flex-direction: column;
-    width: 200px;
-    min-height: 150px;
     align-items: stretch;
-    padding: var(--space-md);
+    height: auto;
+    min-height: 100px;
   }
 }
 
+.badgeCardLink:hover .badgeCard,
 .badgeCard:hover {
   box-shadow: var(--shadow-hover);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
 }
 
-/* バッジリンク */
-.badgeLink {
+/* バッジ画像コンテナ（グラデーション背景） */
+.imageContainer {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-muted) 0%,
+    var(--color-accent-bg) 100%
+  );
+  padding: var(--space-md);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-decoration: none;
-  color: inherit;
-  gap: var(--space-sm);
-  flex: 1;
-  justify-content: space-between;
+  justify-content: center;
+  min-height: 140px;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
-@media (max-width: 749px) {
-  .badgeLink {
-    flex-direction: row;
+/* 900px未満は横長レイアウト用に調整 */
+@media (max-width: 899px) {
+  .imageContainer {
+    min-height: auto;
+    width: 100px;
+    padding: var(--space-sm);
+    display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: var(--space-lg);
-  }
-}
-
-@media (min-width: 750px) {
-  .badgeLink {
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-sm);
+    justify-content: center;
+    flex-shrink: 0;
   }
 }
 
 /* バッジ画像 */
 .badgeImage {
-  width: 110px;
-  height: 110px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  max-width: 120px;
+  max-height: 120px;
   object-fit: contain;
-  border-radius: 0.5rem;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: block;
-  flex-shrink: 0;
 }
 
-@media (max-width: 749px) {
+/* 900px未満は横長レイアウト用に調整 */
+@media (max-width: 899px) {
   .badgeImage {
-    width: 96px;
-    height: 96px;
-    margin: 0;
-    background: transparent;
-    box-shadow: none;
-    padding: var(--space-sm);
+    max-width: 80px;
+    max-height: 80px;
   }
 }
 
-@media (min-width: 750px) {
-  .badgeImage {
-    width: 110px;
-    height: 110px;
-    margin-right: 0;
-  }
+.badgeCard:hover .badgeImage {
+  transform: scale(1.08) rotate(2deg);
+}
+
+/* シャインエフェクト */
+.shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%) translateY(-100%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.badgeCard:hover .shine {
+  transform: translateX(0) translateY(0);
 }
 
 /* バッジ情報 */
 .badgeInfo {
-  text-align: center;
-  width: 100%;
+  padding: var(--space-md);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-  min-height: fit-content;
+  gap: var(--space-xs);
+  flex-grow: 1;
+  min-width: 0; /* flexアイテムが縮小できるようにする */
 }
 
-@media (max-width: 749px) {
+/* 900px未満は横長レイアウト用に調整 */
+@media (max-width: 899px) {
   .badgeInfo {
-    text-align: left;
-    align-items: flex-start;
-    justify-content: center;
-    height: 96px;
-    gap: var(--space-sm);
-  }
-}
-
-@media (min-width: 750px) {
-  .badgeInfo {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    height: auto;
+    padding: var(--space-sm) var(--space-md);
+    flex: 1;
   }
 }
 
 /* バッジ名 */
 .badgeName {
   font-size: var(--font-size-small);
-  font-weight: bold;
+  font-weight: 600;
   color: var(--color-text-primary);
-  margin-bottom: var(--space-xs);
-  word-wrap: break-word;
+  margin: 0;
+  padding: 0;
   line-height: 1.4;
+  word-wrap: break-word;
+  transition: color var(--transition-time-base) ease;
+}
+
+/* 900px未満はフォントサイズを調整 */
+@media (max-width: 899px) {
+  .badgeName {
+    font-size: var(--font-size-small);
+  }
+}
+
+.badgeCard:hover .badgeName {
+  color: var(--color-accent);
 }
 
 /* バッジ認定機関 */
 .badgeIssuer {
   font-size: var(--font-size-xsmall);
+  font-weight: 500;
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   word-wrap: break-word;
 }
 
 /* バッジ取得日 */
 .badgeDate {
+  display: inline-flex;
+  align-items: center;
   font-size: var(--font-size-xsmall);
+  font-weight: 500;
   color: var(--color-text-secondary);
+  padding: 0.25rem 0.5rem;
+  background: var(--color-bg-muted);
+  border-radius: 0.5rem;
+  margin-top: auto;
+  width: fit-content;
+  transition: all var(--transition-time-base) ease;
+}
+
+/* 900px未満はマージンを調整 */
+@media (max-width: 899px) {
+  .badgeDate {
+    margin-top: var(--space-xs);
+  }
+}
+
+.badgeCard:hover .badgeDate {
+  background: var(--color-accent);
+  color: var(--color-bg-surface);
 }
 
 /* バッジ読み込み中 */

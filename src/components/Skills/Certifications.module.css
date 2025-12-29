@@ -6,8 +6,9 @@
   flex-direction: column;
   gap: var(--space-xl);
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* PC時は4列のグリッドレイアウト */
@@ -229,8 +230,8 @@
   }
 }
 
-/* レスポンシブ調整 */
-@media (max-width: 599px) {
+/* レスポンシブ調整（900px未満はモバイル表示） */
+@media (max-width: 899px) {
   .categoryCard {
     padding: var(--space-md);
   }
