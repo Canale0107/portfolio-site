@@ -16,6 +16,7 @@ export default function SkillList({ data }) {
   return (
     <CategoryList
       data={data}
+      type="skill"
       onHover={handleHover}
       renderItem={(skill, catIndex) => (
         <div className={styles.skillItem}>

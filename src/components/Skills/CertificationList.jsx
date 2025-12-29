@@ -5,11 +5,12 @@ export default function CertificationList({ data }) {
   return (
     <CategoryList
       data={data}
+      type="certification"
       renderItem={(cert) => (
-        <>
-          <span className={styles.certificationName}>{cert.name}</span>
-          <span className={styles.certificationDate}>{cert.date}</span>
-        </>
+        <div className={styles.certificationItem}>
+          <div className={styles.certificationName}>{cert.name}</div>
+          <div className={styles.certificationDate}>{cert.date}</div>
+        </div>
       )}
     />
   );

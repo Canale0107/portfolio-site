@@ -11,7 +11,7 @@ export default function BadgeList({ data }) {
     <>
       <div className={styles.badgeList}>
         {data.map((badge, i) => (
-          <BadgeCard key={i} badge={badge} />
+          <BadgeCard key={i} badge={badge} url={badge.url} />
         ))}
       </div>
       <div className={styles.badgeLinks}>

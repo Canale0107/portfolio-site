@@ -6,11 +6,32 @@
   font-weight: bold;
   display: inline-block;
   width: 8.25rem;
+  flex-shrink: 0; /* スキル名の幅を固定 */
+}
+
+/* PC時はスキル名の幅制限を解除 */
+@media (min-width: 900px) {
+  .skillName {
+    width: auto;
+    font-size: var(--font-size-small);
+  }
 }
 
 /* スキルアイテム */
 .skillItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
   margin-bottom: 0.3125rem;
+}
+
+/* PC時は縦並びに変更 */
+@media (min-width: 900px) {
+  .skillItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
 }
 
 /* スキルバーのラッパー */
@@ -18,6 +39,16 @@
   display: flex;
   align-items: center;
   gap: 0.5rem; /* バーと数字の間のスペース */
+  flex: 1; /* 利用可能なスペースを埋める */
+  min-width: 0; /* flexアイテムが縮小できるようにする */
+  width: 100%; /* PC時は全幅を使用 */
+}
+
+/* PC時は全幅を使用 */
+@media (min-width: 900px) {
+  .skillBarWrapper {
+    width: 100%;
+  }
 }
 
 /* パーセンテージ表示 */
@@ -33,17 +64,11 @@
   background-color: var(--color-shadow);
   border-radius: 6px;
   height: 0.5rem;
-  width: 10rem; /* ✅ バーの長さを明示的に短くする */
+  flex: 1; /* 利用可能なスペースを自動的に埋める */
+  min-width: 0; /* flexアイテムが縮小できるようにする */
   overflow: hidden;
   position: relative;
-  flex-shrink: 0; /* バーが縮まないようにする */
   transition: background-color var(--transition-time-base) ease;
-}
-
-@media (max-width: 749px) {
-  .skillBar {
-    width: 80%;
-  }
 }
 
 /* スキルバーの塗りつぶし部分 */
