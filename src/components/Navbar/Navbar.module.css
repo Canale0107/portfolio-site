@@ -33,7 +33,7 @@
 .navListWrapper {
   flex: 1;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 /* 右端：常にテーマボタン用 */
