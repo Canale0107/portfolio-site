@@ -9,12 +9,45 @@
   font-size: var(--font-size-small);
   border-radius: 0.25rem;
   color: var(--color-text-primary);
-  transition: background-color var(--transition-time-base) ease;
+  transition: all var(--transition-time-base) ease;
   white-space: nowrap;
+  position: relative;
 }
 
 .navItemBtn:hover {
   color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.navItemBtn:active {
+  transform: translateY(0);
+}
+
+.navItemBtnActive {
+  color: var(--color-accent);
+  background-color: var(--color-accent-transparent, rgba(0, 0, 0, 0.05));
+}
+
+.navItemBtnActive::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60%;
+  }
 }
 
 .navItemMobileOnly {

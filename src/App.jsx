@@ -1,5 +1,6 @@
 // src/react/App.jsx
 import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "@/components/Navbar/Navbar";
 import Profile from "@/components/Profile/Profile";
 import Overview from "@/components/Overview/Overview";
@@ -11,6 +12,30 @@ import Interests from "@/components/Interests/Interests";
 import Footer from "@/components/Footer/Footer";
 
 import { useSection } from "@/contexts/SectionContext";
+
+// セクション切り替えアニメーションの設定
+const sectionVariants = {
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.25, 0.1, 0.25, 1], // スムーズなイージング
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: {
+      duration: 0.3,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
 
 export default function App() {
   const { activeSection } = useSection();
@@ -56,10 +81,19 @@ export default function App() {
       <Navbar />
       <div id="top" style={{ height: "1px", position: "absolute", top: 0 }} />
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-        <main className="profile-page">
-          <h1 className="visually-hidden">小寺奏怜｜プロフィール</h1>
-          {renderSection()}
-        </main>
+        <AnimatePresence mode="wait">
+          <motion.main
+            key={activeSection}
+            className="profile-page"
+            variants={sectionVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            <h1 className="visually-hidden">小寺奏怜｜プロフィール</h1>
+            {renderSection()}
+          </motion.main>
+        </AnimatePresence>
       </div>
       <Footer />
     </>
