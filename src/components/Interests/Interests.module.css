@@ -1,3 +1,40 @@
+/* サブセクション */
+.subsection {
+  margin-bottom: var(--space-xl);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-base);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: var(--space-sm);
+  transition: color var(--transition-time-base) ease;
+}
+
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width var(--transition-time-base) ease;
+}
+
+.subsection:hover .sectionTitle::after {
+  width: 120px;
+}
+
+.subsection:hover .sectionTitle {
+  color: var(--color-text-primary);
+}
+
+/* Quotes コンポーネント用スタイル */
 .list {
   list-style: none;
   padding: 0;
@@ -15,9 +52,8 @@
   border: solid 2px var(--color-border-default);
   border-left: 4px solid var(--color-accent);
   background-color: var(--color-bg-muted);
-  transition: color var(--transition-time-base) ease,
-  border-color var(--transition-time-base) ease,
-  background-color var(--transition-time-base) ease;
+  transition: all var(--transition-time-base) ease;
+  border-radius: 8px;
 }
 
 .block::before {
@@ -31,6 +67,7 @@
   font-size: var(--font-size-xlarge);
   line-height: 1;
   font-weight: 900;
+  transition: transform var(--transition-time-base) ease;
 }
 
 .block:hover::before{
@@ -39,8 +76,8 @@
 
 .block:hover {
   box-shadow: var(--shadow-hover);
-  transform: translateY(-3px);
-  transition: border-left-color 0;
+  transform: translateX(8px);
+  border-left-width: 8px;
 }
 
 .text {
@@ -59,4 +96,57 @@
   font-size: 0.9em;
   color: var(--color-text-secondary);
   padding: 0 var(--space-lg) var(--space-xs);
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subsection {
+  animation: fadeInUp 0.6s ease backwards;
+}
+
+.subsection:nth-of-type(1) {
+  animation-delay: 0.05s;
+}
+.subsection:nth-of-type(2) {
+  animation-delay: 0.1s;
+}
+.subsection:nth-of-type(3) {
+  animation-delay: 0.15s;
+}
+.subsection:nth-of-type(4) {
+  animation-delay: 0.2s;
+}
+
+/* Quotes アニメーション */
+.item {
+  animation: fadeInUp 0.6s ease backwards;
+}
+
+.item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.item:nth-child(6) {
+  animation-delay: 0.3s;
 }

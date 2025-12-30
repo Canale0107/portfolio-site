@@ -5,6 +5,7 @@ import Influences from "./Influences";
 import Quotes from "./Quotes";
 import influences from "@/data/influences.json";
 import quotes from "@/data/quotes.json";
+import styles from "./Interests.module.css";
 
 export default function Interests() {
   return (
@@ -17,17 +18,25 @@ export default function Interests() {
         <span className="sec-ja">趣味・関心</span>
       </h2>
 
-      <h3>趣味</h3>
-      <HobbyIntro />
+      <div className={styles.subsection}>
+        <h3 className={styles.sectionTitle}>趣味</h3>
+        <HobbyIntro />
+      </div>
 
-      <h3>関心</h3>
-      <Themes />
+      <div className={styles.subsection}>
+        <h3 className={styles.sectionTitle}>関心</h3>
+        <Themes />
+      </div>
 
-      <h3>影響を受けた人物・作品</h3>
-      <Influences influences={influences} />
+      <div className={styles.subsection}>
+        <h3 className={styles.sectionTitle}>影響を受けた人物・作品</h3>
+        <Influences influences={influences} />
+      </div>
 
-      <h3>共鳴する言葉・思想</h3>
-      <Quotes quotes={quotes} />
+      <div className={styles.subsection}>
+        <h3 className={styles.sectionTitle}>共鳴する言葉・思想</h3>
+        <Quotes quotes={quotes} />
+      </div>
     </section>
   );
 }

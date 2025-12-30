@@ -1,0 +1,171 @@
+.influencesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.influenceCard {
+  padding: var(--space-lg);
+  background-color: var(--color-bg-muted);
+  border: 1px solid var(--color-border-default);
+  border-radius: 12px;
+  transition: all var(--transition-time-base) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.influenceCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-accent), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-time-base) ease;
+  pointer-events: none;
+}
+
+.influenceCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px var(--color-shadow-hover);
+}
+
+.influenceCard:hover::before {
+  opacity: 1;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.categoryIcon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  background-color: var(--color-accent-bg);
+  border-radius: 6px;
+  transition: transform var(--transition-time-base) ease;
+}
+
+.influenceCard:hover .categoryIcon {
+  transform: scale(1.1);
+}
+
+.categoryTitle {
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.peopleList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.personItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-time-sm) ease;
+  padding: var(--space-xs) 0;
+  position: relative;
+}
+
+.personItem::before {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 0;
+  background: var(--color-accent);
+  transition: height var(--transition-time-sm) ease;
+  border-radius: 2px;
+}
+
+.personItem:hover {
+  color: var(--color-text-primary);
+  transform: translateX(8px);
+}
+
+.personItem:hover::before {
+  height: 100%;
+}
+
+.bullet {
+  color: var(--color-accent);
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.personName {
+  flex: 1;
+  line-height: 1.6;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .influencesGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .influenceCard {
+    padding: var(--space-md);
+  }
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.influenceCard {
+  animation: fadeInUp 0.6s ease backwards;
+}
+
+.influenceCard:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.influenceCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.influenceCard:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.influenceCard:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.influenceCard:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
