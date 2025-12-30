@@ -5,7 +5,7 @@ import ProfileImage from "./ProfileImage";
 import styles from "./Profile.module.css";
 
 import { FaBuilding, FaSitemap, FaLocationDot, FaGift } from "react-icons/fa6";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { MdPushPin } from "react-icons/md"; /* 部署アイコンの代替 */
 import NoteIcon from "@/components/Icon/NoteIcon";
 import ZennIcon from "@/components/Icon/ZennIcon";
@@ -40,6 +40,11 @@ const socialLinks = [
     icon: FaLinkedin,
     url: "https://www.linkedin.com/in/kanare-kodera/",
     label: "LinkedIn",
+  },
+  {
+    icon: FaXTwitter,
+    url: "https://x.com/Canale_tech",
+    label: "X",
   },
   {
     icon: ZennIcon,
