@@ -6,6 +6,7 @@ import Overview from "@/components/Overview/Overview";
 import Career from "@/components/Career/Career";
 import Skills from "@/components/Skills/Skills";
 import Research from "@/components/Research/Research";
+import Projects from "@/components/Projects/Projects";
 import Interests from "@/components/Interests/Interests";
 import Footer from "@/components/Footer/Footer";
 
@@ -36,6 +37,8 @@ export default function App() {
         return <Skills />;
       case "research":
         return <Research />;
+      case "projects":
+        return <Projects />;
       case "interests":
         return <Interests />;
       default:

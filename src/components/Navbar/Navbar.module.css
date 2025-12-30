@@ -43,7 +43,7 @@
 }
 
 /* モバイル時：ナビゲーションは下に出るため display block 維持 */
-@media (max-width: 750px) {
+@media (max-width: 900px) {
   .navbar {
     display: block;
     padding: 0 var(--space-xs);

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "title": "portfolio-site",
+    "titleJa": "ポートフォリオサイト",
+    "description": "My portfolio site.",
+    "descriptionJa": "私の自己紹介ページです。（本ページ）",
+    "image": "",
+    "githubUrl": "https://github.com/Canale0107/portfolio-site",
+    "demoUrl": "https://kanare.dev",
+    "technologies": [
+      "React",
+      "Vite",
+      "Vercel",
+      "Cloudflare",
+      "GitHub Actions",
+      "Google Search Console"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "tf-practice",
+    "titleJa": "AWS/Terraform練習",
+    "description": "A serverless CRUD application created using Terraform.",
+    "descriptionJa": "Terraformを使ってAWS上に作成したサーバレスなCRUDアプリケーションです。",
+    "image": "",
+    "githubUrl": "https://github.com/Canale0107/tf-practice",
+    "demoUrl": "https://note-app.kanare.dev",
+    "technologies": [
+      "React",
+      "Vite",
+      "Nest.js",
+      "DynamoDB",
+      "Terraform",
+      "AWS",
+      "CloudFront",
+      "ACM",
+      "S3",
+      "API Gateway",
+      "Lambda",
+      "Cognito",
+      "Cloudflare",
+      "GitHub Actions"
+    ]
+  },
+  {
+    "id": "3",
+    "title": "aws-daily-cost-monitor",
+    "titleJa": "AWS日次コスト通知",
+    "description": "A daily cost monitoring application that sends email notifications of AWS costs using Terraform.",
+    "descriptionJa": "Terraformを使ってAWS上に構築した、AWSの日次コストをメールで通知するアプリケーションです。",
+    "image": "",
+    "githubUrl": "https://github.com/Canale0107/aws-daily-cost-monitor",
+    "technologies": [
+      "Terraform",
+      "AWS",
+      "EventBridge",
+      "Lambda",
+      "Python",
+      "SNS",
+      "GitHub Actions"
+    ]
+  },
+  {
+    "id": "4",
+    "title": "shopping-app-sample",
+    "titleJa": "ショッピングアプリサンプル",
+    "description": "A sample shopping site full-stack app with search, cart, membership, and basic order history integrated.",
+    "descriptionJa": "商品検索・カート・会員管理・注文履歴などの基本機能を一通り体験できるショッピングサイトのサンプルです。",
+    "image": "",
+    "githubUrl": "https://github.com/Canale0107/shopping-app-sample",
+    "technologies": [
+      "Next.js",
+      "React",
+      "NextAuth.js",
+      "Prisma",
+      "PostgreSQL",
+      "Docker",
+      "Docker Compose"
+    ]
+  }
+]
