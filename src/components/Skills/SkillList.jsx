@@ -11,7 +11,7 @@ export default function SkillList({ data }) {
       renderItem={(skill, catIndex) => (
         <div className={styles.skillItem}>
           <span className={styles.skillName}>{skill.name}</span>
-          <SkillBar level={skill.level} note={skill.note} />
+          <SkillBar level={skill.level} />
         </div>
       )}
     />

@@ -3,7 +3,7 @@
     "name": "DevOps / Infrastructure",
     "items": [
       { "name": "AWS", "level": 3 },
-      { "name": "Terraform", "level": 2, "note": "個人プロジェクトで使用" },
+      { "name": "Terraform", "level": 2 },
       { "name": "Linux", "level": 2 },
       { "name": "Docker", "level": 3 },
       { "name": "Docker Compose", "level": 2 },
@@ -26,7 +26,7 @@
   {
     "name": "Backend / Programming",
     "items": [
-      { "name": "Python", "level": 4, "note": "大学院のML研究で使用" },
+      { "name": "Python", "level": 4 },
       { "name": "C", "level": 2 },
       { "name": "Java", "level": 2 }
     ]
