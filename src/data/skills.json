@@ -1,13 +1,15 @@
 [
   {
     "name": "DevOps / Infrastructure",
-    "isPrimaryArea": true,
     "items": [
       { "name": "AWS", "level": 3 },
+      { "name": "Terraform", "level": 2, "note": "個人プロジェクトで使用" },
       { "name": "Linux", "level": 2 },
       { "name": "Docker", "level": 3 },
       { "name": "Docker Compose", "level": 2 },
-      { "name": "Git / GitHub", "level": 3 },
+      { "name": "Git", "level": 3 },
+      { "name": "GitHub", "level": 3 },
+      { "name": "GitHub Actions", "level": 2 },
       { "name": "CI/CD", "level": 2 }
     ]
   },
@@ -16,23 +18,21 @@
     "isPrimaryArea": false,
     "items": [
       { "name": "HTML / CSS", "level": 2 },
-      { "name": "JavaScript", "level": 1 },
-      { "name": "React", "level": 1 },
-      { "name": "Vite", "level": 1 }
+      { "name": "JavaScript", "level": 2 },
+      { "name": "React", "level": 2 },
+      { "name": "Vite", "level": 2 }
     ]
   },
   {
     "name": "Backend / Programming",
-    "isPrimaryArea": true,
     "items": [
-      { "name": "Python", "level": 4, "note": "設計・実装・ML用途" },
+      { "name": "Python", "level": 4, "note": "大学院のML研究で使用" },
       { "name": "C", "level": 2 },
       { "name": "Java", "level": 2 }
     ]
   },
   {
     "name": "AI / ML / Data Science",
-    "isPrimaryArea": false,
     "items": [
       { "name": "NumPy", "level": 3 },
       { "name": "pandas", "level": 3 },
@@ -42,6 +42,15 @@
       { "name": "TensorFlow", "level": 3 },
       { "name": "MLOps", "level": 1 },
       { "name": "LLMOps", "level": 1 }
+    ]
+  },
+  {
+    "name": "Generative AI",
+    "items": [
+      { "name": "ChatGPT", "level": 2 },
+      { "name": "Claude Code", "level": 2 },
+      { "name": "Cursor", "level": 2 },
+      { "name": "GitHub Copilot", "level": 2 }
     ]
   }
 ]
