@@ -1,27 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./SkillsContent.module.css";
 import SkillBar from "./SkillBar";
 import CategoryList from "./CategoryList";
 
 export default function SkillList({ data }) {
-  const [triggerMap, setTriggerMap] = useState({});
-
-  const handleHover = (catIndex) => {
-    setTriggerMap((prev) => ({
-      ...prev,
-      [catIndex]: Date.now(),
-    }));
-  };
-
   return (
     <CategoryList
       data={data}
       type="skill"
-      onHover={handleHover}
       renderItem={(skill, catIndex) => (
         <div className={styles.skillItem}>
           <span className={styles.skillName}>{skill.name}</span>
-          <SkillBar level={skill.level} trigger={triggerMap[catIndex] ?? 0} />
+          <SkillBar level={skill.level} />
         </div>
       )}
     />

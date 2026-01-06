@@ -2,42 +2,55 @@
   {
     "name": "DevOps / Infrastructure",
     "items": [
-      { "name": "AWS", "level": 60 },
-      { "name": "Linux", "level": 50 },
-      { "name": "Docker", "level": 70 },
-      { "name": "Docker Compose", "level": 50 },
-      { "name": "Git/GitHub", "level": 60 },
-      { "name": "CI/CD", "level": 30 }
+      { "name": "AWS", "level": 3 },
+      { "name": "Terraform", "level": 2 },
+      { "name": "Linux", "level": 2 },
+      { "name": "Docker", "level": 3 },
+      { "name": "Docker Compose", "level": 2 },
+      { "name": "Git", "level": 3 },
+      { "name": "GitHub", "level": 3 },
+      { "name": "GitHub Actions", "level": 2 },
+      { "name": "CI/CD", "level": 2 }
     ]
   },
   {
     "name": "Frontend",
+    "isPrimaryArea": false,
     "items": [
-      { "name": "HTML/CSS", "level": 50 },
-      { "name": "JavaScript", "level": 20 },
-      { "name": "React", "level": 20 },
-      { "name": "Vite", "level": 20 }
+      { "name": "HTML / CSS", "level": 2 },
+      { "name": "JavaScript", "level": 2 },
+      { "name": "React", "level": 2 },
+      { "name": "Vite", "level": 2 }
     ]
   },
   {
     "name": "Backend / Programming",
     "items": [
-      { "name": "Python", "level": 90 },
-      { "name": "C", "level": 60 },
-      { "name": "Java", "level": 50 }
+      { "name": "Python", "level": 4 },
+      { "name": "C", "level": 2 },
+      { "name": "Java", "level": 2 }
     ]
   },
   {
-    "name": "AI / ML / DS",
+    "name": "AI / ML / Data Science",
     "items": [
-      { "name": "NumPy", "level": 80 },
-      { "name": "pandas", "level": 60 },
-      { "name": "matplotlib", "level": 60 },
-      { "name": "scikit-learn", "level": 70 },
-      { "name": "PyTorch", "level": 40 },
-      { "name": "TensorFlow", "level": 80 },
-      { "name": "MLOps", "level": 10 },
-      { "name": "LLMOps", "level": 10 }
+      { "name": "NumPy", "level": 3 },
+      { "name": "pandas", "level": 3 },
+      { "name": "matplotlib", "level": 3 },
+      { "name": "scikit-learn", "level": 3 },
+      { "name": "PyTorch", "level": 2 },
+      { "name": "TensorFlow", "level": 3 },
+      { "name": "MLOps", "level": 1 },
+      { "name": "LLMOps", "level": 1 }
+    ]
+  },
+  {
+    "name": "Generative AI",
+    "items": [
+      { "name": "ChatGPT", "level": 2 },
+      { "name": "Claude Code", "level": 2 },
+      { "name": "Cursor", "level": 2 },
+      { "name": "GitHub Copilot", "level": 2 }
     ]
   }
 ]
