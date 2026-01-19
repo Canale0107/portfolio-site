@@ -29,7 +29,6 @@
     "technologies": [
       "React",
       "Vite",
-      "Nest.js",
       "DynamoDB",
       "Terraform",
       "AWS",
