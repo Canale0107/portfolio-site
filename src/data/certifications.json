@@ -26,7 +26,8 @@
     "category": "その他",
     "items": [
       { "name": "簿記3級", "date": "2024.11" },
-      { "name": "AZ-900", "date": "2025.12" }
+      { "name": "AZ-900", "date": "2025.12" },
+      { "name": "GCP CDL", "date": "2026.01" }
     ]
   }
 ]

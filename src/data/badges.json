@@ -40,6 +40,14 @@
     "issuer": "Amazon Web Services Training and Certification"
   },
   {
+    "name": "Cloud Digital Leader",
+    "description": "Cloud Digital Leader は、Google Cloud の中核的なプロダクトやサービスの機能と、それらが組織にもたらすメリットを明確にできます。また、Cloud Digital Leader は、一般的なビジネス ユースケースや、クラウド ソリューションが企業をどのように支えているかを説明することができます。この認定資格は、クラウド コンピューティングの基礎に関する知識と、組織の目標を達成するための Google Cloud プロダクトとサービスの使用方法に関する知識があることを示す必要があるすべての方を対象としています。",
+    "image": "https://images.credly.com/images/300d4058-0dbd-47b1-96ad-63ff89e41d2b/image.png",
+    "issuedOn": "2026-01-18T00:00:00Z",
+    "url": "https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/eGd5YU85NWwrNFUvdERwZ0NKU0FwUT09",
+    "issuer": "Google Cloud"
+  },
+  {
     "name": "JDLA Deep Learning for GENERAL 2025 #4",
     "description": "「JDLA Deep Learning for GENERAL (G検定)」とは、ディープラーニングの基礎知識を有し、適切な活用方針を決定して、事業活用する能力や知識を有しているかを検定する試験です。",
     "image": "https://nlp.netlearning.co.jp/api/v1.0/openbadge/v2/Assertion/amxPVHhhNWErYzI3d2p3KzZhS09RUT09/image",
